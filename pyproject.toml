@@ -1,6 +1,47 @@
-# The package metadata comes with the first code (gate 0).
+[project]
+name = "math-aware-source-digest"
+version = "0.0.1"
+description = "Verified, machine-readable source entries from research papers, with every cited equation checked against the page"
+license = "MIT"
+requires-python = ">=3.12"
+dependencies = [
+    "requests>=2.32",
+]
+
+[project.scripts]
+masd = "math_aware_source_digest.cli:main"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.10",
+    "pytest>=8",
+    "responses>=0.25",
+    "ruff>=0.6",
+    "types-requests>=2.32",
+]
+
+[build-system]
+requires = ["uv_build>=0.8,<0.14"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 100
+extend-exclude = [".worktrees"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.mypy]
+strict = true
+files = ["src", "tests"]
+exclude = ["^\\.worktrees/"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["-q", "--strict-markers"]
 
 [tool.affected-tests]
 # A change to Markdown runs scripts/check, for the relative link check.
 docs-skip-checks = false
 run-all = ["scripts/check_links.py"]
+source-roots = ["src"]

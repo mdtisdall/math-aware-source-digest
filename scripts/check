@@ -24,14 +24,12 @@ esac
 
 python3 scripts/check_links.py
 
-# The Python checks start with the package (gate 0):
-#
-#   uv sync --frozen
-#   uv run ruff check .
-#   uv run ruff format --check .
-#   uv run mypy src
-#   if [ -n "$base" ]; then
-#     python3 scripts/affected-tests --base "$base" --run -- uv run pytest -q
-#   else
-#     uv run pytest -q
-#   fi
+uv sync --frozen --quiet
+uv run --frozen ruff check .
+uv run --frozen ruff format --check .
+uv run --frozen mypy
+if [ -n "$base" ]; then
+  python3 scripts/affected-tests --base "$base" --run -- uv run --frozen pytest
+else
+  uv run --frozen pytest
+fi
