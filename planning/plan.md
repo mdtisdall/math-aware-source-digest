@@ -77,11 +77,12 @@ Runs are reproducible from the request and answer files and the manifest; cost i
 
 ### Stage 1: Resolve
 
-- **Primary record:** Crossref (`habanero`) for DOIs, DataCite for arXiv DOIs, an ISBN record (Open Library or the Library of Congress) for books, with the edition stated.
-- **Open copies and versions:** Unpaywall and OpenAlex (`pyalex`; a free key raises the daily budget) for open copies with their version (submitted, accepted, published) and licence; Semantic Scholar (batch of up to 500 IDs) and the PMC ID converter for arXiv and PMC IDs; Europe PMC for open-access full texts.
-- **The user's library:** the Zotero local API (`pyzotero` with `local=True`, read-only requests) for items and PDF paths, and Better BibTeX for citation keys.
+- **Primary record:** Crossref for DOIs, DataCite for arXiv DOIs, an ISBN record (Open Library or the Library of Congress) for books, with the edition stated.
+- **Open copies and versions:** Unpaywall (only if the user sets a contact email, which it requires) and OpenAlex (a free key raises the daily budget) for open copies with their version (submitted, accepted, published) and licence; Semantic Scholar (batch of up to 500 IDs) and Europe PMC for arXiv and PMC IDs; Europe PMC for open-access full texts. For an arXiv paper, the journal DOI that Semantic Scholar gives is recorded as the version of record (`published_doi`).
+- **The user's library:** the Zotero local API (read-only GET requests, to this machine only) for items and PDF paths, and Better BibTeX for citation keys.
 - **No DOI:** GROBID (Docker image `0.9.1-crf`, arm64) extracts the title from the PDF as a search key only, never as a citation field.
 - **Each field records its provenance,** not a count of agreeing records (OpenAlex and Semantic Scholar mostly copy Crossref).
+- **Clients:** the REST APIs are called directly through the tool's one HTTP layer (download policy, spacing per host, backoff, cache). The services' Python libraries were not adopted (decided 2026-10-17): habanero and pyalex make their own requests and would bypass that layer, and pyzotero adds four dependencies for a few local GET requests. The NCBI ID converter (`pmc.ncbi.nlm.nih.gov`) refuses the `requests` library (HTTP 403); Europe PMC gives the same identifiers.
 
 ### Stage 2: Acquire
 

@@ -1,0 +1,66 @@
+{
+ "status": "ok",
+ "message": {
+  "DOI": "10.1002/mrm.22180",
+  "title": [
+   "Optimization of<i>k</i>‐space trajectories for compressed sensing by Bayesian experimental design"
+  ],
+  "subtitle": [],
+  "author": [
+   {
+    "given": "Matthias",
+    "family": "Seeger",
+    "sequence": "first"
+   },
+   {
+    "given": "Hannes",
+    "family": "Nickisch",
+    "sequence": "additional"
+   },
+   {
+    "given": "Rolf",
+    "family": "Pohmann",
+    "sequence": "additional"
+   },
+   {
+    "given": "Bernhard",
+    "family": "Schölkopf",
+    "sequence": "additional"
+   }
+  ],
+  "container-title": [
+   "Magnetic Resonance in Medicine"
+  ],
+  "volume": "63",
+  "issue": "1",
+  "page": "116-126",
+  "published-print": {
+   "date-parts": [
+    [
+     2010,
+     1
+    ]
+   ]
+  },
+  "published-online": {
+   "date-parts": [
+    [
+     2009,
+     10,
+     26
+    ]
+   ]
+  },
+  "issued": {
+   "date-parts": [
+    [
+     2009,
+     10,
+     26
+    ]
+   ]
+  },
+  "type": "journal-article",
+  "publisher": "Wiley"
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "data": {
+  "attributes": {
+   "doi": "10.48550/arxiv.1301.2831",
+   "titles": [
+    {
+     "title": "Beyond consistent reconstructions: optimality and sharp bounds for generalized sampling, and application to the uniform resampling problem"
+    }
+   ],
+   "creators": [
+    {
+     "name": "Adcock, Ben",
+     "nameType": "Personal",
+     "givenName": "Ben",
+     "familyName": "Adcock"
+    },
+    {
+     "name": "Hansen, Anders C.",
+     "nameType": "Personal",
+     "givenName": "Anders C.",
+     "familyName": "Hansen"
+    },
+    {
+     "name": "Poon, Clarice",
+     "nameType": "Personal",
+     "givenName": "Clarice",
+     "familyName": "Poon"
+    }
+   ],
+   "publicationYear": 2013,
+   "publisher": "arXiv",
+   "types": {
+    "ris": "GEN",
+    "bibtex": "misc",
+    "citeproc": "article",
+    "schemaOrg": "CreativeWork",
+    "resourceType": "Article",
+    "resourceTypeGeneral": "Preprint"
+   }
+  }
+ }
+}

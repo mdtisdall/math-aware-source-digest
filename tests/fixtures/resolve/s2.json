@@ -1,0 +1,22 @@
+[
+ {
+  "paperId": "ec127eddd7affa96d3a81817a17aaf10e7cf3b75",
+  "externalIds": {
+   "MAG": "2116523778",
+   "DOI": "10.1002/mrm.22180",
+   "CorpusId": 262347491,
+   "PubMed": "19859957"
+  },
+  "title": "Optimization of k\u2010space trajectories for compressed sensing by Bayesian experimental design"
+ },
+ {
+  "paperId": "ea4cb20c1a8dd08467fad8971b7c1e11087d5a31",
+  "externalIds": {
+   "MAG": "2108269441",
+   "DOI": "10.1002/mrm.25010",
+   "CorpusId": 9985572,
+   "PubMed": "24357143"
+  },
+  "title": "Compressive manifold learning: Estimating one\u2010dimensional respiratory motion directly from undersampled k\u2010space data"
+ }
+]

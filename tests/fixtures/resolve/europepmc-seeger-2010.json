@@ -1,0 +1,18 @@
+{
+ "hitCount": 1,
+ "resultList": {
+  "result": [
+   {
+    "id": "19859957",
+    "source": "MED",
+    "pmid": "19859957",
+    "doi": "10.1002/mrm.22180",
+    "title": "Optimization of k-space trajectories for compressed sensing by Bayesian experimental design.",
+    "authorString": "Seeger M, Nickisch H, Pohmann R, Sch\u00f6lkopf B.",
+    "pubYear": "2010",
+    "isOpenAccess": "N",
+    "inPMC": "N"
+   }
+  ]
+ }
+}

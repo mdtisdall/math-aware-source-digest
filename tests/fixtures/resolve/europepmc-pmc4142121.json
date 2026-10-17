@@ -1,0 +1,19 @@
+{
+ "hitCount": 1,
+ "resultList": {
+  "result": [
+   {
+    "id": "23649942",
+    "source": "MED",
+    "pmid": "23649942",
+    "pmcid": "PMC4142121",
+    "doi": "10.1002/mrm.24751",
+    "title": "ESPIRiT--an eigenvalue approach to autocalibrating parallel MRI: where SENSE meets GRAPPA.",
+    "authorString": "Uecker M, Lai P, Murphy MJ, Virtue P, Elad M, Pauly JM, Vasanawala SS, Lustig M.",
+    "pubYear": "2014",
+    "isOpenAccess": "N",
+    "inPMC": "Y"
+   }
+  ]
+ }
+}
