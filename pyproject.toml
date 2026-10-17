@@ -1,0 +1,6 @@
+# The package metadata comes with the first code (gate 0).
+
+[tool.affected-tests]
+# A change to Markdown runs scripts/check, for the relative link check.
+docs-skip-checks = false
+run-all = ["scripts/check_links.py"]
