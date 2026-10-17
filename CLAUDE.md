@@ -59,7 +59,7 @@ this project:
   different tool. The hook blocks `git worktree add` and `git worktree move`
   to any other path.
 - Dependency sync, one time in each new worktree, before sub-agents start:
-  none yet; `uv sync --frozen` once the package exists
+  `nix develop --command uv sync --frozen`
 - GitHub CLI: `gh ...`. In Claude Code's Bash commands, the
   `.claude/hooks/devshell-gh.sh` hook makes `gh` the devShell's, with this
   repository's own fine-grained token from the git-ignored `.envrc.local`.
