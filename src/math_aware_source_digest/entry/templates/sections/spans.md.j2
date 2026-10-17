@@ -1,0 +1,14 @@
+Status: exact (from the author's LaTeX or the publisher's XML), verified (checked against the page), or unverified (with the reason). Only exact and verified spans may be relied on. Each span's LaTeX is given verbatim in a code block.
+
+{% for s in e.spans %}
+- **{{ s.id }}**: {{ s.kind }}; {{ s.location | location }}; route {{ s.route }}; **{{ s.status }}**{{ ": " ~ (s.reason | oneline) if s.reason else "" }}{{ " (" ~ s.method ~ ")" if s.method else "" }}
+
+{% if s.latex is defined %}
+  ```latex
+  {{ s.latex | indent(2) }}
+  ```
+{% else %}
+  > {{ s.text | oneline }}
+{% endif %}
+
+{% endfor %}

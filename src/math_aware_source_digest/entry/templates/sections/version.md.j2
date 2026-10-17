@@ -1,0 +1,27 @@
+{% set v = e.version %}
+- Describes: the {{ v.describes }} version{% if v.doi %} (DOI {{ v.doi }}){% endif %}{% if v.printed_pages %}, printed pages {{ v.printed_pages }}{% endif %}.
+- Spans taken from: {{ v.form }}{% if v.exact_form %}; exact form: {{ v.exact_form }}{% endif %}.
+{% if v.arxiv %}
+- arXiv: {{ v.arxiv }}
+{% endif %}
+{% if v.pmcid %}
+- PMC: {{ v.pmcid }}
+{% endif %}
+{% if v.pdf_sha256 %}
+- PDF SHA-256: `{{ v.pdf_sha256 }}`
+{% endif %}
+{% if v.page_range %}
+- Pages processed: {{ v.page_range }}
+{% endif %}
+{% if v.parent_bibkey %}
+- Part of: [{{ v.parent_bibkey }}]({{ v.parent_bibkey }}.md)
+{% endif %}
+{% if v.based_on %}
+- **Substitute** for {{ v.based_on }}{{ " (original unavailable)" if v.original_unavailable else "" }}.
+{% endif %}
+{% for u in v.updates | default([]) %}
+- **{{ u.label or u.type }}**: {{ u.doi }}{{ " (" ~ u.date ~ ")" if u.date else "" }}
+{% endfor %}
+{% if e.licence is defined %}
+- Licence: {{ e.licence.value }} ({{ e.licence.provenance.source }})
+{% endif %}

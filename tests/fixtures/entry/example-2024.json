@@ -1,0 +1,34 @@
+{
+  "schema_version": "1",
+  "key": "example-2024",
+  "citation": {
+    "title": {"value": "A fictional paper on sampling with tilde and hat operators", "provenance": {"source": "crossref", "url": "https://api.crossref.org/works/10.0000/fictional"}, "status": "verified"},
+    "authors": {"value": [{"family": "Example", "given": "Ada"}], "provenance": {"source": "crossref", "url": "https://api.crossref.org/works/10.0000/fictional"}, "status": "verified"},
+    "year": {"value": 2024, "provenance": {"source": "crossref", "url": "https://api.crossref.org/works/10.0000/fictional", "detail": "published-print"}, "status": "verified"},
+    "container": {"value": "Journal of Made-Up Results", "provenance": {"source": "crossref", "url": "https://api.crossref.org/works/10.0000/fictional"}, "status": "verified"},
+    "page": {"value": "1-12", "provenance": {"source": "crossref", "url": "https://api.crossref.org/works/10.0000/fictional"}, "status": "unverified", "reason": "the first page shows no page numbers"}
+  },
+  "version": {"describes": "published", "form": "pdf", "doi": "10.0000/fictional", "printed_pages": "1-12",
+              "updates": [{"doi": "10.0000/fictional-erratum", "type": "correction", "label": "Erratum", "date": "2025-1-5"}]},
+  "licence": {"value": "cc-by", "provenance": {"source": "unpaywall", "url": "https://api.unpaywall.org/v2/10.0000/fictional"}, "status": "verified"},
+  "summary": "The paper bounds the error of the estimator {{s:phi-tilde}} in terms of {{s:gamma}}.",
+  "results": [
+    {"id": "thm-1", "kind": "theorem", "label": "Theorem 1",
+     "statement": "If the frame bounds hold, then {{s:eq-3}}.",
+     "assumptions": ["the sampling operator is bounded below", "{{s:gamma}} is positive"],
+     "location": {"label": "Theorem 1", "section": "3", "printed_page": "5", "pdf_page": 5},
+     "spans": ["eq-3"]}
+  ],
+  "notation": [
+    {"symbol": "phi-tilde", "meaning": "the reconstruction of phi", "defined_at": {"printed_page": "2", "pdf_page": 2}},
+    {"symbol": "gamma", "meaning": "the regularization weight", "defined_at": {"printed_page": "3", "pdf_page": 3, "label": "(2)"}}
+  ],
+  "spans": [
+    {"id": "eq-3", "kind": "display-equation", "latex": "\\|\\tilde{\\varphi} - \\varphi\\| \\le \\gamma^{-1} \\|\\hat{\\varphi}\\|", "location": {"label": "(3)", "printed_page": "5", "pdf_page": 5}, "route": "pdf", "status": "verified", "method": "second transcription + CDM, adjudicated"},
+    {"id": "phi-tilde", "kind": "symbol", "latex": "\\tilde{\\varphi}", "location": {"printed_page": "2", "pdf_page": 2}, "route": "pdf", "status": "verified", "method": "second transcription + CDM"},
+    {"id": "gamma", "kind": "symbol", "latex": "\\gamma", "location": {"printed_page": "3", "pdf_page": 3}, "route": "pdf", "status": "unverified", "reason": "the transcriptions disagree (gamma or y) and the adjudicator's confidence was low"}
+  ],
+  "coverage": {"listed_from": "numbered items in the converted text", "not_included": [{"label": "Lemma 2", "kind": "lemma", "location": {"label": "Lemma 2", "printed_page": "7"}}]},
+  "verification": {"checked": ["citation fields against Crossref and the first page", "cited spans against 300-dpi crops"], "unchecked": ["equations not cited"],
+                   "tools": [{"name": "math-aware-source-digest", "version": "0.0.1"}, {"name": "qwen3-vl:32b-instruct", "version": "ollama 0.40.3", "role": "adjudicator"}], "date": "2026-10-17"}
+}

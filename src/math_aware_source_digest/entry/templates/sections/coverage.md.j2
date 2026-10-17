@@ -1,0 +1,8 @@
+{% if e.coverage.listed_from %}Listed from: {{ e.coverage.listed_from }}.
+
+{% endif %}
+{% for c in e.coverage.not_included %}
+- {{ c.label }}{% if c.kind %} ({{ c.kind }}){% endif %}, {{ c.location | location }}
+{% else %}
+Every numbered result, definition and equation of the source is included.
+{% endfor %}

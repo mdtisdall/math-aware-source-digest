@@ -1,0 +1,5 @@
+| field | value | source | status |
+|---|---|---|---|
+{% for name, f in e.citation.items() %}
+| {{ name }} | {% if name in ("authors", "editors") %}{{ f.value | authors | cell }}{% elif f.value is sequence and f.value is not string %}{{ f.value | join(", ") | cell }}{% else %}{{ f.value | cell }}{% endif %} | {{ f.provenance.source }}{% if f.provenance.detail %} ({{ f.provenance.detail }}){% endif %} | {{ f.status }}{% if f.reason %}: {{ f.reason | cell }}{% endif %} |
+{% endfor %}

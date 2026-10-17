@@ -1,0 +1,5 @@
+{% for n in e.notation %}
+- {% if spans[n.symbol].latex is defined %}`{{ spans[n.symbol].latex }}`{% else %}{{ spans[n.symbol].text }}{% endif %} [{{ n.symbol }}]: {{ n.meaning | oneline }} (defined at {{ n.defined_at | location }})
+{% else %}
+No notation recorded.
+{% endfor %}

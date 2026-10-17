@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/mdtisdall/math-aware-source-digest/schema/entry-1.json",
+  "title": "Source entry",
+  "description": "A verified, machine-readable entry for one source (plan section 1 and 1a). Every cited span is exact, verified, or unverified with a reason.",
+  "type": "object",
+  "required": ["schema_version", "key", "citation", "version", "summary", "results", "notation", "spans", "coverage", "verification"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "1"},
+    "key": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$"},
+    "citation": {
+      "type": "object",
+      "required": ["title", "authors", "year"],
+      "additionalProperties": {"$ref": "#/$defs/field"},
+      "properties": {
+        "title": {"$ref": "#/$defs/field"},
+        "authors": {"$ref": "#/$defs/field"},
+        "year": {"$ref": "#/$defs/field"}
+      }
+    },
+    "version": {
+      "type": "object",
+      "required": ["describes", "form"],
+      "additionalProperties": false,
+      "properties": {
+        "describes": {"enum": ["published", "accepted", "submitted", "book"]},
+        "form": {"enum": ["pdf", "latex", "jats"], "description": "the form the cited spans were taken from"},
+        "doi": {"type": "string"},
+        "arxiv": {"type": "string"},
+        "pmcid": {"type": "string"},
+        "exact_form": {"type": "string", "description": "the exact form used for equations, if it is not the version described"},
+        "printed_pages": {"type": "string", "description": "the printed page range of the version described, e.g. 116-126"},
+        "pdf_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "based_on": {"type": "string", "description": "key of the work this entry substitutes, with the user's consent"},
+        "original_unavailable": {"type": "boolean"},
+        "parent_bibkey": {"type": "string", "description": "for a chapter: the key of the book"},
+        "page_range": {"type": "string", "description": "for a book: the pages processed"},
+        "updates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["doi", "type"],
+            "properties": {"doi": {"type": "string"}, "type": {"type": "string"}, "label": {"type": "string"}, "date": {"type": "string"}}
+          }
+        }
+      }
+    },
+    "licence": {"$ref": "#/$defs/field"},
+    "summary": {"type": "string", "minLength": 1},
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "statement", "assumptions", "location", "spans"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"$ref": "#/$defs/id"},
+          "kind": {"enum": ["theorem", "lemma", "proposition", "corollary", "definition", "equation", "algorithm", "result", "remark"]},
+          "label": {"type": "string", "description": "as printed, e.g. Theorem 3.2"},
+          "statement": {"type": "string", "minLength": 1, "description": "quoted or closely paraphrased; mathematics only through span references {{s:<id>}}"},
+          "assumptions": {"type": "array", "items": {"type": "string"}},
+          "location": {"$ref": "#/$defs/location"},
+          "spans": {"type": "array", "items": {"$ref": "#/$defs/id"}}
+        }
+      }
+    },
+    "notation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["symbol", "meaning", "defined_at"],
+        "additionalProperties": false,
+        "properties": {
+          "symbol": {"$ref": "#/$defs/id", "description": "the span id of the symbol"},
+          "meaning": {"type": "string", "minLength": 1},
+          "defined_at": {"$ref": "#/$defs/location"}
+        }
+      }
+    },
+    "spans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "location", "route", "status"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"$ref": "#/$defs/id"},
+          "kind": {"enum": ["display-equation", "inline-math", "symbol", "sentence", "table-cell"]},
+          "latex": {"type": "string"},
+          "text": {"type": "string"},
+          "location": {"$ref": "#/$defs/location"},
+          "route": {"enum": ["latex", "jats", "pdf"]},
+          "status": {"enum": ["exact", "verified", "unverified"]},
+          "reason": {"type": "string", "minLength": 1},
+          "method": {"type": "string", "description": "how it was verified, e.g. second transcription + CDM, adjudicated"}
+        },
+        "anyOf": [{"required": ["latex"]}, {"required": ["text"]}],
+        "if": {"properties": {"status": {"const": "unverified"}}},
+        "then": {"required": ["reason"]}
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "required": ["not_included"],
+      "additionalProperties": false,
+      "properties": {
+        "listed_from": {"type": "string", "description": "how the source's numbered items were listed"},
+        "not_included": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "location"],
+            "additionalProperties": false,
+            "properties": {"label": {"type": "string"}, "kind": {"type": "string"}, "location": {"$ref": "#/$defs/location"}}
+          }
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "required": ["checked", "unchecked", "tools"],
+      "additionalProperties": false,
+      "properties": {
+        "checked": {"type": "array", "items": {"type": "string"}},
+        "unchecked": {"type": "array", "items": {"type": "string"}},
+        "tools": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "version"],
+            "properties": {"name": {"type": "string"}, "version": {"type": "string"}, "role": {"type": "string"}}
+          }
+        },
+        "date": {"type": "string"}
+      }
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+    "provenance": {
+      "type": "object",
+      "required": ["source"],
+      "properties": {"source": {"type": "string"}, "url": {"type": "string"}, "detail": {"type": "string"}}
+    },
+    "field": {
+      "type": "object",
+      "required": ["value", "provenance", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "value": {},
+        "provenance": {"$ref": "#/$defs/provenance"},
+        "status": {"enum": ["verified", "unverified"], "description": "verified: matches its record and the first page of the document"},
+        "reason": {"type": "string", "minLength": 1}
+      },
+      "if": {"properties": {"status": {"const": "unverified"}}},
+      "then": {"required": ["reason"]}
+    },
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "printed_page": {"type": "string"},
+        "pdf_page": {"type": "integer", "minimum": 1},
+        "section": {"type": "string"},
+        "label": {"type": "string", "description": "e.g. (12), Theorem 3, Table 2 row 4"}
+      }
+    }
+  }
+}

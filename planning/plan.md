@@ -43,6 +43,7 @@ Decided 2026-10-17.
 - **Project fields are not included.** Fields that judge a source for a project (what the project uses from it, the status of a result in the project, the chapters that use it; section 5 of the reference's plan) are the project's work (section 1, "not in scope"). The skill does not write them, and does not leave slots for them. A project that needs them keeps them in its own files, which link to the entry.
 - **Configuration** (a file in the project, with defaults): the output directory (default `sources/`); the key scheme (default: the surname of the first author, or of both authors when there are two, then the year, lower case and ASCII, with a suffix `a`, `b`, … on a collision; for example `kaipio-somersalo-2007`, `seeger-2010`); the Markdown template (default: a template that follows the reference's `sources/<key>.md` without its project fields); the order and headings of the sections; the name of the index (default `sources/README.md`).
 - **Where the JSON goes:** next to the Markdown (default `sources/<key>.json`), so that a project can check it and so that later runs can compare against it.
+- **Mathematics in the Markdown:** the text of results and the summary refers to spans as `{{s:<id>}}`, which the renderer replaces with the span's LaTeX. Each span's LaTeX is also given verbatim in a code block; LaTeX never goes into a Markdown table, because GitHub Markdown reads `\|` in a table as an escaped `|` and would silently change a norm into an absolute value.
 
 ## 2. Evidence so far
 
