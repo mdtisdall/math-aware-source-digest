@@ -30,6 +30,11 @@ def main(argv: Sequence[str] | None = None) -> int:
     sub.add_parser("config", help="print the configuration in effect, and the files it came from")
     policy = sub.add_parser("policy", help="say whether the download policy allows a URL")
     policy.add_argument("url")
+    resolve = sub.add_parser(
+        "resolve", help="resolve DOIs, arXiv IDs, ISBNs, titles or zotero:<key> items (JSON out)"
+    )
+    resolve.add_argument("inputs", nargs="+")
+    resolve.add_argument("--zotero", action="store_true", help="use Zotero's local API")
     args = parser.parse_args(argv)
 
     try:
@@ -52,6 +57,14 @@ def main(argv: Sequence[str] | None = None) -> int:
             return 1
         print("allowed")
         return 0
+    if args.command == "resolve":
+        from .resolve import Resolver
+        from .resolve.zotero import LocalZotero
+
+        resolver = Resolver(net.Fetcher(cfg), LocalZotero() if args.zotero else None)
+        results = resolver.resolve_many(args.inputs)
+        print(json.dumps([r.to_json() for r in results], indent=2, ensure_ascii=False, default=str))
+        return 0 if all(r.found for r in results) else 1
     raise AssertionError(args.command)
 
 

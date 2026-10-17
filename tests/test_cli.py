@@ -31,3 +31,13 @@ def test_configuration_error_exits_2(tmp_path: Path, monkeypatch: pytest.MonkeyP
     (tmp_path / "masd.toml").write_text("[output\n")
     monkeypatch.chdir(tmp_path)
     assert cli.main(["config"]) == 2
+
+
+def test_resolve_reports_unresolved_inputs(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    monkeypatch.chdir(tmp_path)  # empty policy: every lookup needs approval
+    assert cli.main(["resolve", "10.1002/mrm.22180"]) == 1
+    out = json.loads(capsys.readouterr().out)
+    assert out[0]["found"] is False
+    assert "needs the user's approval" in out[0]["unresolved"]

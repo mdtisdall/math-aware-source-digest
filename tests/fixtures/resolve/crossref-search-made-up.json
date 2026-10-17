@@ -1,0 +1,83 @@
+{
+ "status": "ok",
+ "message-type": "work-list",
+ "message-version": "1.0.0",
+ "message": {
+  "facets": {},
+  "total-results": 8060371,
+  "items": [
+   {
+    "DOI": "10.20944/preprints201712.0093.v1",
+    "title": [
+     "Probing Quantum Gravity Through Strong Gravitational Lensing"
+    ],
+    "author": [
+     {
+      "family": "Marongwe",
+      "given": "Stuart"
+     }
+    ],
+    "issued": {
+     "date-parts": [
+      [
+       2017,
+       12,
+       14
+      ]
+     ]
+    }
+   },
+   {
+    "DOI": "10.20944/preprints201712.0093.v2",
+    "title": [
+     "Probing Quantum Gravity through Strong Gravitational Lensing"
+    ],
+    "author": [
+     {
+      "family": "Marongwe",
+      "given": "Stuart"
+     }
+    ],
+    "issued": {
+     "date-parts": [
+      [
+       2018,
+       2,
+       14
+      ]
+     ]
+    }
+   },
+   {
+    "DOI": "10.1088/1361-6382/ab0512",
+    "title": [
+     "Gravitational lensing of massive particles in Reissner–Nordström black hole spacetime"
+    ],
+    "author": [
+     {
+      "family": "Pang",
+      "given": "Xiankai"
+     },
+     {
+      "family": "Jia",
+      "given": "Junji"
+     }
+    ],
+    "issued": {
+     "date-parts": [
+      [
+       2019,
+       2,
+       26
+      ]
+     ]
+    }
+   }
+  ],
+  "items-per-page": 3,
+  "query": {
+   "start-index": 0,
+   "search-terms": null
+  }
+ }
+}

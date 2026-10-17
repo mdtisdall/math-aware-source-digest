@@ -1,0 +1,26 @@
+{
+ "id": "https://openalex.org/W2116523778",
+ "doi": "https://doi.org/10.1002/mrm.22180",
+ "title": "Optimization ofk‐space trajectories for compressed sensing by Bayesian experimental design",
+ "publication_year": 2009,
+ "ids": {
+  "openalex": "https://openalex.org/W2116523778",
+  "doi": "https://doi.org/10.1002/mrm.22180",
+  "mag": "2116523778",
+  "pmid": "https://pubmed.ncbi.nlm.nih.gov/19859957"
+ },
+ "locations": [
+  {
+   "landing_page_url": "https://doi.org/10.1002/mrm.22180",
+   "pdf_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/mrm.22180",
+   "version": "publishedVersion",
+   "license": null
+  },
+  {
+   "landing_page_url": "https://arxiv.org/abs/0903.0001v2",
+   "pdf_url": "https://arxiv.org/pdf/0903.0001v2",
+   "version": "submittedVersion",
+   "license": "arxiv"
+  }
+ ]
+}
