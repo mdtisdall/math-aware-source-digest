@@ -1,6 +1,6 @@
 # Plan: a skill that turns research papers into verified, machine-readable source entries
 
-Status: plan, version 3, 2026-10-17. Version 1 was reviewed by an Opus agent (24 findings, 6 high) and checked against a survey of existing tools; version 2 adopted both. Version 3 makes the design local first: every step runs on local models, so no source text leaves the machine, and cloud models are only a fallback if local mode fails a gate (decided 2026-10-17). It also adds ways to make local mode cheaper (section 5a) and the parts of an existing plugin worth reusing (section 11). The open questions are in section 10. Working name of the skill: **math-aware-source-digest**. It is a general tool, not part of this reference; it is planned here because this reference is its first user, and it moves to its own repository once open decision 1 is settled.
+Status: plan, version 4, 2026-10-17. Version 1 was reviewed by an Opus agent (24 findings, 6 high) and checked against a survey of existing tools; version 2 adopted both. Version 3 makes the design local first: every step runs on local models, so no source text leaves the machine, and cloud models are only a fallback if local mode fails a gate (decided 2026-10-17). It also adds ways to make local mode cheaper (section 5a) and the parts of an existing plugin worth reusing (section 11). Version 4 settles the open decisions that blocked the start (section 10: 1, 2, 3, 6) and defines the entry format (section 1a). The remaining open questions are in section 10. Name of the skill: **math-aware-source-digest**, in the public repository `mdtisdall/math-aware-source-digest` (Python package `math_aware_source_digest`, command `masd`). It is a general tool. It was planned in the repository `linear-recon-design-reference` ("the reference" below), which is its first user.
 
 ## 1. What the skill does
 
@@ -31,7 +31,18 @@ Each source records its licence (from Unpaywall or the user). **Claude's role du
 - judging whether a result applies to a project (that is the work of the user or of a project agent);
 - writing to the user's Zotero library (read-only).
 
-The entry format is configurable, so that a project can match its own template (for example `sources/<key>.md` of this reference, section 5 of its plan).
+The entry format is configurable, so that a project can match its own template (section 1a).
+
+## 1a. Entry format
+
+Decided 2026-10-17.
+
+- **Two forms of each entry.** The canonical entry is a JSON file, validated against a schema that is part of the package (versioned). The checks (stage 6), the index (stage 7) and any merge read the JSON. A Markdown file, `sources/<key>.md` by default, is rendered from the JSON by a template. To correct an entry, edit the JSON (or run the stage again) and render again; the Markdown is never the source.
+- **Fields:** the fields of section 1. The Markdown contains all of them, including the cited spans (ID, exact LaTeX or text, location, route, verification status), so that an agent that loads one file has everything that it needs. The detailed verification log (models, crops, comparison scores, adjudication answers) stays in the cache; the entry gives a summary of it.
+- **Notation map:** the source's own symbols only, each with its meaning and where it is defined. The skill does not map them to a project's notation.
+- **Project fields are not included.** Fields that judge a source for a project (what the project uses from it, the status of a result in the project, the chapters that use it; section 5 of the reference's plan) are the project's work (section 1, "not in scope"). The skill does not write them, and does not leave slots for them. A project that needs them keeps them in its own files, which link to the entry.
+- **Configuration** (a file in the project, with defaults): the output directory (default `sources/`); the key scheme (default: the surname of the first author, or of both authors when there are two, then the year, lower case and ASCII, with a suffix `a`, `b`, … on a collision; for example `kaipio-somersalo-2007`, `seeger-2010`); the Markdown template (default: a template that follows the reference's `sources/<key>.md` without its project fields); the order and headings of the sections; the name of the index (default `sources/README.md`).
+- **Where the JSON goes:** next to the Markdown (default `sources/<key>.json`), so that a project can check it and so that later runs can compare against it.
 
 ## 2. Evidence so far
 
@@ -81,7 +92,7 @@ Runs are reproducible from the request and answer files and the manifest; cost i
 - **Missing:** the skill reports the source, with a link for the user to add it to the library. It never substitutes another version or another work without the user's consent, and records any substitute in the entry (`original_unavailable`, `based_on`).
 - **Download checks** (adapted from research-superpowers, section 11): each downloaded file passes checks before it counts (a real PDF or archive, not an HTML error page; size; page count; title on the first page), with a failure code. Failures go to a worklist and an audit file.
 - **Which version a PDF is** (submitted, accepted manuscript, or published), checked from the PDF itself (adapted from `check-pdf-version.py`), not only from the record.
-- **Downloads** follow a policy that the user sets once (which hosts need no further approval). arXiv requests wait at least 3 seconds apart, honour HTTP 429 with backoff, and are cached.
+- **Download policy:** a configuration file of the project (or a default for the user) lists the hosts that need no approval. The default list is empty: every other download stops and asks the user, with the file, its source and its size. A host that the text of a source suggests is never added to the list by the tool. The documentation gives an example list (arXiv, NCBI, Europe PMC, Crossref, DataCite, OpenAlex, Semantic Scholar, Unpaywall, Open Library). Independent of the policy, arXiv requests wait at least 3 seconds apart, every request honours HTTP 429 with backoff, and all downloads are cached.
 
 ### Stage 3: Convert
 
@@ -92,7 +103,7 @@ Runs are reproducible from the request and answer files and the manifest; cost i
 
 ### Stage 4: Draft the entry
 
-A local model writes the entry from the converted text, in the configured format. It never retypes an equation or a quoted sentence: it cites each by the span ID that stage 3 assigned. Tier by mode and form (section 5). Every location gives both the printed page number and the physical page of the PDF. A chapter of an edited book records its parent (`parent_bibkey`). A field that could not be verified carries its reason; the tool refuses to write a field that is neither verified nor given a reason.
+A local model writes the entry from the converted text, as JSON against the schema of section 1a; the tool renders the Markdown. It never retypes an equation or a quoted sentence: it cites each by the span ID that stage 3 assigned. Tier by mode and form (section 5). Every location gives both the printed page number and the physical page of the PDF. A chapter of an edited book records its parent (`parent_bibkey`). A field that could not be verified carries its reason; the tool refuses to write a field that is neither verified nor given a reason.
 
 For a long source, the model works one section at a time, and the tool merges the parts, so that a local model's context (32k–64k tokens) is enough.
 
@@ -111,7 +122,7 @@ For each span that the entry cites:
 
 ### Stage 6: Check the entry
 
-- **Automatic checks:** the format is complete; each citation field matches its record and the first page of the document; each cited span has an ID and a status; each location exists in the version that the entry names; every printed page number lies in the source's printed page range.
+- **Automatic checks:** the JSON is valid against the schema, and the Markdown is rendered from it; each citation field matches its record and the first page of the document; each cited span has an ID and a status; each location exists in the version that the entry names; every printed page number lies in the source's printed page range.
 - **Coverage check:** the tool lists the source's numbered results, definitions and equations from the converted text; the entry either includes each or lists it under "coverage" as not included.
 - **Model check:** a second model compares the summary and the results with the converted text. A local model of a different family from the one that drafted the entry.
 
@@ -184,7 +195,7 @@ Each gate ends with a report to the user. The next gate starts only after the us
 | 5. Exact route | LaTeX and XML work, with version mapping | LaTeX set (3, then 10) and 3 PMC articles | pandoc and LaTeXML failure rate measured and falls through correctly; locations map to the version of record; harmful errors in cited spans 0 |
 | 6. Local models | which local models draft, adjudicate and check | the judged set and the open set, 3 papers from each route; Opus judges against the ground truth | local mode has no harmful error in cited spans or results, and no more omissions than a reference entry written by Sonnet from the same text (open set only). If it fails for some route, the report says where; the user decides between more local work and the cloud fallback for that route |
 | 6a. Local efficiency | which strategies of section 5a to adopt | the judged set and the open set, in local mode; each strategy measured on its own, then the chosen combination | for each strategy: time per paper, time per span, peak memory, and the change in harmful errors and omissions. A strategy is adopted only if quality stays at the level of gate 6. The combination meets the budget of section 5a, or the report shows which step prevents it |
-| 7. First batch | the skill is ready for use | the sources of chapter 0 of this reference | in a stratified sample of 5 entries (at least 2 from the PDF route, 1 from the exact route, 1 book), no harmful error; the index lists every source with its version, form, licence and status |
+| 7. First batch | the skill is ready for use | the sources of chapter 0 of the reference | in a stratified sample of 5 entries (at least 2 from the PDF route, 1 from the exact route, 1 book), no harmful error; the index lists every source with its version, form, licence and status |
 
 The ground truth stays as described in 6.1, so every later change of a tool or a model is checked again against it (regression).
 
@@ -216,22 +227,22 @@ A Claude Code plugin in its own repository with the dev-workflow setup: a skill 
 
 ## 9. Order of work
 
-1. Settle the open decisions that block the start (section 10: 1, 2, 3, 6).
-2. Make the repository, with the dev-workflow setup.
+1. Settle the open decisions that block the start (section 10: 1, 2, 3, 6). Done 2026-10-17.
+2. Make the repository, with the dev-workflow setup. Done 2026-10-17.
 3. Port the existing scripts (resolver, crop and compare loop, judge prompts) into the package; adopt the libraries of stage 1, CDM and a cache runner if one fits. Gate 0.
 4. Gate 1 (ground truth), then gates 2 and 3 (bake-offs). They can run in parallel once gate 1 passes.
 5. Stages 4–6, then gate 4.
 6. Gate 5 (exact route), then gate 6 (local models), then gate 6a (local efficiency). Gates 2 and 3 already record time per span and per page, so that gate 6a starts from measured numbers. The cloud fallback is built only if gate 6 or 6a fails for some route, and only for that route.
-7. Gate 7, which also produces the first sources of this reference.
+7. Gate 7, which also produces the first sources of the reference.
 
 ## 10. Open decisions
 
-1. **Where the skill lives:** its own repository (recommended).
-2. **The entry format:** the format of this reference's `sources/`, made configurable.
-3. **The download policy:** which hosts need no approval for each download (proposed: arXiv, NCBI, Europe PMC, Crossref, DataCite, OpenAlex, Semantic Scholar, Unpaywall, Open Library).
+1. **Where the skill lives:** settled (2026-10-17): its own repository, `mdtisdall/math-aware-source-digest`.
+2. **The entry format:** settled (2026-10-17): canonical JSON with a rendered Markdown file, the reference's `sources/<key>.md` without its project fields, configurable (section 1a).
+3. **The download policy:** settled (2026-10-17): configurable for each project; the default asks for every download (stage 2). During development, Claude asks before each download.
 4. **Which version an entry cites** for a paper with both a preprint and a version of record (proposed: the version of record, with the preprint as the source of exact equations).
 5. **The cloud fallback:** settled as local first (2026-10-17). Open only if a gate fails: for which routes, and whether openly licensed sources may use it without asking each time.
-6. **Public or private repository:** this decides which test material can be committed.
+6. **Public or private repository:** settled (2026-10-17): public. Only identifiers, hashes, ground-truth error lists and openly licensed test material are committed (section 6.1).
 7. **Books:** does the user have PDFs (often scanned) of the books, and should the skill process page ranges?
 8. **A second judge for each paper of the ground truth:** about 120k–230k tokens per paper; needed for gate 1.
 
