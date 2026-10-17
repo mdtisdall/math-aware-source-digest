@@ -1,0 +1,11 @@
+{#- Default entry template. A project can give its own template (output.template);
+    it receives `e` (the entry), `spans` (by id), `sections` and `headings`. -#}
+# {{ e.citation.authors.value | authors }} ({{ e.citation.year.value }}). {{ e.citation.title.value | oneline }}
+
+<!-- Written by math-aware-source-digest from {{ e.key }}.json. Do not edit: edit the JSON and render again. -->
+{% for section in sections %}
+
+## {{ headings[section] }}
+
+{% include "sections/" ~ section ~ ".md.j2" %}
+{% endfor %}

@@ -9,6 +9,10 @@ Example ``masd.toml``::
     [output]
     dir = "sources"
     index = "README.md"
+    # template = "templates/source.md.j2"   # default: the package's template
+    # sections = ["citation", "summary", "results", "notation", "spans", "coverage",
+    #             "version", "verification"]
+    # headings = { coverage = "Omitted" }
 
     [downloads]
     # Hosts that need no approval for each download. A host also covers its
@@ -49,6 +53,9 @@ def user_config_path() -> Path:
 class OutputConfig:
     dir: str = "sources"
     index: str = "README.md"
+    template: str = ""  # relative to the file that sets it
+    sections: tuple[str, ...] = ()  # empty: all, in the default order
+    headings: dict[str, str] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)
@@ -106,7 +113,7 @@ def _check_keys(table: dict[str, Any], allowed: set[str], name: str, path: Path)
 def _merge(config: Config, data: dict[str, Any], path: Path) -> Config:
     _check_keys(data, {"output", "downloads", "network", "cache"}, "top level", path)
     out = _table(data, "output", path)
-    _check_keys(out, {"dir", "index"}, "output", path)
+    _check_keys(out, {"dir", "index", "template", "sections", "headings"}, "output", path)
     dl = _table(data, "downloads", path)
     _check_keys(dl, {"allowed_hosts"}, "downloads", path)
     net = _table(data, "network", path)
@@ -126,6 +133,11 @@ def _merge(config: Config, data: dict[str, Any], path: Path) -> Config:
         output=OutputConfig(
             dir=str(out.get("dir", config.output.dir)),
             index=str(out.get("index", config.output.index)),
+            template=str((path.parent / out["template"]).resolve())
+            if out.get("template")
+            else config.output.template,
+            sections=tuple(out.get("sections", config.output.sections)),
+            headings={**config.output.headings, **out.get("headings", {})},
         ),
         downloads=DownloadConfig(allowed_hosts=tuple(h.lower().strip(".") for h in hosts)),
         network=NetworkConfig(

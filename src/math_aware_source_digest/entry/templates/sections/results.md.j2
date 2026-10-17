@@ -1,0 +1,18 @@
+{% for r in e.results %}
+### {{ r.label or r.id }} ({{ r.kind }}; {{ r.location | location }})
+
+{{ r.statement | spanrefs(spans) }}
+
+{% if r.assumptions %}
+Assumptions stated in the source:
+
+{% for a in r.assumptions %}
+- {{ a | spanrefs(spans) }}
+{% endfor %}
+{% else %}
+Assumptions stated in the source: none.
+{% endif %}
+
+{% else %}
+No results recorded.
+{% endfor %}

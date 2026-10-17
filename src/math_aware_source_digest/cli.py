@@ -9,7 +9,7 @@ import sys
 from collections.abc import Sequence
 from pathlib import Path
 
-from . import __version__, config, net
+from . import __version__, config, entry, net
 
 
 def _config_json(cfg: config.Config) -> str:
@@ -35,6 +35,13 @@ def main(argv: Sequence[str] | None = None) -> int:
     )
     resolve.add_argument("inputs", nargs="+")
     resolve.add_argument("--zotero", action="store_true", help="use Zotero's local API")
+    sub.add_parser(
+        "render",
+        help="validate every <key>.json in the output directory, render "
+        "its Markdown, and write the index",
+    )
+    validate = sub.add_parser("validate", help="validate entry JSON files")
+    validate.add_argument("files", nargs="+", type=Path)
     args = parser.parse_args(argv)
 
     try:
@@ -65,6 +72,27 @@ def main(argv: Sequence[str] | None = None) -> int:
         results = resolver.resolve_many(args.inputs)
         print(json.dumps([r.to_json() for r in results], indent=2, ensure_ascii=False, default=str))
         return 0 if all(r.found for r in results) else 1
+    if args.command == "validate":
+        status = 0
+        for path in args.files:
+            problems = entry.validate(json.loads(path.read_text()))
+            print(f"{path}: {'invalid' if problems else 'valid'}")
+            for error in problems.errors:
+                print(f"  {error}")
+            status = status or (1 if problems else 0)
+        return status
+    if args.command == "render":
+        out_dir = Path(cfg.output.dir)
+        render_cfg = entry.render_config(cfg.output)
+        try:
+            for path in sorted(out_dir.glob("*.json")):
+                entry.write_entry(json.loads(path.read_text()), out_dir, render_cfg)
+            index = entry.write_index(out_dir, cfg.output.index)
+        except entry.EntryError as ex:
+            print(f"masd: {ex}", file=sys.stderr)
+            return 1
+        print(f"rendered {len(list(out_dir.glob('*.json')))} entries; index {index}")
+        return 0
     raise AssertionError(args.command)
 
 

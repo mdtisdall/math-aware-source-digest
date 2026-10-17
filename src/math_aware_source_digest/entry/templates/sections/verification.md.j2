@@ -1,0 +1,14 @@
+{% set ver = e.verification %}
+Checked:
+{% for c in ver.checked %}
+- {{ c }}
+{% endfor %}
+
+Not checked:
+{% for c in ver.unchecked %}
+- {{ c }}
+{% else %}
+- nothing
+{% endfor %}
+
+Tools and models: {% for t in ver.tools %}{{ t.name }} {{ t.version }}{% if t.role %} ({{ t.role }}){% endif %}{% if not loop.last %}; {% endif %}{% endfor %}{% if ver.date %}. Date: {{ ver.date }}{% endif %}.
