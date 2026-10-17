@@ -99,7 +99,7 @@ Runs are reproducible from the request and answer files and the manifest; cost i
 - **arXiv LaTeX:** pandoc with `--sandbox` and the `latex_macros` extension (de-macro as a fallback for author macros). arXiv's own HTML (LaTeXML, with MathML and the original TeX) as a cross-check where it exists.
 - **PMC or Europe PMC XML:** pandoc from JATS.
 - **PDF:** the converter chosen at gate 3. Candidates: Marker 2.0 at 288 dpi with full OCR, and MinerU 4. Page images at 150 dpi are kept.
-- **Check of the output,** with fall-through to the next form if it fails: mathematics present; no mathematics as images (PMC); pandoc warnings none or listed; equation numbers with no gaps; the number of equations agreeing with a second detector (the other converter's layout, or a PyMuPDF heuristic).
+- **Check of the output,** with fall-through to the next form if it fails: mathematics present; no mathematics as images (PMC); pandoc warnings none or listed; equation numbers with no gaps; the number of equations agreeing with a second detector (the other converter's layout, or a heuristic on the PDF's layout from pypdfium2).
 
 ### Stage 4: Draft the entry
 
@@ -113,7 +113,7 @@ For each span that the entry cites:
 
 - **Exact form:** map its location to the version of record (equation and theorem numbers, pages), and flag where the two versions differ.
 - **PDF route:**
-  1. Crop the span from the PDF at 300 dpi (PyMuPDF), whether it is a display equation, a line with inline mathematics, a result sentence or a table cell.
+  1. Crop the span from the PDF at 300 dpi (pypdfium2; `pdftoppm` as a cross-check), whether it is a display equation, a line with inline mathematics, a result sentence or a table cell.
   2. Transcribe the crop a second time with the local transcriber chosen at gate 2. Candidates: GLM-OCR (0.9B), PaddleOCR-VL (0.9B), and Qwen3-VL 32B instruct.
   3. Compare the two transcriptions with CDM (it renders both and matches characters), at two levels: **strict** (the rendered symbols differ) and **style** (bold, calligraphic or upright differs). A strict difference is always adjudicated; a style difference is adjudicated when the symbol occurs in a cited result.
   4. Adjudication: a model reads the crop and both transcriptions, and returns the correct LaTeX, its confidence, and whether it chose neither. A local vision model of a different family from both transcribers (for example Qwen3-VL 32B instruct, if the two transcribers are GLM-OCR and PaddleOCR-VL); low confidence leaves the span "unverified".
@@ -207,7 +207,7 @@ The ground truth stays as described in 6.1, so every later change of a tool or a
 
 ## 8. Packaging
 
-A Claude Code plugin in its own repository with the dev-workflow setup: a skill and a Python package (uv).
+A Claude Code plugin in its own repository with the dev-workflow setup: a skill and a Python package (uv). Licence: MIT (decided 2026-10-17). Dependencies of the package have permissive licences; for that reason the PDF library is pypdfium2 (BSD and Apache), not PyMuPDF (AGPL).
 
 - **Default devShell (and CI):** Python, uv, `poppler-utils`, `pandoc`.
 - **Not in CI:** the converters and the local models (Marker or MinerU through `uvx` at pinned versions; `llama-server` and Ollama from the pinned nixpkgs through `nix shell`; GROBID and the CDM renderer, which needs TeX Live and ImageMagick, in their own shells). The scripts that need them check for them and stop with a clear message.
