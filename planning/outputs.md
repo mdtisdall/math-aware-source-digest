@@ -55,20 +55,44 @@ For each statement of the draft:
 
 - **located:** where the paper says it (section, result label, equation
   number, page), with labels corrected where memory had them wrong;
-- **the paper's own version beside the caller's:** equations as printed,
-  verified against the page; statements of results paraphrased, with a short
-  quotation of the key part; their stated assumptions, including ones the
-  draft left out;
-- **differences marked:** where the caller's equation or statement differs
-  from the printed one (the comparison of stage 5);
+- **how it matches:** the caller's version against the printed one (the
+  comparison of stage 5): *matches* (up to notation), *differs*, or *differs
+  substantially*;
+- **corrections, not the printed form** (decided 2026-10-18): where the
+  caller's version differs, the minimal corrections that turn it into the
+  paper's, written in the caller's notation ("your `x_i` is `x_1` in the
+  paper; the paper's version has an extra factor in the denominator").
+  Above a cap, the corrections are withheld and the entry says *differs
+  substantially* with the location, so that an empty or vague draft cannot
+  draw out a whole equation. Missing stated assumptions are corrections too;
 - **not located:** where nothing in the paper matches, reported as a result
   of the search, not as a verdict on the statement.
+
+**Equations in the caller's own notation** (decided 2026-10-18). A statement
+of the draft can be an equation written in the caller's notation, with the
+request to find the paper's matching equations ("I have an equation of this
+form; where is it in this paper, perhaps in other notation?"). For each
+match, the entry gives:
+
+- its location;
+- how it matches: the same up to a consistent renaming of symbols; the same
+  structure with differences; or not found;
+- the **notation correspondence** ("your `A` is the paper's `K`; your `x` is
+  `u`");
+- differences beyond the renaming, as capped corrections in the caller's
+  notation.
+
+The caller can apply the correspondence to its own equation; the paper's
+printed form need not leave the machine. A remembered equation in the paper's
+own notation is the same case, with a correspondence that is mostly the
+identity.
 
 And for the entry as a whole: the **citation fields** from the records
 (Crossref and the others), never from memory, and the **version** described.
 
-**The promise:** every located statement's printed version is verified
-against the page, or marked unverified with the reason. The tool does not
+**The promise:** every printed item that a statement is compared with is
+verified against the page first, or the comparison is marked unverified with
+the reason. The tool does not
 promise that it located everything the paper says on a subject.
 
 ### Audiences
@@ -97,17 +121,21 @@ flowchart LR
     end
     caller -->|"source and draft"| resolve
     caller -->|"draft"| refine
-    refine -->|"refined entry: located, the paper's version,<br/>differences, not located"| caller
+    refine -->|"refined entry: located, how it matches,<br/>notation correspondence, capped corrections,<br/>not located"| caller
 ```
 
 ## 3. What leaves the machine
 
 - **Bounded by the caller's own knowledge.** The output follows the draft:
-  for each statement, only what is attached to it (its location, its exact
-  form, its stated assumptions). Parts of the paper the draft does not point
-  at are not returned; reading the whole paper through the tool would need
-  knowing it already.
-- **Small units.** An equation, the key part of a statement, a location.
+  for each statement, only what is attached to it (its location, how it
+  matches, a notation correspondence, capped corrections). Parts of the paper
+  the draft does not point at are not returned; reading the whole paper
+  through the tool would need knowing it already.
+- **No printed equations by default.** The caller gets corrections to its
+  own version, never the paper's printed form, so the amount returned grows
+  with the caller's error, not with the number of equations asked about,
+  and the cap bounds it.
+- **Small units.** A location, a correspondence of symbols, a correction.
   Never a proof, a page or a passage of prose.
 - **A local log** of what was returned for each paper, reported on request.
 
@@ -116,8 +144,12 @@ flowchart LR
 - **a. Omissions.** May the refined entry say what the draft did not cover,
   as counts and labels only ("the paper has 9 numbered results; the draft
   mentions 3")? It helps a caller notice a gap without returning content.
-- **b. Statements:** a paraphrase with a short quotation of the key part, or
-  the full statement as printed?
+- **b. Statements of results:** corrections to the caller's paraphrase (a
+  missing assumption, a wrong constant, a wrong label), as for equations, or
+  also a short quotation of the key part?
+- **d. The cap:** how large a correction may be before it is withheld (for
+  example a share of the equation's symbols), and whether the user can raise
+  it for a paper (for example one under CC BY).
 - **c. Unsure alignment:** several candidate locations, or "not located"?
 
 ## 4. What the tool does locally
@@ -131,7 +163,9 @@ Four tasks; nothing else:
    index, first by label and number, then by a small embedding model.
 3. **Verification** of the matched items against the page (layer 2).
 4. **Comparison** of the caller's version with the printed one (stage 5,
-   step 3; gate 1b).
+   step 3; gate 1b), including **matching up to a consistent renaming of
+   symbols**, with the paper's definition links as context (the paper's `K`
+   is a matrix, its `u` a vector); the minimal corrections and the cap.
 
 No longer needed locally: summaries, choosing key results, deciding what is
 salient, judging claims, meaning trees for whole papers, suspected errata as
@@ -194,10 +228,16 @@ Zotero library.
   ground truth measures it.
 - Verification must read one item well against the page: gates 2 and 4.
 - Comparison of a remembered version with a printed one is gate 1b's
-  question, now with a second use beyond merging judges.
+  question, now with a second use beyond merging judges. Matching up to a
+  consistent renaming of symbols needs a structural representation (a parsed
+  tree, not tokens): a requirement on gate 1b's choice. Formula retrieval
+  (Tangent-S, Approach0: matching with renaming and wildcards) is prior work
+  to study. Matrix against index notation, or a rearranged formula, is the
+  hard case: the model stage, with "unsure" as an answer.
 - **Alignment is new** and needs its own measure: statements whose locations
   are known (from the gate 1 ground truth, written as a caller would write
-  them, including with wrong labels and dropped assumptions), checked for
-  located, mislocated and missed.
+  them, including with wrong labels, dropped assumptions and other notation),
+  checked for located, mislocated and missed; and the corrections, checked
+  that they are minimal and that the cap holds.
 - The interpretation layers (notation and meaning) shrink to what
   verification and comparison need; the layers note is revised to match.
