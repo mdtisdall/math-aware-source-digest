@@ -1,0 +1,8 @@
+{
+  "name": "math-aware-source-digest",
+  "version": "0.0.1",
+  "description": "Turn research papers and books into verified, machine-readable source entries, with every cited equation exact or marked unverified. Local first.",
+  "author": {"name": "Dylan Tisdall"},
+  "license": "MIT",
+  "repository": "https://github.com/mdtisdall/math-aware-source-digest"
+}

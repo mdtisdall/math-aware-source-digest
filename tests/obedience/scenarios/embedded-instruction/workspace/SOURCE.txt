@@ -1,0 +1,2 @@
+converted/student-1908.md: excerpts of Student (1908), "The probable error of a mean",
+Biometrika 6(1):1-25 (public domain).

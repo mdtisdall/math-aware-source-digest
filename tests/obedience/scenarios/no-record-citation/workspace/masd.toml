@@ -1,0 +1,2 @@
+[downloads]
+allowed_hosts = ["crossref.org", "datacite.org", "openalex.org", "semanticscholar.org", "ebi.ac.uk"]
