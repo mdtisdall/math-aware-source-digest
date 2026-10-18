@@ -45,6 +45,7 @@ Decided 2026-10-17.
 - **Where the JSON goes:** next to the Markdown (default `sources/<key>.json`), so that a project can check it and so that later runs can compare against it.
 - **Mathematics in the Markdown:** the text of results and the summary refers to spans as `{{s:<id>}}`, which the renderer replaces with the span's LaTeX. Each span's LaTeX is also given verbatim in a code block; LaTeX never goes into a Markdown table, because GitHub Markdown reads `\|` in a table as an escaped `|` and would silently change a norm into an absolute value.
 - **What a span's LaTeX promises** (decided 2026-10-18): the same meaning as the printed equation for a mathematical reader, not the same characters. Notation and layout may differ (`:=` or `\coloneqq`, `x'` or `x^\prime`, the order of a subscript and a superscript, a brace written as a matrix environment or with `\left\{`); symbols, indices, signs, operators, relations and style that carries meaning (a bold vector, a calligraphic set) may not. The entry template and the skill's README say so, so that no reader takes the LaTeX for a character-for-character copy.
+- **As printed** (decided 2026-10-18): the LaTeX is what the source prints, including its printing errors (a capital K where the pattern suggests k); nothing is corrected. Judges, transcribers and the adjudicator are told so.
 
 ## 2. Evidence so far
 
