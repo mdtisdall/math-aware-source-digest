@@ -16,6 +16,7 @@ masd = "math_aware_source_digest.cli:main"
 
 [dependency-groups]
 dev = [
+    "anthropic>=1.0",
     "mypy>=1.10",
     "pytest>=8",
     "responses>=0.25",
@@ -36,6 +37,10 @@ extend-exclude = [".worktrees"]
 select = ["E", "F", "W", "I", "UP", "B", "SIM", "RUF"]
 # Greek, script and look-alike letters are this project's subject matter.
 ignore = ["RUF001", "RUF002", "RUF003"]
+
+[tool.ruff.lint.per-file-ignores]
+# Prompt text, kept as written.
+"tests/judging/judge.py" = ["E501"]
 
 [tool.mypy]
 strict = true
@@ -63,3 +68,4 @@ source-roots = ["src"]
 "skills/**" = []
 ".claude-plugin/**" = []
 "evidence/**" = []
+"ground_truth/**" = []

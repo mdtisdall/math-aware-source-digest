@@ -1,0 +1,234 @@
+{
+ "pages": [
+  {
+   "pdf_page": 1,
+   "printed_page": "1323",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 2,
+   "printed_page": "1324",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "1325",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "1326",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "1327",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "1328",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "1329",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "1330",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "1331",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "1332",
+   "kind": "article"
+  }
+ ],
+ "equations": [
+  {
+   "pdf_page": 2,
+   "printed_page": "1324",
+   "order_on_page": 1,
+   "number": "(1)",
+   "latex": "\\mathbf{y} = A\\mathbf{x} + \\mathbf{n}, \\quad \\mathbf{n} \\sim \\mathbb{C}\\mathcal{N}(\\mathbf{0}, \\mathbb{I})",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 2,
+   "printed_page": "1324",
+   "order_on_page": 2,
+   "number": "(2)",
+   "latex": "p(\\mathbf{x}|\\mathbf{y}) = \\frac{p(\\mathbf{y}|\\mathbf{x})p(\\mathbf{x})}{p(\\mathbf{y})} \\propto \\exp\\left(- \\parallel \\mathbf{y} - A\\mathbf{x}\\|_2^2 + \\log p(\\mathbf{x})\\right)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 2,
+   "printed_page": "1324",
+   "order_on_page": 3,
+   "number": "(3)",
+   "latex": "\\mathbf{x}^{k+1} = \\mathbf{x}^k + \\gamma \\nabla_{\\overline{\\mathbf{x}}} \\log p\\left(\\mathbf{x}^k|\\mathbf{y}\\right) + \\sqrt{2\\gamma}\\mathbf{z}^k \\quad \\mathbf{z}^k \\sim \\mathbb{C}\\mathcal{N}(\\mathbf{0}, \\mathbb{I})",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 2,
+   "printed_page": "1324",
+   "order_on_page": 4,
+   "number": "(4)",
+   "latex": "\\nabla_{\\overline{\\mathbf{x}}} \\log p(\\mathbf{y}|\\mathbf{x}) = A^H(\\mathbf{y} - A\\mathbf{x})",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 2,
+   "printed_page": "1324",
+   "order_on_page": 5,
+   "number": "(5)",
+   "latex": "p^{\\mathrm{diffused}}\\left(\\mathbf{y}|\\mathbf{x}_t\\right) = \\int p(\\mathbf{y}|\\mathbf{x}) p\\left(\\mathbf{x}|\\mathbf{x}_t\\right) d\\mathbf{x}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "1325",
+   "order_on_page": 1,
+   "number": "(6)",
+   "latex": "p^{\\mathrm{annealed}}\\left(\\mathbf{y}|\\mathbf{x}_t\\right) \\propto \\exp\\left(-\\frac{1}{1+\\kappa_t} \\parallel \\mathbf{y} - A\\mathbf{x}_t\\|_2^2\\right)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "1325",
+   "order_on_page": 2,
+   "number": "(7)",
+   "latex": "p^{\\mathrm{DPS}}\\left(\\mathbf{y}|\\mathbf{x}_t\\right) \\propto \\exp\\left(- \\parallel \\mathbf{y} - A\\mathbb{E}\\left[\\mathbf{x}_0|\\mathbf{x}_t\\right]\\|_2^2\\right)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "1325",
+   "order_on_page": 3,
+   "number": "(8)",
+   "latex": "p^{\\mathrm{exact}}\\left(\\mathbf{y}|\\mathbf{x}_t\\right) \\propto \\exp\\left(- \\parallel \\mathbf{y} - A\\mathbf{x}_t\\|_2^2\\right)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "1325",
+   "order_on_page": 4,
+   "number": "(9)",
+   "latex": "\\mathbf{x}_t^{k+1} = \\mathbf{x}_t^k + \\gamma M_t\\left[A^H\\left(\\mathbf{y} - A\\mathbf{x}_t^k\\right) + \\nabla_{\\overline{\\mathbf{x}}} \\log p_t\\left(\\mathbf{x}_t^k\\right)\\right] + \\sqrt{2\\gamma}\\mathbf{z}^k \\quad \\mathbf{z}^k \\sim \\mathbb{C}\\mathcal{N}\\left(\\mathbf{0}, M_t^{-1}\\right)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "1325",
+   "order_on_page": 5,
+   "number": "(10)",
+   "latex": "\\mathbf{x}_{t=1}^{k=0} \\sim \\mathbb{C}\\mathcal{N}\\left(M_1 A^H \\mathbf{y}, M_1^{-1}\\right)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "1325",
+   "order_on_page": 6,
+   "number": "(11)",
+   "latex": "\\mathbf{z} = M_t\\left(A^H\\mathbf{n}_1 + \\sigma_t^{-1}\\mathbf{n}_2\\right) \\quad \\begin{pmatrix}\\mathbf{n}_1\\\\ \\mathbf{n}_2\\end{pmatrix} \\sim \\mathbb{C}\\mathcal{N}(\\mathbf{0}, \\mathbb{I})",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "1325",
+   "order_on_page": 7,
+   "number": "(12)",
+   "latex": "\\begin{aligned} \\mathbf{x}_t^{k+1} = \\mathbf{x}_t^k + \\gamma M_t\\Bigg[ & A^H\\left(\\mathbf{y} + \\sqrt{\\frac{2}{\\gamma}}\\mathbf{n}_1^k - A\\mathbf{x}_t^k\\right) \\\\ & + \\nabla_{\\overline{\\mathbf{x}}}\\log p\\left(\\mathbf{x}_t^k\\right) + \\sqrt{\\frac{2}{\\gamma\\sigma_t^2}}\\mathbf{n}_2^k\\Bigg], \\quad \\begin{pmatrix}\\mathbf{n}_1^k\\\\ \\mathbf{n}_2^k\\end{pmatrix} \\sim \\mathbb{C}\\mathcal{N}(\\mathbf{0}, \\mathbb{I}) \\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "1327",
+   "order_on_page": 1,
+   "number": "(13)",
+   "latex": "\\frac{1}{1+\\kappa_t} = \\left(\\frac{\\sigma_{\\max}^{-2}}{\\lambda_{\\max}\\left(A^H A\\right)}\\right)^t",
+   "uncertain": ""
+  }
+ ],
+ "items": [
+  {
+   "kind": "section",
+   "label": "Section 1",
+   "pdf_page": 1,
+   "printed_page": "1323"
+  },
+  {
+   "kind": "section",
+   "label": "Section 2",
+   "pdf_page": 2,
+   "printed_page": "1324"
+  },
+  {
+   "kind": "section",
+   "label": "Section 2.1",
+   "pdf_page": 2,
+   "printed_page": "1324"
+  },
+  {
+   "kind": "section",
+   "label": "Section 2.2",
+   "pdf_page": 2,
+   "printed_page": "1324"
+  },
+  {
+   "kind": "section",
+   "label": "Section 2.3",
+   "pdf_page": 3,
+   "printed_page": "1325"
+  },
+  {
+   "kind": "section",
+   "label": "Section 3",
+   "pdf_page": 3,
+   "printed_page": "1325"
+  },
+  {
+   "kind": "section",
+   "label": "Section 3.1",
+   "pdf_page": 3,
+   "printed_page": "1325"
+  },
+  {
+   "kind": "section",
+   "label": "Section 3.2",
+   "pdf_page": 4,
+   "printed_page": "1326"
+  },
+  {
+   "kind": "section",
+   "label": "Section 3.3",
+   "pdf_page": 5,
+   "printed_page": "1327"
+  },
+  {
+   "kind": "section",
+   "label": "Section 4",
+   "pdf_page": 5,
+   "printed_page": "1327"
+  },
+  {
+   "kind": "section",
+   "label": "Section 5",
+   "pdf_page": 7,
+   "printed_page": "1329"
+  },
+  {
+   "kind": "section",
+   "label": "Section 6",
+   "pdf_page": 9,
+   "printed_page": "1331"
+  }
+ ]
+}
