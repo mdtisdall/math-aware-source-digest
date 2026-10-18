@@ -1,0 +1,159 @@
+# The test papers of math-aware-source-digest (plan section 6.1).
+#
+# Only data that anyone may send to a cloud model, share and commit: the
+# public domain, CC0, CC BY and CC BY-SA, checked for each paper. Each paper
+# is pinned by its SHA-256, so that results are reproducible. Citation fields
+# come from the records (masd resolve), not from this file.
+#
+#   masd testdata list               what is pinned, and what is in the cache
+#   masd testdata fetch              download the papers with fetch = "auto"
+#   masd testdata import <pdf>...    add papers downloaded by hand (fetch = "manual")
+#
+# Roles: "judged" (ground truth from two Opus judges), "latex" (an openly
+# licensed arXiv LaTeX gives an exact ground truth), "jats" (an openly licensed
+# PMC XML), "open" (drafting and checking, gate 6), "example" (documentation),
+# "reserve" (checked and pinned, not yet used).
+
+[[paper]]
+key = "student-1908"
+id = "doi:10.2307/2331554"
+title = "The probable error of a mean"
+url = "https://zenodo.org/records/1449458/files/article.pdf?download=1"
+fetch = "auto"
+sha256 = "744c31c20fd07cf2bf3527b33105cafcaf86ebb513d3f02962284a666358ab2a"
+bytes = 1596489
+pages = 26
+licence = "CC0-1.0"
+licence_source = "Zenodo record 1449458; published 1908 (public domain)"
+roles = ["judged", "example"]
+form = "scan"
+faces = "Monotype hot metal, 1908 (by eye); JSTOR cover sheet on PDF page 1"
+tests = "degraded type; nested subscripts and superscripts; numeric tables; printed page 1 is PDF page 2"
+
+[[paper]]
+key = "hestenes-stiefel-1952"
+id = "doi:10.6028/jres.049.044"
+title = "Methods of conjugate gradients for solving linear systems"
+url = "https://nvlpubs.nist.gov/nistpubs/jres/049/jresv49n6p409_A1b.pdf"
+fetch = "auto"
+sha256 = "0b5d99551f4aa0a960d85a8b699d7c669d91aeff0a312470bdf531d64e755262"
+bytes = 30035429
+pages = 28
+licence = "public-domain"
+licence_source = "NIST: papers of the Journal of Research are U.S. Government publications in the public domain"
+roles = ["judged"]
+form = "scan"
+faces = "1952 letterpress, two columns (by eye)"
+tests = "adjoints, primes, norms in fractions, inner products, compound indices, (4:1a) equation numbers; printed page 409 is PDF page 1"
+
+[[paper]]
+key = "zach-knoll-pock-2023"
+id = "doi:10.1109/tmi.2023.3311345"
+title = "Stable Deep MRI Reconstruction Using Generative Priors"
+url = "https://ieeexplore.ieee.org/ielx7/42/10336247/10237244.pdf"
+fetch = "auto"
+sha256 = "0eb43966c76a8c49b4a358f3f9693b142ba1d364c13553b480e1edcd9d742d77"
+bytes = 10939829
+pages = 16
+licence = "CC-BY-4.0"
+licence_source = "Crossref (version of record) and the PDF's own statement; arXiv:2210.13834 is also CC BY 4.0"
+roles = ["judged", "latex"]
+form = "born-digital"
+faces = "Times text (Nimbus Roman) with Computer Modern maths, Fraktur (EUFM), blackboard (MSBM) (pdffonts)"
+tests = "calligraphic and blackboard letters, gradients, integrals, parameter families; its CC BY LaTeX measures the judges' own accuracy"
+
+[[paper]]
+key = "blumenthal-2026"
+id = "doi:10.1002/mrm.70416"
+title = "Fast and Robust Diffusion Posterior Sampling for MR Image Reconstruction Using the Preconditioned Unadjusted Langevin Algorithm"
+url = "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/mrm.70416"
+fetch = "manual"  # Wiley and Europe PMC refuse scripted downloads (HTTP 403)
+sha256 = "5d2a7a4c1b597f0efed48ad5cc00fc3f349067cdd1ba9c4dac338b4a6384e7e8"
+bytes = 7457081
+pages = 10
+licence = "CC-BY-4.0"
+licence_source = "Crossref (version of record) and the PDF's own statement; PMC13327450"
+roles = ["judged", "jats"]
+form = "born-digital"
+faces = "STIX Two text and STIX maths, Wiley 2026 (pdffonts)"
+tests = "bold against non-bold vectors, Hermitian transposes, norms, conditional expectations, gradients of log-densities; JATS route against PDF route"
+
+[[paper]]
+key = "harris-kleefeld-2019"
+id = "doi:10.1088/1361-6420/ab08be"
+title = "Analysis of new direct sampling indicators for far-field measurements"
+url = "https://iopscience.iop.org/article/10.1088/1361-6420/ab08be/pdf"
+fetch = "manual"  # IOP sends scripts to a bot check
+sha256 = "610343b547e9ebce15c449987bb58adb269568a7b730c9c9b601f31053c11ad2"
+bytes = 3942117
+pages = 19
+licence = "CC-BY-3.0"
+licence_source = "Crossref (version of record) and the PDF's own statement (original content)"
+roles = ["judged"]
+form = "born-digital"
+faces = "Times text with Computer Modern and Euclid maths, IOP (pdffonts)"
+tests = "hats (the accent class), adjoint operators, fractional powers of operators, function spaces, big-O, Herglotz integrals"
+
+[[paper]]
+key = "smith-schmidt-mcgee-1962"
+id = "ntrs:19620006857"
+title = "Application of Statistical Filter Theory to the Optimal Estimation of Position and Velocity on Board a Circumlunar Vehicle"
+url = "https://ntrs.nasa.gov/api/citations/19620006857/downloads/19620006857.pdf"
+fetch = "auto"
+sha256 = "8a5cd05aef0811706ec082ac5423e482a831dbbecaeb98bfc1070cd1b88d8505"
+bytes = 3011598
+pages = 30
+licence = "public-domain"
+licence_source = "NTRS: public use permitted; NASA TR R-135, NASA Ames authors"
+roles = ["judged"]
+form = "scan"
+faces = "1962 government letterpress, two columns (by eye)"
+tests = "displayed matrices with subscripted entries, transition matrices and transposes, covariances"
+
+[[paper]]
+key = "blucker-1968"
+id = "ntrs:19700026383"
+title = "Verification of the Kalman filter equations used in the LM AGS"
+url = "https://ntrs.nasa.gov/api/citations/19700026383/downloads/19700026383.pdf"
+fetch = "auto"
+sha256 = "fa38f8d0d1e82104798f80dd5a65e0c304492981074b42b381679ee39bda719c"
+bytes = 1171534
+pages = 18
+licence = "public-domain"
+licence_source = "NTRS: public use permitted; NASA Manned Spacecraft Center memorandum, 1968"
+roles = ["judged"]
+form = "scan"
+faces = "typewriter with hand-drawn brackets, integrals and matrices (by eye)"
+tests = "typed Greek gamma beside Latin y, dot accents, half-line subscripts, hand-lettered symbols, a stained scan"
+
+[[paper]]
+key = "lucka-2016"
+id = "doi:10.1088/0266-5611/32/11/115019"
+title = "Fast Gibbs sampling for high-dimensional Bayesian inversion"
+url = "https://iopscience.iop.org/article/10.1088/0266-5611/32/11/115019/pdf"
+fetch = "manual"  # IOP sends scripts to a bot check
+sha256 = "2417b6406e7c1a448927315caf500c6a0d5a455b72af5cc729826734bf0158c7"
+bytes = 1983058
+pages = 26
+licence = "CC-BY-3.0"
+licence_source = "Crossref (version of record) and the PDF's own statement (original content)"
+roles = ["open"]
+form = "born-digital"
+faces = "Times text with Euclid maths, IOP (pdffonts)"
+tests = "Bayesian inversion: posteriors, proportionality, l1 priors, an algorithm block; for drafting results and assumptions"
+
+[[paper]]
+key = "hodge-1972"
+id = "ntrs:19720007908"
+title = "The calculation of the eigenvalues and eigenfunctions of Mathieu's equation"
+url = "https://ntrs.nasa.gov/api/citations/19720007908/downloads/19720007908.pdf"
+fetch = "auto"
+sha256 = "ac7373e93a3de8d1b633bef1710652df26ba81321407be3aa6834073c874ed8a"
+bytes = 438644
+pages = 17
+licence = "public-domain"
+licence_source = "NTRS: public use permitted; contractor report (Ohio State University), 1972"
+roles = ["reserve"]
+form = "scan"
+faces = "clean typewriter (by eye)"
+tests = "a second typewritten paper: typed sums with limits, fractions, superscript indices"

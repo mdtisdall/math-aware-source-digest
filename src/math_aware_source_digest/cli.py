@@ -50,6 +50,10 @@ def main(argv: Sequence[str] | None = None) -> int:
     flag.add_argument("out_dir", type=Path)
     flag.add_argument("--model", default="qwen3-vl:32b-instruct")
     flag.add_argument("--ollama", default="http://127.0.0.1:11434")
+    testdata = sub.add_parser("testdata", help="the pinned test papers: list, fetch, import")
+    testdata.add_argument("action", choices=["list", "fetch", "import"])
+    testdata.add_argument("files", nargs="*", type=Path)
+    testdata.add_argument("--list", type=Path, default=Path("testdata/papers.toml"))
     validate = sub.add_parser("validate", help="validate entry JSON files")
     validate.add_argument("files", nargs="+", type=Path)
     args = parser.parse_args(argv)
@@ -106,6 +110,34 @@ def main(argv: Sequence[str] | None = None) -> int:
         flagged = sum(1 for r in flagged_spans if r.flags)
         total = len(flagged_spans)
         print(f"{flagged} of {total} equations flagged; {args.out_dir / 'flags.json'}")
+        return 0
+    if args.command == "testdata":
+        from . import testdata as td
+
+        try:
+            papers = td.load(args.list)
+            if args.action == "list":
+                for paper in papers:
+                    where = paper.cached_path(cfg)
+                    print(
+                        f"{paper.key:28} {','.join(paper.roles):14} {paper.licence:13} "
+                        f"{paper.fetch:6} {'cached' if where else 'missing'}"
+                    )
+            elif args.action == "fetch":
+                status = 0
+                for paper in papers:
+                    try:
+                        print(f"{paper.key}: {td.fetch(paper, cfg)}")
+                    except (td.TestDataError, net.NetError) as ex:
+                        print(f"{paper.key}: {ex}", file=sys.stderr)
+                        status = 1
+                return status
+            else:
+                for path in args.files:
+                    print(f"{path}: {td.import_file(path, papers, cfg).key}")
+        except td.TestDataError as ex:
+            print(f"masd: {ex}", file=sys.stderr)
+            return 1
         return 0
     if args.command == "validate":
         status = 0

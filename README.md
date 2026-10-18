@@ -61,11 +61,13 @@ a PDF-to-LaTeX pipeline.
   (`(4:1a)`, `(3:8)`). 28 pages of page images with an invisible OCR layer.
   Printed page 409 is PDF page 1.
 
-Both are part of the judged set of the ground truth (plan section 6.1), with
-three born-digital CC BY journal articles (to be chosen). A typewritten report with hand-lettered
-symbols is still to be chosen. Other test sets vary the publisher, the math
-typeface (Times-like, Computer Modern, Cambria Math, ...) and the era, because
-look-alike swaps depend on glyph shapes and house styles.
+Both are part of the judged set of the ground truth (plan section 6.1). All
+test papers, with their URLs, SHA-256 hashes, licences and what each tests,
+are pinned in [testdata/papers.toml](testdata/papers.toml): scans from 1908
+to 1968 (letterpress and typewritten), and born-digital CC BY articles in
+IEEE, Wiley and IOP house styles. Other test sets vary the publisher, the
+math typeface and the era, because look-alike swaps depend on glyph shapes
+and house styles. `masd testdata fetch` downloads them and checks the hashes.
 
 ## Development
 
