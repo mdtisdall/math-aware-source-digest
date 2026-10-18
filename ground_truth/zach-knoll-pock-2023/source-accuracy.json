@@ -1,0 +1,48 @@
+{
+ "key": "zach-knoll-pock-2023",
+ "source_equations": 18,
+ "judges": {
+  "1": {
+   "summary": {
+    "same": 17,
+    "style": 0,
+    "strict": 0,
+    "missing": 0,
+    "drawn": 1
+   },
+   "differences": [
+    {
+     "number": 16,
+     "line": 640,
+     "source": "R_\\theta = U \\circ FC \\circ S_L \\circ S_{L-1} \\circ \\ldots \\circ S_2 \\circ S_1 \\circ \\crop,",
+     "judge": 1,
+     "found": true,
+     "judged": "R_{\\theta} = U \\circ FC \\circ S_{L} \\circ S_{L-1} \\circ \\ldots \\circ S_{2} \\circ S_{1} \\circ \\lrcorner_{\\cdot}",
+     "pdf_page": 6,
+     "level": "drawn"
+    }
+   ]
+  },
+  "2": {
+   "summary": {
+    "same": 17,
+    "style": 0,
+    "strict": 0,
+    "missing": 0,
+    "drawn": 1
+   },
+   "differences": [
+    {
+     "number": 16,
+     "line": 640,
+     "source": "R_\\theta = U \\circ FC \\circ S_L \\circ S_{L-1} \\circ \\ldots \\circ S_2 \\circ S_1 \\circ \\crop,",
+     "judge": 2,
+     "found": true,
+     "judged": "R_{\\theta} = U \\circ FC \\circ S_{L} \\circ S_{L-1} \\circ \\ldots \\circ S_{2} \\circ S_{1} \\circ \\boxdot_{\\cdot}",
+     "pdf_page": 6,
+     "level": "drawn"
+    }
+   ]
+  }
+ }
+}
