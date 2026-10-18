@@ -64,7 +64,7 @@ source-roots = ["src"]
 [tool.affected-tests.map]
 "testdata/papers.toml" = ["tests/test_testdata.py"]
 "testdata/papers/**" = ["tests/test_testdata.py"]
-"testdata/sources/**" = ["tests/test_testdata.py"]
+"testdata/sources/**" = ["tests/test_testdata.py", "tests/test_source_accuracy.py"]
 # The obedience scenarios are data for tests/test_obedience_harness.py.
 "tests/obedience/**" = ["tests/test_obedience_harness.py"]
 "skills/**" = []
