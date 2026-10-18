@@ -16,7 +16,7 @@ would confirm.
 
 | project | licence | fits | recommendation |
 |---|---|---|---|
-| PaperQA2 (`paper-qa` 2026.8.12) | Apache-2.0; its PyMuPDF reader is AGPL-3.0 | a dense passage index at page-range resolution; no equations, no sections, no labels | **build** our own small index; borrow ideas (MMR, a model-free sparse baseline); no dependency |
+| PaperQA2 (`paper-qa` 2026.8.12) | Apache-2.0; its PyMuPDF reader is AGPL-3.0 | a dense passage index at page-range resolution; no equations, no sections, no labels | **build** our own small index; borrow a model-free sparse baseline, and MMR only if candidates repeat; no dependency |
 | Approach0 (`search-engine`, `pya0`) | MIT (`pya0`: only a PyPI classifier) | an operator-tree LaTeX parser; ranking, not a symbol correspondence | **build** the matcher; read Approach0's MIT grammar as a reference; optional parse-rate comparison in step 2 |
 | Tangent-3 / Tangent-S | CC BY-NC 3.0 | consistent unification, SLT and OPT together | **ideas only** (the licence excludes the code) |
 | Tangent-CFT, Tangent-L | AGPL-3.0; not found | embedding or BM25 ranking only | not used |
@@ -95,11 +95,15 @@ to be overridden.
 
 **3. Retrieval without an answer.** Yes.
 `Docs.retrieve_texts(query, k, settings, embedding_model, partitioning_fn)`
-embeds the query and runs a maximal-marginal-relevance search over the
-chunks; it calls no language model and returns `list[Text]` **without
+embeds the query and runs a maximal-marginal-relevance (MMR) search over
+the chunks; it calls no language model and returns `list[Text]` **without
 scores** ([docs.py](https://raw.githubusercontent.com/Future-House/paper-qa/v2026.08.12/src/paperqa/docs.py)).
-With `texts_index_mmr_lambda` at its default of 1.0 this is plain similarity
-search (settings.py). `Docs.aadd_texts(texts, doc, ...)` takes chunks
+MMR picks results one at a time, each by its similarity to the query
+minus a penalty for its similarity to the results already picked, weighted
+by λ, so that the top results are not near-copies of each other
+([Carbonell and Goldstein, SIGIR 1998](https://doi.org/10.1145/290941.291025)).
+With `texts_index_mmr_lambda` at its default of 1.0 the penalty is zero and
+this is plain similarity search (settings.py). `Docs.aadd_texts(texts, doc, ...)` takes chunks
 already made, so our own discovery could supply the units (docs.py). The
 agent's full-text index (tantivy) matches whole documents, not passages
 ([agents/search.py](https://raw.githubusercontent.com/Future-House/paper-qa/v2026.08.12/src/paperqa/agents/search.py)).
@@ -196,11 +200,19 @@ Write the alignment index ourselves: one unit per item of discovery (a
 numbered result, a definition, a section's paragraphs), each with its page,
 section and label; embeddings from a small local model through
 sentence-transformers (a dependency we would need anyway); cosine similarity
-with scores; MMR if needed. Borrow two ideas: MMR, and a model-free sparse
+with scores. Borrow two ideas: MMR, and a model-free sparse
 embedding as a baseline (`lmi`'s `SparseEmbeddingModel`, hashed tokens
 ([embeddings.py](https://raw.githubusercontent.com/Future-House/ldp/main/packages/lmi/src/lmi/embeddings.py)))
 — in our case BM25 over the same units. Apache-2.0 allows copying a function
 with its notice if one is worth copying.
+
+MMR is a small gain for us. PaperQA2 needs it more, because its chunks
+overlap and the top hits can be one passage twice. Our units are the items
+of discovery (a theorem, a definition, a section), which barely overlap. MMR
+would matter only if alignment returns several candidate locations (open
+question c), to keep them distinct (a theorem and its restatement in a later
+section, rather than two pieces of one paragraph). It is a few lines; add it
+only if the alignment test of step 2 shows repeated candidates.
 
 Step 2 is only worth it as a baseline: does PaperQA2, configured fully
 local, find the right page more often than our units? It is optional
@@ -524,7 +536,8 @@ without network (a container with networking off, or a sandbox; the method
 to be chosen), which also tests that nothing tries to leave the machine.
 Query with the gate 1 numbered results (53 items with their locations),
 written as a caller would write them; measure how often the right page
-comes first, against a baseline of our own: the same embedding model on
+comes first, and how often the top candidates repeat one passage (the test
+for MMR), against a baseline of our own: the same embedding model on
 one unit per page from pypdfium2's text (already a dependency; discovery's
 units do not exist yet), and BM25, a few lines of our own code, on the same
 units.
