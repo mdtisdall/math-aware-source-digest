@@ -1,0 +1,545 @@
+{
+ "pages": [
+  {
+   "pdf_page": 1,
+   "printed_page": "",
+   "kind": "cover"
+  },
+  {
+   "pdf_page": 2,
+   "printed_page": "",
+   "kind": "cover"
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "",
+   "kind": "other"
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "iii",
+   "kind": "other"
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "2",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "3",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "4",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "5",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "6",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "7",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "8",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "9",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "10",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "11",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "12",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "13",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "14",
+   "kind": "article"
+  }
+ ],
+ "equations": [
+  {
+   "pdf_page": 6,
+   "printed_page": "2",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\int \\begin{bmatrix} r \\\\ \\dot{r} \\end{bmatrix}_{i-1} = \\begin{bmatrix} r \\\\ \\dot{r} \\end{bmatrix}_{i}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "2",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "\\begin{bmatrix} r \\\\ \\dot{r} \\end{bmatrix}_{i}^{+} = \\begin{bmatrix} r \\\\ \\dot{r} \\end{bmatrix}_{i} + K_{i} \\Delta\\gamma_{i}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "4",
+   "order_on_page": 1,
+   "number": "(1)",
+   "latex": "\\dot{r}_{i} = \\dot{r}_{o}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "4",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "\\begin{aligned} \\ddot{r} &= 0 \\\\ F_{CSM} &= F_{LM} \\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "4",
+   "order_on_page": 3,
+   "number": "(2)",
+   "latex": "r_{i} = r_{o} + \\dot{r}_{o} \\Delta t",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "4",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "\\begin{bmatrix} r \\\\ \\dot{r} \\end{bmatrix}_{i} = \\begin{bmatrix} I & \\Delta t I \\\\ 0 & I \\end{bmatrix} \\begin{bmatrix} r \\\\ \\dot{r} \\end{bmatrix}_{i-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "4",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "\\Omega = \\frac{\\partial \\, \\mathrm{STATE}_{i}}{\\partial \\, \\mathrm{STATE}_{i-1}} = \\begin{bmatrix} \\frac{\\partial r_{i}}{\\partial r_{o}} & \\frac{\\partial r_{i}}{\\partial \\dot{r}_{o}} \\\\ \\frac{\\partial \\dot{r}_{i}}{\\partial r_{o}} & \\frac{\\partial \\dot{r}_{i}}{\\partial \\dot{r}_{o}} \\end{bmatrix} = \\begin{bmatrix} I & \\Delta t I \\\\ 0 & I \\end{bmatrix}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "5",
+   "order_on_page": 1,
+   "number": "(3)",
+   "latex": "\\begin{bmatrix} \\delta r \\\\ \\delta \\dot{r} \\end{bmatrix}_{i} = \\begin{bmatrix} I & \\Delta t I \\\\ 0 & I \\end{bmatrix} \\begin{bmatrix} \\delta r \\\\ \\delta \\dot{r} \\end{bmatrix}_{i-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "5",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "\\begin{bmatrix} r \\\\ \\dot{r} \\end{bmatrix}_{i}^{+} = \\begin{bmatrix} r \\\\ \\dot{r} \\end{bmatrix}_{i} + K_{i} \\Delta R_{i}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "5",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "K_{i} = P_{i} M_{i}^{T} (M_{i} P_{i} M_{i}^{T} + \\alpha^{2})^{-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "5",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "P_{i} = \\begin{bmatrix} \\sigma_{rr} & \\sigma_{r\\dot{r}} \\\\ \\sigma_{\\dot{r}r} & \\sigma_{\\dot{r}\\dot{r}} \\end{bmatrix}_{i}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "5",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "E[\\Delta r, \\Delta \\dot{r}] = \\sigma_{r\\dot{r}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "5",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "E[\\Delta r, \\Delta \\dot{r}] = E[\\Delta \\dot{r}, \\Delta r]",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "5",
+   "order_on_page": 7,
+   "number": "",
+   "latex": "P_{i} = \\begin{bmatrix} P_{1,1} & P_{1,2} \\\\ P_{2,1} & P_{2,2} \\end{bmatrix}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "6",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\begin{aligned} P_{1,1} &= \\sigma_{rr} \\\\ P_{1,2} &= P_{2,1} = \\sigma_{r\\dot{r}} \\\\ P_{2,2} &= \\sigma_{\\dot{r}\\dot{r}} \\\\ M_{i} &= [1 \\quad 0] \\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "6",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "M_{i} = \\frac{\\partial \\text{ computed observation } (R_{ic})}{\\partial \\text{ computed state}_{i}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "6",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "\\begin{aligned} M_{i} &= \\begin{bmatrix} \\frac{\\partial R_{ic}}{\\partial r_{i}} & \\frac{\\partial R_{ic}}{\\partial \\dot{r}_{i}} \\end{bmatrix} \\\\ &= [1 \\quad 0] \\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "7",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\begin{aligned} P_{i} &= \\Omega P_{i-1} \\Omega^{T} \\\\ &= \\begin{bmatrix} I & \\Delta t I \\\\ 0 & I \\end{bmatrix} \\begin{bmatrix} P_{1,1} & P_{1,2} \\\\ P_{1,2} & P_{2,2} \\end{bmatrix} \\begin{bmatrix} I & 0 \\\\ \\Delta t I & I \\end{bmatrix} \\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "7",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "\\begin{bmatrix} P_{1,1} & P_{1,2} \\\\ P_{1,2} & P_{2,2} \\end{bmatrix} = \\begin{bmatrix} P_{1,1} + 2P_{1,2} \\Delta t + P_{2,2} (\\Delta t)^{2} & P_{1,2} + P_{2,2} \\Delta t \\\\ P_{1,2} + P_{2,2} \\Delta t & P_{2,2} \\end{bmatrix}_{i-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "7",
+   "order_on_page": 3,
+   "number": "(4)",
+   "latex": "P_{1,1} = P_{1,1} + 2P_{1,2} \\Delta t + P_{2,2} (\\Delta t)^{2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "7",
+   "order_on_page": 4,
+   "number": "(5)",
+   "latex": "P_{1,2} = P_{1,2} + P_{2,2} \\Delta t",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "7",
+   "order_on_page": 5,
+   "number": "(6)",
+   "latex": "P_{2,2} = P_{2,2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "7",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "\\Delta t = t_{i} - t_{i-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "7",
+   "order_on_page": 7,
+   "number": "(7)",
+   "latex": "\\left. \\begin{aligned} P_{1,1} &= P_{1,1} + 2P_{1,2} \\Delta t + P_{2,2} (\\Delta t)^{2} + K_{9}^{2} \\\\ P_{1,2} &= P_{1,2} + P_{2,2} \\Delta t \\\\ P_{2,2} &= P_{2,2} + K_{10}{}^{2} \\Delta t \\end{aligned} \\right\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "8",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\begin{aligned} K_{i} &= P_{i} M_{i}^{T} (M_{i} P_{i} M_{i}^{T} + \\alpha^{2})^{-1} \\\\ &= \\begin{bmatrix} P_{11} & P_{12} \\\\ P_{12} & P_{22} \\end{bmatrix} \\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix} \\left\\{ [1 \\quad 0] \\begin{bmatrix} P_{11} & P_{12} \\\\ P_{12} & P_{22} \\end{bmatrix} \\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix} + \\alpha^{2} \\right\\}^{-1} \\end{aligned}",
+   "uncertain": "type of the large left delimiter (brace vs parenthesis)"
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "8",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "K_{i} = \\begin{bmatrix} P_{11} \\\\ P_{12} \\end{bmatrix} \\begin{bmatrix} P_{11} + \\alpha^{2} \\end{bmatrix}^{-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "8",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "K_{i} = \\begin{bmatrix} \\frac{P_{11}}{P_{11} + \\alpha^{2}} \\\\ \\frac{P_{12}}{P_{11} + \\alpha^{2}} \\end{bmatrix}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "8",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "K_{i} = \\begin{bmatrix} \\frac{P_{11}}{\\sigma^{2}} \\\\ \\frac{P_{12}}{\\sigma^{2}} \\end{bmatrix}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "8",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "\\sigma^{2} = P_{11} + K_{3}^{3} R^{2} + K_{7}^{3}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "8",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "\\alpha^{2} = K_{3}^{3} R^{2} + K_{7}^{3}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "9",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\begin{bmatrix} r \\\\ r \\end{bmatrix}_{i}^{+} = \\begin{bmatrix} r \\\\ r \\end{bmatrix}_{i} + \\begin{bmatrix} W_{1} \\\\ W_{2} \\end{bmatrix} \\Delta R_{i}",
+   "uncertain": "lower entries printed as r without visible dots"
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "9",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "W_{1} = \\frac{P_{11}}{\\sigma^{2}} \\, , \\quad W_{2} = \\frac{P_{12}}{\\sigma^{2}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "9",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "\\Delta R = r_{ic} - R_{i} z_{i}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "9",
+   "order_on_page": 4,
+   "number": "(8)",
+   "latex": "r_{i}^{+} = r_{i} + W_{1} \\delta r_{i}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "9",
+   "order_on_page": 5,
+   "number": "(9)",
+   "latex": "\\dot{r}_{i}^{+} = \\dot{r}_{i} + W_{2} \\delta r_{i}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "9",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "r_{i+\\delta t}^{+} = r_{i}^{+} + \\delta t \\, \\dot{r}_{i}^{+}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "9",
+   "order_on_page": 7,
+   "number": "",
+   "latex": "\\begin{aligned} r_{i+\\delta t}^{+} &= r_{i} + W_{1} \\delta r_{i} + \\delta t (\\dot{r}_{i} + W_{2} \\delta r_{i}) \\\\ &= r_{i} + \\delta t \\dot{r}_{i} + (W_{1} + \\delta t W_{2}) \\delta r_{i} \\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "10",
+   "order_on_page": 1,
+   "number": "(10)",
+   "latex": "r_{i+\\delta t}^{+} = r_{i+\\delta t} + W_{1+\\delta t} \\delta r_{i}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "10",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "W_{1+\\delta t} = W_{1} + \\delta t W_{2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "10",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "\\dot{r}_{i}^{+} = \\dot{r}_{i} + W_{2} \\delta r_{i}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "10",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "P_{i}^{+} = [I - K_{i} M_{i}] P_{i}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "10",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "\\begin{aligned} P_{i}^{+} &= \\left\\{ \\begin{bmatrix} I & 0 \\\\ 0 & I \\end{bmatrix} - \\begin{bmatrix} W_{1} \\\\ W_{2} \\end{bmatrix} [I \\quad 0] \\right\\} P_{i} \\\\ &= \\left\\{ \\begin{bmatrix} I & 0 \\\\ 0 & I \\end{bmatrix} - \\begin{bmatrix} W_{1} & 0 \\\\ W_{2} & 0 \\end{bmatrix} \\right\\} P_{i} \\\\ &= \\begin{bmatrix} I - W_{1} & 0 \\\\ - W_{2} & I \\end{bmatrix} \\begin{bmatrix} P_{1,1} & P_{1,2} \\\\ P_{1,2} & P_{2,2} \\end{bmatrix}_{i} \\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "11",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\begin{bmatrix} P_{1,1} & P_{1,2} \\\\ P_{1,2} & P_{2,2} \\end{bmatrix}_{i}^{+} = \\begin{bmatrix} P_{1,1} - P_{1,1} W_{1} & P_{1,2} - P_{1,2} W_{1} \\\\ P_{1,2} - P_{1,1} W_{2} & P_{2,2} - P_{1,2} W_{2} \\end{bmatrix}_{i}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "11",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "\\begin{aligned} P_{1,2} - P_{1,2} W_{1} &= P_{1,2} - P_{1,1} \\left( \\frac{P_{1,2}}{\\sigma^{2}} \\right) \\\\ &= P_{1,2} - P_{1,2} \\left( \\frac{P_{1,1}}{\\sigma^{2}} \\right) \\\\ P_{1,2} - P_{1,2} W_{1} &= P_{1,2} - P_{1,2} W_{1} \\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "11",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "\\begin{aligned} P_{1,1}^{+} &= P_{1,1} (1 - W_{1}) \\\\ P_{1,2}^{+} &= P_{1,2} (1 - W_{1}) \\\\ P_{2,2}^{+} &= P_{2,2} - P_{1,2} W_{2} \\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "11",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "\\begin{bmatrix} r \\\\ \\dot{r} \\end{bmatrix}_{i}^{+} = \\begin{bmatrix} r \\\\ \\dot{r} \\end{bmatrix}_{i} + K_{i} \\Delta \\dot{R}_{i}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "12",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\frac{\\partial \\dot{R}_{ic}}{\\partial \\dot{r}_{i}} = 1",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "12",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "\\ddot{r}_{i} = 0",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "12",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "\\frac{\\partial \\dot{R}_{i}}{\\partial r_{i}} = 0",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "12",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "M_{i} = [0, 1]",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "12",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "\\begin{aligned} K_{i} &= P_{i} M_{i}^{T} (M_{i} P_{i} M_{i}^{T} + \\alpha^{2})^{-1} \\\\ &= \\begin{bmatrix} P_{1,1} & P_{1,2} \\\\ P_{1,2} & P_{2,2} \\end{bmatrix} \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} \\left\\{ [0 \\quad 1] \\begin{bmatrix} P_{1,1} & P_{1,2} \\\\ P_{1,2} & P_{2,2} \\end{bmatrix} \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} + \\alpha^{2} \\right\\}^{-1} \\end{aligned}",
+   "uncertain": "type of the large left delimiter (brace vs parenthesis)"
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "12",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "K_{i} = \\begin{bmatrix} \\frac{P_{1,2}}{P_{2,2} + \\alpha^{2}} \\\\ \\frac{P_{2,2}}{P_{2,2} + \\alpha^{2}} \\end{bmatrix}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "13",
+   "order_on_page": 1,
+   "number": "(12)",
+   "latex": "r_{i}^{+} = r_{i} + \\frac{P_{1,2}}{P_{2,2} + \\alpha^{2}} \\Delta \\dot{R}_{i}, \\; \\Delta \\dot{R}_{i} = \\left( |\\dot{r}_{ic}| - \\dot{R}_{i} \\right) z_{i}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "13",
+   "order_on_page": 2,
+   "number": "(13)",
+   "latex": "\\dot{r}_{i}^{+} = \\dot{r}_{i} + \\frac{P_{2,2}}{P_{2,2} + \\alpha^{2}} \\Delta \\dot{R}_{i}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "13",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "\\dot{r}_{i}^{+} = \\dot{r}_{i} + \\frac{P_{2,2}}{P_{2,2}} \\Delta \\dot{R}_{i}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "13",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "\\dot{r}_{i}^{+} = \\dot{r}_{i} + \\Delta \\dot{R}_{i}",
+   "uncertain": ""
+  }
+ ],
+ "items": []
+}

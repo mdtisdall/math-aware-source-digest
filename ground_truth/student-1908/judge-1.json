@@ -1,0 +1,832 @@
+{
+ "pages": [
+  {
+   "pdf_page": 1,
+   "printed_page": "",
+   "kind": "cover"
+  },
+  {
+   "pdf_page": 2,
+   "printed_page": "1",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "2",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "3",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "4",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "5",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "6",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "7",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "8",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "9",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "10",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "11",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "12",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "13",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "14",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "15",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "16",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "17",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 19,
+   "printed_page": "18",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 20,
+   "printed_page": "19",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "20",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "21",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 23,
+   "printed_page": "22",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "23",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 25,
+   "printed_page": "24",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 26,
+   "printed_page": "25",
+   "kind": "article"
+  }
+ ],
+ "equations": [
+  {
+   "pdf_page": 4,
+   "printed_page": "3",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "s^2=\\frac{S(x_1^2)}{n}-\\left(\\frac{S(x_1)}{n}\\right)^2=\\frac{S(x_1^2)}{n}-\\frac{S(x_1^2)}{n^2}-\\frac{2S(x_1x_2)}{n^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "3",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "\\bar{s}^2=\\frac{n\\mu_2}{n}-\\frac{n\\mu_2}{n^2}=\\frac{\\mu_2(n-1)}{n}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "3",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "M_1'=\\mu_2\\frac{(n-1)}{n}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "3",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "\\begin{aligned}s^4&=\\left\\{\\frac{S(x_1^2)}{n}-\\left(\\frac{S(x_1)}{n}\\right)^2\\right\\}^2\\\\&=\\left(\\frac{S(x_1^2)}{n}\\right)^2-\\frac{2S(x_1^2)}{n}\\left(\\frac{S(x_1)}{n}\\right)^2+\\left(\\frac{S(x_1)}{n}\\right)^4\\\\&=\\frac{S(x_1^4)}{n^2}+\\frac{2S(x_1^2x_2^2)}{n^2}-\\frac{2S(x_1^4)}{n^3}-\\frac{4S(x_1^2x_2^2)}{n^3}+\\frac{S(x_1^4)}{n^4}\\\\&\\quad+\\frac{6S(x_1^2x_2^2)}{n^4}+\\text{other terms involving odd powers of }x_1\\text{ etc., which will vanish on summation.}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "3",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "\\begin{aligned}M_2'&=\\frac{\\mu_4}{n}+\\mu_2^2\\frac{(n-1)}{n}-\\frac{2\\mu_4}{n^2}-2\\mu_2^2\\frac{(n-1)}{n^2}+\\frac{\\mu_4}{n^3}+3\\mu_2^2\\frac{(n-1)}{n^3}\\\\&=\\frac{\\mu_4}{n}\\{n^2-2n-1\\}+\\frac{\\mu_2^2}{n^3}(n-1)\\{n^2-2n+3\\}\\end{aligned}",
+   "uncertain": "denominator of mu_4 in second line (printed n)"
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "3",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "M_2'=\\mu_2^2\\frac{(n-1)}{n^3}\\{3n-3+n^2-2n+3\\}=\\mu_2^2\\frac{(n-1)(n+1)}{n^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "4",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "M_3'=\\mu_2^3\\frac{(n-1)(n+1)(n+3)}{n^3}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "4",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "M_4'=\\mu_2^4\\frac{(n-1)(n+1)(n+3)(n+5)}{n^4}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "4",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "M_2=\\mu_2^2\\frac{(n-1)}{n^2}\\{(n+1)-(n-1)\\}=2\\mu_2^2\\frac{(n-1)}{n^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "4",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "\\begin{aligned}M_3&=\\mu_2^3\\left\\{\\frac{(n-1)(n+1)(n+3)}{n^3}-\\frac{3(n-1)}{n}\\cdot\\frac{2(n-1)}{n^2}-\\frac{(n-1)^3}{n^3}\\right\\}\\\\&=\\mu_2^3\\frac{(n-1)}{n^3}\\{n^2+4n+3-6n+6-n^2+2n-1\\}=8\\mu_2^3\\frac{(n-1)}{n^3}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "4",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "\\begin{aligned}M_4&=\\frac{\\mu_2^4}{n^4}\\{(n-1)(n+1)(n+3)(n+5)-32(n-1)^2-12(n-1)^3-(n-1)^4\\}\\\\&=\\frac{\\mu_2^4(n-1)}{n^4}\\{n^3+9n^2+23n+15-32n+32-12n^2+24n-12-n^3+3n^2-3n+1\\}\\\\&=\\frac{12\\mu_2^4(n-1)(n+3)}{n^4}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "4",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "\\beta_1=\\frac{M_3^2}{M_2^3}=\\frac{8}{n-1},\\quad\\beta_2=\\frac{M_4}{M_2^2}=\\frac{3(n+3)}{n-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "4",
+   "order_on_page": 7,
+   "number": "",
+   "latex": "\\therefore\\ 2\\beta_2-3\\beta_1-6=\\frac{1}{n-1}\\{6(n+3)-24-6(n-1)\\}=0",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "4",
+   "order_on_page": 8,
+   "number": "",
+   "latex": "y=Cx^pe^{-\\gamma x}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "4",
+   "order_on_page": 9,
+   "number": "",
+   "latex": "\\gamma=2\\frac{M_2}{M_3}=\\frac{4\\mu_2^2(n-1)n^3}{8n^2\\mu_2^3(n-1)}=\\frac{n}{2\\mu_2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "4",
+   "order_on_page": 10,
+   "number": "",
+   "latex": "p=\\frac{4}{\\beta_1}-1=\\frac{n-1}{2}-1=\\frac{n-3}{2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "4",
+   "order_on_page": 11,
+   "number": "",
+   "latex": "y=Cx^{\\frac{n-3}{2}}e^{-\\frac{nx}{2\\mu_2}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "5",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\frac{C\\int_0^\\infty x^{\\frac{n-1}{2}}e^{-\\frac{nx}{2\\mu_2}}dx}{I}=\\frac{C\\left[-\\frac{2\\mu_2}{n}x^{\\frac{n-1}{2}}e^{-\\frac{nx}{2\\mu_2}}\\right]_{x=0}^{x=\\infty}}{I}+\\frac{C\\int_0^\\infty\\frac{n-1}{n}\\mu_2x^{\\frac{n-3}{2}}e^{-\\frac{nx}{2\\mu_2}}dx}{I}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "5",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "\\frac{\\frac{n-1}{n}\\mu_2I}{I}=\\frac{n-1}{n}\\mu_2",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "5",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "y_1=\\phi(s^2)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "5",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "y_2=\\psi(s)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "5",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "\\begin{aligned}y_1d(s^2)&=y_2ds,\\\\y_2ds&=2y_1sds,\\\\\\therefore\\ y_2&=2sy_1\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "5",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "y_2=2Cs(s^2)^{\\frac{n-3}{2}}e^{-\\frac{ns^2}{2\\mu_2}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "5",
+   "order_on_page": 7,
+   "number": "",
+   "latex": "y_2=2Cs^{n-2}e^{-\\frac{ns^2}{2\\mu_2}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "5",
+   "order_on_page": 8,
+   "number": "",
+   "latex": "\\text{Area}=A\\int_0^\\infty x^{n-2}e^{-\\frac{nx^2}{2\\sigma^2}}dx.\\quad\\left(\\text{Let }I_p\\text{ represent }\\int_0^\\infty x^pe^{-\\frac{nx^2}{2\\sigma^2}}dx.\\right)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "5",
+   "order_on_page": 9,
+   "number": "",
+   "latex": "\\begin{aligned}I_p&=\\frac{\\sigma^2}{n}\\int_0^\\infty x^{p-1}\\frac{d}{dx}\\left(-e^{-\\frac{nx^2}{2\\sigma^2}}\\right)dx\\\\&=\\frac{\\sigma^2}{n}\\left[-x^{p-1}e^{-\\frac{nx^2}{2\\sigma^2}}\\right]_{x=0}^{x=\\infty}+\\frac{\\sigma^2}{n}(p-1)\\int_0^\\infty x^{p-2}e^{-\\frac{nx^2}{2\\sigma^2}}dx\\\\&=\\frac{\\sigma^2}{n}(p-1)I_{p-2}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "6",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\begin{aligned}I_{n-2}&=\\left(\\frac{\\sigma^2}{n}\\right)^{\\frac{n-2}{2}}(n-3)(n-5)\\dots3\\cdot1\\,I_0\\\\\\text{or}\\quad&=\\left(\\frac{\\sigma^2}{n}\\right)^{\\frac{n-3}{2}}(n-3)(n-5)\\dots4\\cdot2\\,I_1\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "6",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "\\int_0^\\infty e^{-\\frac{nx^2}{2\\sigma^2}}dx=\\sqrt{\\frac{\\pi}{2n}}\\sigma",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "6",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "\\int_0^\\infty xe^{-\\frac{nx^2}{2\\sigma^2}}dx=\\left[-\\frac{\\sigma^2}{n}e^{-\\frac{nx^2}{2\\sigma^2}}\\right]_{x=0}^{x=\\infty}=\\frac{\\sigma^2}{n}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "6",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "A=\\frac{\\text{Area}}{(n-3)(n-5)\\dots3\\cdot1\\sqrt{\\frac{\\pi}{2}}\\left(\\frac{\\sigma^2}{n}\\right)^{\\frac{n-1}{2}}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "6",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "A=\\frac{\\text{Area}}{(n-3)(n-5)\\dots4\\cdot2\\left(\\frac{\\sigma^2}{n}\\right)^{\\frac{n-1}{2}}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "6",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "y=\\frac{N}{(n-3)(n-5)\\dots3\\cdot1}\\sqrt{\\frac{2}{\\pi}}\\left(\\frac{n}{\\sigma^2}\\right)^{\\frac{n-1}{2}}x^{n-2}e^{-\\frac{nx^2}{2\\sigma^2}}(n\\text{ even})",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "6",
+   "order_on_page": 7,
+   "number": "",
+   "latex": "y=\\frac{N}{(n-3)(n-5)\\dots4\\cdot2}\\left(\\frac{n}{\\sigma^2}\\right)^{\\frac{n-1}{2}}x^{n-2}e^{-\\frac{nx^2}{2\\sigma^2}}(n\\text{ odd})",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "6",
+   "order_on_page": 8,
+   "number": "",
+   "latex": "u^2=\\left(\\frac{S(x_1)}{n}\\right)^2\\text{ and }s^2=\\frac{S(x_1^2)}{n}-\\left(\\frac{S(x_1)}{n}\\right)^2",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "7",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\begin{aligned}u^2s^2&=\\frac{S(x_1^2)}{n}\\left(\\frac{S(x_1)}{n}\\right)^2-\\left(\\frac{S(x_1)}{n}\\right)^4\\\\&=\\left(\\frac{S(x_1^2)}{n}\\right)^2+2\\frac{S(x_1x_2)\\cdot S(x_1^2)}{n^3}-\\frac{S(x_1^4)}{n^4}\\\\&\\quad-\\frac{6x_1^2x_2^2}{n^4}-\\text{other terms of odd order which will vanish on summation.}\\end{aligned}",
+   "uncertain": "exponent/denominator of first term on second line"
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "7",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "R_{u^2s^2}\\sigma_{u^2}\\sigma_{s^2}+m_1M_1=\\frac{\\mu_4}{n^2}+\\mu_2^2\\frac{(n-1)}{n^2}-\\frac{\\mu_4}{n^3}-3\\mu_2^2\\frac{(n-1)}{n^3}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "7",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "R_{u^2s^2}\\sigma_{u^2}\\sigma_{s^2}+\\mu_2^2\\frac{(n-1)}{n^2}=\\mu_2^2\\frac{(n-1)}{n^3}\\{3+n-3\\}=\\mu_2^2\\frac{(n-1)}{n^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "7",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "y=\\frac{\\sqrt{n}N}{\\sqrt{2\\pi}\\sigma}e^{-\\frac{nx^2}{2\\sigma^2}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "7",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "\\begin{aligned}y_1dx&=y_2dz=y_2\\frac{dx}{s},\\\\\\therefore\\ y_2&=sy_1\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "8",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "y=\\frac{N\\sqrt{n}s}{\\sqrt{2\\pi}\\sigma}e^{-\\frac{ns^2z^2}{2\\sigma^2}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "8",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "\\frac{\\int_s^{s+ds}\\frac{C}{\\sigma^{n-1}}s^{n-2}e^{-\\frac{ns^2}{2\\sigma^2}}ds}{\\int_0^\\infty\\frac{C}{\\sigma^{n-1}}s^{n-2}e^{-\\frac{ns^2}{2\\sigma^2}}ds}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "8",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "y=\\frac{\\int_s^{s+ds}\\frac{C}{\\sigma^n}\\sqrt{\\frac{n}{2\\pi}}s^{n-1}e^{-\\frac{ns^2(1+z^2)}{2\\sigma^2}}ds}{\\int_0^\\infty\\frac{C}{\\sigma^{n-1}}s^{n-2}e^{-\\frac{ns^2}{2\\sigma^2}}ds}=\\frac{\\sqrt{\\frac{n}{2\\pi}}\\int_s^{s+ds}s^{n-1}e^{-\\frac{ns^2(1+z^2)}{2\\sigma^2}}ds}{\\sigma\\int_0^\\infty s^{n-2}e^{-\\frac{ns^2}{2\\sigma^2}}ds}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "8",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "y=\\frac{\\sqrt{\\frac{n}{2\\pi}}}{\\sigma}\\frac{\\int_0^\\infty s^{n-1}e^{-\\frac{ns^2(1+z^2)}{2\\sigma^2}}ds}{\\int_0^\\infty s^{n-2}e^{-\\frac{ns^2}{2\\sigma^2}}ds}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "8",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "y=\\frac{1}{2}\\frac{n-2}{n-3}\\cdot\\frac{n-4}{n-5}\\dots\\frac{5}{4}\\cdot\\frac{3}{2}(1+z^2)^{-\\frac{n}{2}}\\text{ if }n\\text{ be odd}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "8",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "y=\\frac{1}{\\pi}\\frac{n-2}{n-3}\\cdot\\frac{n-4}{n-5}\\dots\\frac{4}{3}\\cdot\\frac{2}{1}(1+z^2)^{-\\frac{n}{2}}\\text{ if }n\\text{ be even}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "8",
+   "order_on_page": 7,
+   "number": "",
+   "latex": "\\frac{(n-2)(n-4)}{(n-3)(n-5)}\\dots\\frac{2}{1}\\sqrt{\\frac{2}{\\pi}}\\frac{\\sigma}{\\sqrt{n}}\\text{ (if }n\\text{ be even)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "8",
+   "order_on_page": 8,
+   "number": "",
+   "latex": "\\frac{(n-2)(n-4)}{(n-3)(n-5)}\\dots\\frac{3}{2}\\sqrt{\\frac{\\pi}{2}}\\frac{\\sigma}{\\sqrt{n}}\\text{ (if }n\\text{ be odd)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "9",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\frac{I_n}{I_{n-2}}=\\frac{(n-1)\\sigma^2}{n}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "9",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "\\begin{aligned}\\frac{I_{n+1}}{I_{n-2}}&=\\frac{I_{n+1}}{I_{n-1}}\\cdot\\frac{I_{n-1}}{I_{n-2}}\\\\&=\\sigma^2\\times\\text{the mean}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "9",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "\\frac{I_{n+2}}{I_{n-2}}=\\frac{(n-1)(n+1)}{n^2}\\sigma^4",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "9",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "\\nu_1=\\frac{D\\sigma}{\\sqrt{n}},\\quad\\nu_2=\\frac{n-1}{n}\\sigma^2,\\quad\\nu_3=\\frac{D\\sigma^3}{\\sqrt{n}},\\quad\\nu_4=\\frac{n^2-1}{n^2}\\sigma^4",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "9",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "\\begin{aligned}\\mu_2&=\\frac{\\sigma^2}{n}(n-1-D^2),\\\\\\mu_3&=\\frac{\\sigma^3}{n\\sqrt{n}}\\{nD-3(n-1)D+2D^3\\}=\\frac{\\sigma^3D}{n\\sqrt{n}}\\{2D^2-2n+3\\},\\\\\\mu_4&=\\frac{\\sigma^2}{n^2}\\{n^2-1-4D^2n+6(n-1)D^2-3D^4\\}=\\frac{\\sigma^4}{n^2}\\{n^2-1-D^2(3D^2-2n+6)\\}\\end{aligned}",
+   "uncertain": "exponent of first sigma in mu_4 line"
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "9",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "\\frac{\\pi}{2}(2n+1)=\\frac{2^2\\cdot4^2\\cdot6^2\\dots(2n)^2}{1^2\\cdot3^2\\cdot5^2\\dots(2n-1)^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "9",
+   "order_on_page": 7,
+   "number": "",
+   "latex": "\\frac{\\pi}{2}\\left(2n+\\frac{1}{2}+\\frac{1}{16n}\\right)=\\frac{2^2\\cdot4^2\\cdot6^2\\dots(2n)^2}{1^2\\cdot3^2\\cdot5^2\\dots(2n-1)^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "10",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\mu_2=\\frac{\\sigma^2}{2n}\\left(1-\\frac{1}{4n}\\right),\\quad\\mu_3=\\frac{\\sigma^3\\sqrt{1-\\frac{3}{2n}+\\frac{1}{16n^2}}}{4n^2},\\quad\\mu_4=\\frac{3\\sigma^4}{4n^2}\\left(1+\\frac{1}{2n}-\\frac{1}{16n^2}\\right)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "10",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "\\beta_1=\\frac{2n-3}{n(4n-3)},\\quad\\beta_2=3\\left(1-\\frac{1}{2n}\\right)\\left(1+\\frac{1}{2n}\\right)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "10",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "\\text{Equation }y=\\frac{N}{7\\cdot5\\cdot3}\\frac{10^{\\frac{9}{2}}}{\\sigma^9}\\sqrt{\\frac{2}{\\pi}}x^8e^{-\\frac{10x^2}{2\\sigma^2}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "10",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "y=\\frac{N10^{\\frac{9}{2}}}{7\\cdot5\\cdot3}\\sqrt{\\frac{2}{\\pi}}\\frac{x^8}{\\sigma^9}e^{-\\frac{10x^2}{2\\sigma^2}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "10",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "y=\\frac{n-2}{n-3}\\cdot\\frac{n-4}{n-5}\\dots\\left(\\begin{matrix}\\frac{4}{3}\\cdot\\frac{2}{\\pi}\\textit{ if }n\\textit{ be even}\\\\\\frac{5}{4}\\cdot\\frac{3}{2}\\textit{ if }n\\textit{ be odd}\\end{matrix}\\right)(1+z^2)^{-\\frac{n}{2}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "11",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\begin{aligned}&\\frac{n-2}{n-3}\\cdot\\frac{n-4}{n-5}\\dots\\text{etc.}\\times\\int\\cos^{n-2}\\theta d\\theta\\\\&=\\frac{n-2}{n-3}\\cdot\\frac{n-4}{n-5}\\dots\\text{etc.}\\left\\{\\frac{n-3}{n-2}\\int\\cos^{n-4}\\theta d\\theta+\\left[\\frac{\\cos^{n-3}\\theta\\sin\\theta}{n-2}\\right]\\right\\}\\\\&=\\frac{n-4}{n-5}\\cdot\\frac{n-6}{n-7}\\dots\\text{etc.}\\int\\cos^{n-4}\\theta d\\theta+\\frac{1}{n-3}\\cdot\\frac{n-4}{n-5}\\dots\\text{etc.}\\,[\\cos^{n-3}\\theta\\sin\\theta]\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "11",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "\\begin{aligned}\\text{area}&=\\frac{6}{5}\\cdot\\frac{4}{3}\\cdot\\frac{2}{1}\\cdot\\frac{1}{\\pi}\\int_0^\\theta\\cos^6\\theta d\\theta\\\\&=\\frac{4}{3}\\cdot\\frac{2}{\\pi}\\cdot\\int_0^\\theta\\cos^4\\theta d\\theta+\\frac{1}{5}\\cdot\\frac{4}{3}\\cdot\\frac{2}{\\pi}\\cos^5\\theta\\sin\\theta\\\\&=\\frac{\\theta}{\\pi}+\\frac{1}{\\pi}\\cos\\theta\\sin\\theta+\\frac{1}{3}\\cdot\\frac{2}{\\pi}\\cos^3\\theta\\sin\\theta+\\frac{1}{5}\\cdot\\frac{4}{3}\\cdot\\frac{2}{\\pi}\\cos\\theta\\sin\\theta\\end{aligned}",
+   "uncertain": "possible missing exponent on last cos"
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "11",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "\\left(\\text{or }\\theta=-\\frac{\\pi}{2}\\text{ and }\\theta=\\tan^{-1}z\\right)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "11",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "\\frac{n-2}{n-3}\\cdot\\frac{n-4}{n-5}\\dots\\text{etc.}\\times\\int_{-\\frac{\\pi}{2}}^{+\\frac{\\pi}{2}}\\cos^{n-2}\\theta d\\theta",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "11",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "\\begin{aligned}&\\frac{n-2}{n-3}\\cdot\\frac{n-4}{n-5}\\dots\\text{etc.}\\times\\int_{-\\frac{\\pi}{2}}^{+\\frac{\\pi}{2}}\\cos^{n-2}\\theta\\tan^2\\theta d\\theta\\\\&=\\frac{n-2}{n-3}\\cdot\\frac{n-4}{n-5}\\dots\\text{etc.}\\times\\int_{-\\frac{\\pi}{2}}^{+\\frac{\\pi}{2}}(\\cos^{n-4}\\theta-\\cos^{n-2}\\theta)d\\theta\\\\&=\\frac{n-2}{n-3}-1=\\frac{1}{n-3}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "12",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\begin{aligned}&\\frac{n-2}{n-3}\\cdot\\frac{n-4}{n-5}\\dots\\text{etc.}\\times\\int_{-\\frac{\\pi}{2}}^{+\\frac{\\pi}{2}}\\cos^{n-2}\\theta\\tan^4\\theta d\\theta\\\\&=\\frac{n-2}{n-3}\\cdot\\frac{n-4}{n-5}\\dots\\text{etc.}\\times\\int_{-\\frac{\\pi}{2}}^{+\\frac{\\pi}{2}}(\\cos^{n-6}\\theta-2\\cos^{n-4}\\theta+\\cos^{n-2}\\theta)d\\theta\\\\&=\\frac{n-2}{n-3}\\cdot\\frac{n-4}{n-5}-\\frac{2(n-2)}{n-3}+1=\\frac{3}{(n-3)(n-5)}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "12",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "\\beta_1=0,\\quad\\beta_2=\\frac{3(n-3)}{n-5}=3+\\frac{2}{n-5}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "12",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "y=\\frac{N}{S}\\times\\frac{8}{7}\\cdot\\frac{6}{5}\\cdot\\frac{4}{3}\\cdot\\frac{2}{\\pi}\\cos^{10}\\theta,\\quad x/s=\\tan\\theta",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "12",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "y=\\frac{\\sqrt{7}\\cdot N}{\\sqrt{2\\pi}\\cdot s}e^{-\\frac{7x^2}{2s^2}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "13",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\frac{1}{\\pi}\\int_{-\\frac{\\pi}{2}}^{+\\frac{\\pi}{2}}\\tan^2\\theta d\\theta=\\frac{1}{\\pi}\\left[\\tan\\theta-\\theta\\right]_{-\\frac{\\pi}{2}}^{\\frac{\\pi}{2}}=\\infty",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "15",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "y=\\frac{16\\times750}{\\sqrt{2\\pi}\\sigma^3}x^2e^{-\\frac{2x^2}{\\sigma^2}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "16",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "y=\\frac{2}{\\pi}\\cos^4\\theta,\\quad z=\\tan\\theta",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "17",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "y=\\frac{1500}{\\pi}\\left(1+\\frac{x^2}{s^2}\\right)^{-2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 19,
+   "printed_page": "18",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "y=\\frac{16\\times750}{\\sqrt{2\\pi}\\sigma^3}x^2e^{-\\frac{2x^2}{\\sigma^2}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 19,
+   "printed_page": "18",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "y=\\frac{2}{\\pi}\\cos^4\\theta,\\quad z=\\tan\\theta",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 20,
+   "printed_page": "19",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\frac{n-2}{n-3}\\,\\frac{n-4}{n-5}\\dots\\left(\\begin{matrix}\\frac{3}{2}\\cdot\\frac{1}{2}\\,n\\text{ odd}\\\\\\frac{2}{1}\\cdot\\frac{1}{\\pi}\\,n\\text{ even}\\end{matrix}\\right)\\int_{-\\frac{\\pi}{2}}^{\\tan^{-1}z}\\cos^{n-2}\\theta\\,d\\theta",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 23,
+   "printed_page": "22",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "z={\\cdot}88",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "23",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "p=\\frac{\\tan^{-1}11}{180^\\circ}+{\\cdot}5=\\frac{84^\\circ\\,47'}{180^\\circ}+{\\cdot}5={\\cdot}971",
+   "uncertain": ""
+  }
+ ],
+ "items": [
+  {
+   "kind": "section",
+   "label": "Section I",
+   "pdf_page": 4,
+   "printed_page": "3"
+  },
+  {
+   "kind": "section",
+   "label": "Section II",
+   "pdf_page": 7,
+   "printed_page": "6"
+  },
+  {
+   "kind": "section",
+   "label": "Section III",
+   "pdf_page": 8,
+   "printed_page": "7"
+  },
+  {
+   "kind": "section",
+   "label": "Section IV",
+   "pdf_page": 9,
+   "printed_page": "8"
+  },
+  {
+   "kind": "section",
+   "label": "Section V",
+   "pdf_page": 11,
+   "printed_page": "10"
+  },
+  {
+   "kind": "section",
+   "label": "Section VI",
+   "pdf_page": 14,
+   "printed_page": "13"
+  },
+  {
+   "kind": "section",
+   "label": "Section VII",
+   "pdf_page": 20,
+   "printed_page": "19"
+  },
+  {
+   "kind": "section",
+   "label": "Section VIII",
+   "pdf_page": 21,
+   "printed_page": "20"
+  },
+  {
+   "kind": "section",
+   "label": "Section IX",
+   "pdf_page": 21,
+   "printed_page": "20"
+  },
+  {
+   "kind": "example",
+   "label": "Illustration I",
+   "pdf_page": 21,
+   "printed_page": "20"
+  },
+  {
+   "kind": "example",
+   "label": "Illustration II",
+   "pdf_page": 22,
+   "printed_page": "21"
+  },
+  {
+   "kind": "example",
+   "label": "Illustration III",
+   "pdf_page": 24,
+   "printed_page": "23"
+  },
+  {
+   "kind": "section",
+   "label": "Section X",
+   "pdf_page": 26,
+   "printed_page": "25"
+  }
+ ]
+}
