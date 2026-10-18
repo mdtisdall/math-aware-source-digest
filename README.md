@@ -53,11 +53,14 @@ responsibility on the person who sends it:
   publishers have their own rules.
 
 So whether a paper may be sent to a cloud model depends on each paper's
-licence, which is rarely quick to check. This skill avoids the question: the
-paper is read on the reader's own machine, and only what a project needs (a
-summary, indexes, and short verified excerpts on request) reaches Claude. It
-is not legal advice; for a specific paper, the licence and the reader's
-library decide.
+licence, which is rarely quick to check. This project avoids the question:
+the paper is read on the reader's own machine. The caller (a person, or a
+cloud model working from its memory of the literature) brings its own account
+of the paper, and only that account comes back, refined: where each
+statement is in the paper, whether it matches, the correspondence between
+the caller's notation and the paper's, and small corrections. The paper's
+text is never sent. It is not legal advice; for a specific paper, the licence
+and the reader's library decide.
 
 ## Example and test papers
 
