@@ -7,17 +7,20 @@ Two levels, as the plan defines them:
 - **style:** only the style differs (bold, calligraphic, blackboard,
   upright against italic).
 
-This module compares normalized token sequences. It is a fast first check;
-CDM (which renders both and matches characters) is the reference and needs
-TeX Live and ImageMagick, which are not in the default devShell:
-:func:`cdm_available` reports whether it can run.
+This is the first of the two stages of plan section 5, step 3. It converts
+both readings into a narrow LaTeX, in which notation that means the same is
+written one way (spacing, sizing, display environments, delimiters of
+matrices, primes, ``:=``, the order of a subscript and a superscript), and
+compares the tokens. Equal tokens are equivalent; the pairs it does not settle
+go to the second stage, a local model that judges meaning in context. Each
+rule of the narrow LaTeX must never merge two readings that a mathematical
+reader would tell apart, and has a test.
 """
 
 from __future__ import annotations
 
 import html
 import re
-import shutil
 from dataclasses import dataclass
 from typing import Literal
 
@@ -132,12 +135,35 @@ _EQUATION_NUMBER = re.compile(
 )
 
 
+# A matrix environment prints its delimiters; write them as \left...\right does.
+_MATRIX_DELIMITERS = {
+    "pmatrix": ("(", ")"),
+    "bmatrix": ("[", "]"),
+    "Bmatrix": ("\\{", "\\}"),
+    "vmatrix": ("|", "|"),
+    "Vmatrix": ("\\|", "\\|"),
+    "cases": ("\\{", ""),
+    "matrix": ("", ""),
+    "smallmatrix": ("", ""),
+    "array": ("", ""),
+}
+_MATRIX = re.compile(r"\\(begin|end)\{(" + "|".join(_MATRIX_DELIMITERS) + r")\*?\}")
+_ARRAY_COLUMNS = re.compile(r"\\begin\{array\}\{[^}]*\}")
+
+
+def _matrix_delimiters(m: re.Match[str]) -> str:
+    left, right = _MATRIX_DELIMITERS[m.group(2)]
+    return f" {left} " if m.group(1) == "begin" else f" {right} "
+
+
 def clean(latex: str) -> str:
     """Remove what does not change the mathematics: HTML entities (Marker writes
     ``&gt;``), display environments, alignment marks, line breaks and a trailing
     equation number such as ``[3]``, ``(3)`` or ``\\tag{3}``."""
     text = html.unescape(latex)
     text = _ENVIRONMENT.sub(" ", text)
+    text = _ARRAY_COLUMNS.sub(r"\\begin{array}", text)
+    text = _MATRIX.sub(_matrix_delimiters, text)
     text = re.sub(r"\\\\(?:\[[^\]]*\])?", " ", text)  # \\ line breaks
     text = re.sub(r"(?<!\\)&", " ", text)  # alignment marks
     previous = None
@@ -147,9 +173,68 @@ def clean(latex: str) -> str:
     return text
 
 
+# Commands that print the same symbols as a sequence of other tokens.
+EXPANSIONS = {
+    "coloneqq": (":", "="),
+    "coloneq": (":", "="),
+    "eqqcolon": ("=", ":"),
+    "eqcolon": ("=", ":"),
+    "llbracket": ("[", "["),
+    "rrbracket": ("]", "]"),
+}
+
+
+def _group_end(toks: list[str], i: int) -> int:
+    """The index after the script argument that starts at toks[i]: a brace
+    group, a command with its brace group (``\\mathrm{T}``), or one token."""
+    if i >= len(toks):
+        return i
+    if toks[i] == "{":
+        depth = 0
+        for j in range(i, len(toks)):
+            depth += {"{": 1, "}": -1}.get(toks[j], 0)
+            if depth == 0:
+                return j + 1
+        return len(toks)
+    if toks[i].startswith("\\") and i + 1 < len(toks) and toks[i + 1] == "{":
+        return _group_end(toks, i + 1)
+    return i + 1
+
+
+def _canonical(toks: list[str]) -> list[str]:
+    """Write the same notation one way: ``x'`` as ``x^{\\prime}``, the commands
+    of EXPANSIONS as their tokens, and a subscript before a superscript
+    (``x^2_i`` as ``x_i^2``)."""
+    out: list[str] = []
+    i = 0
+    while i < len(toks):
+        tok = toks[i]
+        if tok == "'":
+            primes = 0
+            while i < len(toks) and toks[i] == "'":
+                primes += 1
+                i += 1
+            out += ["^", "{", *["\\prime"] * primes, "}"]
+            continue
+        if tok.startswith("\\") and tok[1:] in EXPANSIONS:
+            out += EXPANSIONS[tok[1:]]
+        else:
+            out.append(tok)
+        i += 1
+    i = 0
+    while i < len(out):
+        if out[i] == "^":
+            sup_end = _group_end(out, i + 1)
+            if sup_end < len(out) and out[sup_end] == "_":
+                sub_end = _group_end(out, sup_end + 1)
+                out[i:sub_end] = out[sup_end:sub_end] + out[i:sup_end]
+        i += 1
+    return out
+
+
 def _normalize(latex: str, keep_style: bool) -> tuple[str, ...]:
     out: list[str] = []
-    toks = tokens(clean(latex))
+    toks = _canonical(tokens(clean(latex)))
     i = 0
     while i < len(toks):
         tok = toks[i]
@@ -165,7 +250,8 @@ def _normalize(latex: str, keep_style: bool) -> tuple[str, ...]:
             i += 1
             continue
         if name in SIZING:
-            i += 1
+            # \left. and \right. print no delimiter.
+            i += 2 if name in ("left", "right") and toks[i + 1 : i + 2] == ["."] else 1
             continue
         if name in STYLE_COMMANDS:
             if keep_style:
@@ -235,14 +321,3 @@ def _style_signature(latex: str) -> tuple[tuple[str, str], ...]:
             elif j < len(toks):
                 styled.append((tok, toks[j]))
     return tuple(sorted(styled))
-
-
-def cdm_available() -> tuple[bool, str]:
-    """Whether CDM can run here (it needs pdflatex and ImageMagick)."""
-    missing = [tool for tool in ("pdflatex", "magick") if shutil.which(tool) is None]
-    if missing:
-        return False, (
-            f"CDM needs {', '.join(missing)}: run it in its own nix shell "
-            "(TeX Live and ImageMagick are not in the default devShell)"
-        )
-    return True, ""
