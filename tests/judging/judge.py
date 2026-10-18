@@ -25,6 +25,7 @@ import base64
 import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -42,6 +43,9 @@ PAGE_DPI = 150
 PROMPT_VERSION = "1"
 # US$ per million tokens for MODEL (input, output, cache write, cache read); batches: half.
 PRICES = {"input": 4.00, "output": 20.00, "cache_write": 5.00, "cache_read": 0.20}
+# Expected output (thinking included) per page, from the first judge (Blumenthal 2026:
+# 4998 tokens for 10 pages), doubled for papers denser in equations.
+OUTPUT_TOKENS_PER_PAGE = 1000
 
 SYSTEM = """You transcribe the mathematics of a scientific paper from its page images, to build a \
 ground truth against which PDF converters and transcription models are scored. Accuracy on every \
@@ -348,24 +352,83 @@ def run_single(key: str, judge: int) -> dict[str, Any]:
     return save(key, judge, request_record(key, judge, pages, "single"), raw, batch=False)
 
 
-def submit_batch(keys: list[str], judges: list[int]) -> str:
+SEPARATOR = "__judge-"  # a batch custom_id allows only letters, digits, "_" and "-"
+
+
+def batch_id_for(key: str, judge: int) -> str:
+    custom_id = f"{key}{SEPARATOR}{judge}"
+    if not re.fullmatch(r"[a-zA-Z0-9_-]{1,64}", custom_id):
+        raise JudgeError(f"not a valid batch custom_id: {custom_id}")
+    return custom_id
+
+
+def estimate_usd(input_tokens: int, pages: int, batch: bool) -> float:
+    """Expected cost of one judge (no cache reads assumed, so on the high side)."""
+    usage = {"input_tokens": input_tokens, "output_tokens": pages * OUTPUT_TOKENS_PER_PAGE}
+    return cost_usd(usage, batch)
+
+
+def submit_batch(keys: list[str], judges: list[int], skip_existing: bool = False) -> str:
     from anthropic.types.message_create_params import MessageCreateParamsNonStreaming
     from anthropic.types.messages.batch_create_params import Request
 
-    requests, records = [], {}
+    client = _client()
+    requests, records, estimates = [], {}, {}
     for key in keys:
         pages = render_pages(paper_pdf(key), cache_dir(key))
         params = build_params(pages)
+        counted = client.messages.count_tokens(
+            model=params["model"], system=params["system"], messages=params["messages"]
+        )
         for judge in judges:
-            custom_id = f"{key}.judge-{judge}"
+            if skip_existing and (OUT / key / f"judge-{judge}.json").exists():
+                continue
+            custom_id = batch_id_for(key, judge)
+            estimates[custom_id] = estimate_usd(counted.input_tokens, len(pages), batch=True)
             requests.append(
                 Request(custom_id=custom_id, params=cast(MessageCreateParamsNonStreaming, params))
             )
             records[custom_id] = request_record(key, judge, pages, "batch")
-    batch = _client().messages.batches.create(requests=requests)
+    if not requests:
+        raise JudgeError("nothing to submit")
+    batch = client.messages.batches.create(requests=requests)
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / f"batch-{batch.id}.json").write_text(json.dumps(records, indent=1, ensure_ascii=False))
+    meta = {"submitted": time.time(), "estimate_usd": estimates, "records": records}
+    (OUT / f"batch-{batch.id}.json").write_text(json.dumps(meta, indent=1, ensure_ascii=False))
+    print(f"{len(requests)} judges; estimated cost US${sum(estimates.values()):.2f}", flush=True)
     return str(batch.id)
+
+
+def _duration(seconds: float) -> str:
+    seconds = max(int(seconds), 0)
+    if seconds >= 3600:
+        return f"{seconds // 3600}h{seconds % 3600 // 60:02d}m"
+    return f"{seconds // 60}m{seconds % 60:02d}s"
+
+
+def batch_status(batch_id: str) -> str:
+    """Completed of total, elapsed and remaining time, elapsed and remaining cost (estimates)."""
+    meta = json.loads((OUT / f"batch-{batch_id}.json").read_text())
+    batch = _client().messages.batches.retrieve(batch_id)
+    counts = batch.request_counts
+    total = counts.processing + counts.succeeded + counts.errored + counts.canceled + counts.expired
+    done = total - counts.processing
+    elapsed = time.time() - batch.created_at.timestamp()
+    estimate = sum(meta["estimate_usd"].values())
+    if done == 0:
+        remaining = "unknown until the first judge finishes (batches usually end within 1 h)"
+    elif done == total:
+        remaining = "0"
+    else:
+        remaining = _duration(elapsed / done * (total - done))
+    failed = counts.errored + counts.canceled + counts.expired
+    return (
+        f"{done} of {total} judges done ({counts.succeeded} succeeded, {failed} failed); "
+        f"elapsed {_duration(elapsed)}; remaining {remaining}; "
+        f"cost so far ~US${estimate * done / total:.2f}, remaining ~US$"
+        f"{estimate * (total - done) / total:.2f} (estimates; actual cost at collect); "
+        f"status {batch.processing_status}"
+    )
 
 
 def collect_batch(batch_id: str) -> list[dict[str, Any]]:
@@ -373,10 +436,10 @@ def collect_batch(batch_id: str) -> list[dict[str, Any]]:
     batch = client.messages.batches.retrieve(batch_id)
     if batch.processing_status != "ended":
         raise JudgeError(f"batch {batch_id} is {batch.processing_status}: {batch.request_counts}")
-    records = json.loads((OUT / f"batch-{batch_id}.json").read_text())
+    records = json.loads((OUT / f"batch-{batch_id}.json").read_text())["records"]
     summaries = []
     for result in client.messages.batches.results(batch_id):
-        key, _, judge = result.custom_id.rpartition(".judge-")
+        key, _, judge = result.custom_id.rpartition(SEPARATOR)
         if result.result.type != "succeeded":
             summaries.append(
                 {"paper": key, "judge": int(judge), "invalid": f"batch result {result.result.type}"}
@@ -403,6 +466,11 @@ def main(argv: list[str] | None = None) -> int:
     submit = sub.add_parser("submit", help="a batch of judges (half price)")
     submit.add_argument("papers", nargs="+")
     submit.add_argument("--judges", type=int, nargs="+", default=[1, 2])
+    submit.add_argument(
+        "--skip-existing", action="store_true", help="skip judges whose judgement is already saved"
+    )
+    status = sub.add_parser("status", help="progress, time and cost of a batch")
+    status.add_argument("batch_id")
     collect = sub.add_parser("collect", help="save the results of a finished batch")
     collect.add_argument("batch_id")
     args = parser.parse_args(argv)
@@ -410,7 +478,9 @@ def main(argv: list[str] | None = None) -> int:
         if args.command == "run":
             print(json.dumps(run_single(args.paper, args.judge), indent=1))
         elif args.command == "submit":
-            print(f"batch {submit_batch(args.papers, args.judges)} submitted")
+            print(f"batch {submit_batch(args.papers, args.judges, args.skip_existing)} submitted")
+        elif args.command == "status":
+            print(batch_status(args.batch_id))
         else:
             for summary in collect_batch(args.batch_id):
                 print(json.dumps(summary))

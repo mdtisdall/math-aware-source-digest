@@ -157,3 +157,19 @@ def test_no_key_no_call(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
     with pytest.raises(judge.JudgeError, match="ANTHROPIC_API_KEY"):
         judge._client()
+
+
+def test_estimate_and_duration() -> None:
+    expected = judge.cost_usd({"input_tokens": 30_000, "output_tokens": 10_000}, batch=True)
+    assert judge.estimate_usd(30_000, 10, batch=True) == expected
+    assert judge._duration(75) == "1m15s"
+    assert judge._duration(3720) == "1h02m"
+
+
+def test_batch_ids_are_valid_and_reversible() -> None:
+    custom_id = judge.batch_id_for("hestenes-stiefel-1952", 2)
+    assert custom_id == "hestenes-stiefel-1952__judge-2"
+    key, _, number = custom_id.rpartition(judge.SEPARATOR)
+    assert (key, number) == ("hestenes-stiefel-1952", "2")
+    with pytest.raises(judge.JudgeError):
+        judge.batch_id_for("a.b", 1)
