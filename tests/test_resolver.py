@@ -365,6 +365,17 @@ def test_zotero_not_running_gives_a_clear_message(tmp_path: Path) -> None:
 
 
 @responses.activate
+def test_zotero_with_the_local_api_off_says_how_to_turn_it_on(tmp_path: Path) -> None:
+    responses.get(
+        re.compile(r"http://127\.0\.0\.1:23119/"), status=403, body="Local API is not enabled"
+    )
+    res = make_resolver(tmp_path, zotero=LocalZotero()).resolve("zotero:ABCDEFGH")
+    assert not res.found
+    assert "local API is off" in res.unresolved
+    assert "Allow other applications" in res.unresolved
+
+
+@responses.activate
 def test_arxiv_paper_records_the_journal_doi_separately(tmp_path: Path) -> None:
     responses.get(
         f"{sources.DATACITE}/10.48550/arxiv.1301.2831",

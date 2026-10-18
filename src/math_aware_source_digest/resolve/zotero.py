@@ -25,6 +25,12 @@ LOCAL_API = "http://127.0.0.1:23119/api"
 BETTER_BIBTEX = "http://127.0.0.1:23119/better-bibtex/json-rpc"
 
 
+TURN_ON = (
+    "turn on Settings > Advanced > 'Allow other applications on this computer to "
+    "communicate with Zotero'"
+)
+
+
 class ZoteroError(Exception):
     pass
 
@@ -73,10 +79,11 @@ class LocalZotero:
             )
         except requests.ConnectionError as ex:
             raise ZoteroError(
-                "Zotero's local API does not answer: start Zotero 7 and turn on "
-                "Settings > Advanced > 'Allow other applications on this computer to "
-                "communicate with Zotero'"
+                f"Zotero's local API does not answer: start Zotero 7 and {TURN_ON}"
             ) from ex
+        if response.status_code == 403:
+            # Zotero answers, but its local API is off (it is off by default).
+            raise ZoteroError(f"Zotero's local API is off: {TURN_ON}")
         if response.status_code != 200:
             raise ZoteroError(f"GET {url}: HTTP {response.status_code}")
         return response.json()
