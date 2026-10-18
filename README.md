@@ -5,7 +5,12 @@ A Claude Code skill and Python package (`math_aware_source_digest`, command
 **source entries** for agentic review of prior work: a citation with the
 provenance of each field, the version described, a summary, a notation map,
 the results with their locations and stated assumptions, every cited equation
-exact or marked "unverified", and a list of what the entry leaves out.
+verified or marked "unverified", and a list of what the entry leaves out.
+
+An equation's LaTeX promises the same **meaning** as the printed equation
+for a mathematical reader, not the same characters: `:=` may stand for
+`\coloneqq` and `x'` for `x^\prime`, but a symbol, index, sign, operator or
+relation is never changed.
 
 The problem it solves is **mathematics**. PDF converters and models silently
 swap look-alike symbols (γ and y, φ̃ and φ̂, 𝒲 and 𝒱), drop terms and change
