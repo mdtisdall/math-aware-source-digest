@@ -4,4 +4,10 @@
 .envrc.local.*
 # One git worktree for each task (dev-workflow start-task)
 .worktrees/
+# Python
+__pycache__/
+*.py[cod]
 .venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
