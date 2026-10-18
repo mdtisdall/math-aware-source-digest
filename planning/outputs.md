@@ -1,264 +1,243 @@
-# Design note: what the skill outputs
+# Design note: what the tool outputs
 
-Status: **draft for discussion**, started 2026-10-18. It comes before the
-note on layers and comparison (`planning/comparison.md`, not yet
-committed): what each layer must achieve follows from what the outputs
-promise. Items marked **open** are to be settled with the user; the answers
-then go into the plan (sections 1 and 1a).
+Status: **draft for discussion**, started 2026-10-18; rewritten the same day
+around a single call, `refine`. It comes before the note on layers and
+comparison (`planning/comparison.md`, not yet committed): what each layer
+must achieve follows from what the outputs promise. Items marked **open**
+are to be settled with the user; the answers then go into the plan
+(sections 1, 1a, 3 and 8) and the README.
 
-## 1. Why the outputs change
+## 1. Purpose
 
-The plan's entry promises that every *cited* span is exact or marked
-unverified, and assumes that drafting decides what to cite. But what a
-project will cite is not known when the entry is made, and the reader that
-could decide it, Claude in a project, may not read the paper: local first,
-no text of a source leaves the machine (plan, section 1). So the digest must
-stand in for reading: complete enough on the machine that later questions can
-be answered from it, while what goes to Claude stays a summary and short
-quotations chosen for a purpose.
+Language models such as Claude remember a great deal of the literature: which
+papers are relevant, what they are known for, roughly where an idea appears.
+They are unreliable on the details: the exact citation fields, the precise
+statement of a result, an equation, its assumptions, its location. People
+who know a paper are in the same position: they remember what it contains,
+imperfectly, and checking the details means rereading it.
 
-## 2. Two commands, one machinery
+This tool lets the caller, a person or a cloud model, **refine what it
+already knows about a paper by checking it against the paper, locally**. The
+caller brings the knowledge; the tool brings the paper and exactness. The
+paper itself is never sent to a cloud model.
 
-- **`masd digest <paper>`** (no focus given). Reads the whole paper locally,
-  builds the **local digest** (section 3), and writes the **overview entry**
-  (section 4).
-- **`masd cite <paper> <target>`** (a focus given). The target is an equation
-  number, a result label, or a description ("the convergence bound"). Reuses
-  the digest, verifies the target against the page, and returns a **cited
-  excerpt** (section 5), recorded in the entry. Runs `digest` first if there
-  is none.
+Decided (2026-10-18):
 
-Both use the same layers and cache (comparison.md, section 3); `cite` is the
-plan's stage 5 (verify the cited spans), triggered by a citation instead of
-by guessing during drafting.
+- **The caller already knows what is in the paper.** The tool refines and
+  corrects the caller's account; it does not tell the caller what the paper
+  contains beyond what the caller pointed at.
+- **Retrieval, never verdicts.** The tool reports what the paper says, and
+  where; it never says whether a claim is true or supported. The caller
+  judges.
+- **A tool, not only a skill.** The core is a local, vendor-neutral tool with
+  a command line; any cloud model or person can use it. The Claude Code skill
+  becomes one adapter (when to use the tool, and the rules of behaviour that
+  the obedience tests check). The plan and README follow in their own
+  changes.
 
-**Figure 1. The two commands, and what leaves the machine.** Everything in
-the box stays local; only the overview entry and the cited excerpts reach
-Claude.
+## 2. The call: `refine`
+
+```
+masd refine <source> <draft>
+```
+
+- **`source`:** a DOI, arXiv ID, ISBN, title, Zotero item or PDF path. The
+  tool finds and fetches the paper if needed (the existing resolver and
+  download policy).
+- **`draft`:** the caller's account of the paper, written from memory. It may
+  be a whole-paper annotation ("introduces the conjugate gradient method;
+  proves termination in at most n steps for symmetric positive definite A,
+  Theorem 4.1; gives an error bound ..."), a focused draft of what the caller
+  wants to cite, or a single line ("CG terminates in n steps").
+
+**Output:** the same entry, refined, as JSON with a rendered Markdown file.
+For each statement of the draft:
+
+- **located:** where the paper says it (section, result label, equation
+  number, page), with labels corrected where memory had them wrong;
+- **how it matches:** the caller's version against the printed one (the
+  comparison of stage 5): *matches* (up to notation), *differs*, or *differs
+  substantially*;
+- **corrections, not the printed form** (decided 2026-10-18): where the
+  caller's version differs, the minimal corrections that turn it into the
+  paper's, written in the caller's notation ("your `x_i` is `x_1` in the
+  paper; the paper's version has an extra factor in the denominator").
+  Above a cap, the corrections are withheld and the entry says *differs
+  substantially* with the location, so that an empty or vague draft cannot
+  draw out a whole equation. Missing stated assumptions are corrections too;
+- **not located:** where nothing in the paper matches, reported as a result
+  of the search, not as a verdict on the statement.
+
+**Equations in the caller's own notation** (decided 2026-10-18). A statement
+of the draft can be an equation written in the caller's notation, with the
+request to find the paper's matching equations ("I have an equation of this
+form; where is it in this paper, perhaps in other notation?"). For each
+match, the entry gives:
+
+- its location;
+- how it matches: the same up to a consistent renaming of symbols; the same
+  structure with differences; or not found;
+- the **notation correspondence** ("your `A` is the paper's `K`; your `x` is
+  `u`");
+- differences beyond the renaming, as capped corrections in the caller's
+  notation.
+
+The caller can apply the correspondence to its own equation; the paper's
+printed form need not leave the machine. A remembered equation in the paper's
+own notation is the same case, with a correspondence that is mostly the
+identity.
+
+And for the entry as a whole: the **citation fields** from the records
+(Crossref and the others), never from memory, and the **version** described.
+
+**The promise:** every printed item that a statement is compared with is
+verified against the page first, or the comparison is marked unverified with
+the reason. The tool does not
+promise that it located everything the paper says on a subject.
+
+### Audiences
+
+- **People,** on the command line: Markdown and JSON.
+- **Cloud models,** through the command line or an MCP server (an open
+  protocol several vendors' clients support): the same JSON and Markdown.
+
+Both get the same output; nothing else is shown (no page images, no links
+into the PDF).
+
+**Figure 1. `refine`, and what leaves the machine.**
 
 ```mermaid
 flowchart LR
+    caller["Caller: a person or a cloud model,<br/>with a draft from memory"]
     subgraph local["This machine"]
+        resolve["Find and fetch the paper"]
         pdf[("PDF and page images")]
-        digest["masd digest"]
-        cite["masd cite (a target)"]
-        store[("Local digest: complete indexes,<br/>errata, verification record")]
-        pdf --> digest
-        digest --> store
-        store --> cite
-        pdf -->|"verify the target<br/>against the page"| cite
-        cite -->|"record: verified"| store
+        index[("Index of the paper:<br/>equations, results, sections")]
+        refine["refine: align each statement,<br/>verify, compare"]
+        resolve --> pdf
+        pdf -->|"discovery, once"| index
+        index --> refine
+        pdf -->|"verify against the page"| refine
     end
-    digest --> overview["Overview entry:<br/>summary, indexes, one-line lists"]
-    cite --> excerpt["Cited excerpt:<br/>exact, verified"]
-    overview --> claude["Claude in a project"]
-    excerpt --> claude
-    claude -->|"asks for a target"| cite
+    caller -->|"source and draft"| resolve
+    caller -->|"draft"| refine
+    refine -->|"refined entry: located, how it matches,<br/>notation correspondence, capped corrections,<br/>not located"| caller
 ```
 
-**Figure 2. The layers on a shared store** (comparison.md, section 3; the
-form of feedback is open there). Each layer reads every layer above it
-through the store and writes its own; the PDF and the page images are fixed
-evidence.
+## 3. What leaves the machine
 
-```mermaid
-flowchart TB
-    subgraph evidence["Fixed evidence"]
-        l0["0. PDF"] --> l1["1. Page images"]
-    end
-    store[("Shared store: each element with its value,<br/>provenance, confidence and status")]
-    evidence -->|"read only"| store
-    l2["2. Print: each equation as printed"] <--> store
-    l3["3. Document: equations, numbers,<br/>sentences, results, sections"] <--> store
-    l4["4. Notation: symbols and meanings, as meant"] <--> store
-    l5["5. Meaning: what applies to what, as meant"] <--> store
-```
+- **Bounded by the caller's own knowledge.** The output follows the draft:
+  for each statement, only what is attached to it (its location, how it
+  matches, a notation correspondence, capped corrections). Parts of the paper
+  the draft does not point at are not returned; reading the whole paper
+  through the tool would need knowing it already.
+- **No printed equations by default.** The caller gets corrections to its
+  own version, never the paper's printed form, so the amount returned grows
+  with the caller's error, not with the number of equations asked about,
+  and the cap bounds it.
+- **Small units.** A location, a correspondence of symbols, a correction.
+  Never a proof, a page or a passage of prose.
+- **A local log** of what was returned for each paper, reported on request.
 
-### How the work is ordered: discovery, then focus
+**Open:**
 
-- **Discovery (pass 1), focused on pages.** With no index yet, the first pass
-  sweeps the pages in order and finds every display equation, number,
-  section, numbered result and definition, with the sentences around them
-  (layers 2–3, feed-forward). The index is the output of this pass. The
-  gate 1 judges did exactly this.
-- **Focus on elements (later passes).** Each element (equation, symbol,
-  result) has a priority and the reason for it: a user's target, uncertainty,
-  or a link to a focused element. Work goes to the highest priority first,
-  and the context given to a model is assembled from the element's
-  neighbourhood (the definitions of its symbols, the sentences around it,
-  the equations it refers to), not the whole paper.
-  - A user's focus (`cite`) puts the target first and spreads along its
-    links: the symbols it uses, their definitions, the equations it refers
-    to, the assumptions of its result.
-  - A sweep of focus over the paper (document order, or most uncertain
-    first) lets what is settled for one element improve the others; sweeps
-    repeat until a pass changes nothing, or a reported limit.
-- **Salience** (for the key results of an overview, with no user focus) comes
-  from the paper's own signals: the abstract, the introduction's list of
-  contributions, labelled theorems, "our main result", the conclusion, and
-  how often an equation or result is referred to.
+- **a. Omissions.** May the refined entry say what the draft did not cover,
+  as counts and labels only ("the paper has 9 numbered results; the draft
+  mentions 3")? It helps a caller notice a gap without returning content.
+- **b. Statements of results:** corrections to the caller's paraphrase (a
+  missing assumption, a wrong constant, a wrong label), as for equations, or
+  also a short quotation of the key part?
+- **d. The cap:** how large a correction may be before it is withheld (for
+  example a share of the equation's symbols), and whether the user can raise
+  it for a paper (for example one under CC BY).
+- **c. Unsure alignment:** several candidate locations, or "not located"?
 
-**Figure 3. Discovery, then focus, within a budget.**
+## 4. What the tool does locally
+
+Four tasks; nothing else:
+
+1. **Discovery,** once per paper and cached: every display equation, number,
+   section, numbered result and definition, with its location (layers 2–3 of
+   the comparison note). This is what gate 1's judges produced.
+2. **Alignment:** matching each statement of the draft to items of the
+   index, first by label and number, then by a small embedding model.
+3. **Verification** of the matched items against the page (layer 2).
+4. **Comparison** of the caller's version with the printed one (stage 5,
+   step 3; gate 1b), including **matching up to a consistent renaming of
+   symbols**, with the paper's definition links as context (the paper's `K`
+   is a matrix, its `u` a vector); the minimal corrections and the cap.
+
+No longer needed locally: summaries, choosing key results, deciding what is
+salient, judging claims, meaning trees for whole papers, suspected errata as
+a separate product. The caller does those, from the refined entry.
+
+**Figure 2. One `refine`, within a budget.**
 
 ```mermaid
 flowchart TD
-    start(["digest or cite"]) --> discover["Discovery: sweep the pages in order;<br/>find equations, numbers, sections, results"]
-    discover --> queue[("Priority queue of elements")]
-    target["A user's target (cite)"] --> queue
-    queue --> pick["Take the highest priority"]
-    pick --> context["Assemble context: the element<br/>and its neighbourhood"]
-    context --> task["Narrow task: a small model first;<br/>a larger one on low confidence"]
-    task --> write["Write the result with its provenance"]
-    write --> spread["Re-prioritise: the neighbours of what changed"]
-    spread --> check{"Budget left, and<br/>work still open?"}
-    check -->|"yes"| pick
-    check -->|"no"| stop(["Stop; report how far it got;<br/>the rest keeps its status"])
+    start(["refine: source and draft"]) --> known{"Paper discovered<br/>already?"}
+    known -->|"no"| discover["Discovery: sweep the pages;<br/>find equations, numbers, sections, results"]
+    known -->|"yes"| split
+    discover --> split["Split the draft into statements"]
+    split --> align["Align each statement: label and number first,<br/>then a small embedding model"]
+    align --> verify["Verify the matched items against the page"]
+    verify --> compare["Compare the caller's version with the printed one"]
+    compare --> check{"Budget left and<br/>statements open?"}
+    check -->|"yes"| align
+    check -->|"no"| out(["Refined entry: located, the paper's version,<br/>differences, not located; JSON and Markdown"])
 ```
 
-## 3. The local digest
-
-Complete, on the machine only (in the cache, like the PDF). Every item has a
-**status**: *transcribed* (read once), *agreed* (two local readers agree),
-*verified* (checked against the page and, where needed, adjudicated), or
-*uncertain* (with the candidate readings).
-
-| component | contents | layer |
-|---|---|---|
-| **Document map** | pages, printed page numbers, sections, the version | 1–3 |
-| **Equation index** | every display equation: id, location (page, printed page, position), number, LaTeX as printed, candidates for uncertain parts, the symbols it uses, the equations and results that refer to it, status | 2–3 |
-| **Results index** | every numbered result and definition: kind, label, location, statement (as printed), stated assumptions, what it refers to, status | 3 |
-| **Notation index** | every symbol: its printed form, meaning (as meant, not as misprinted), kind (variable, function, operator, set, constant), where it is defined, where it is used, the source of the meaning (a definition, usage, convention), status | 4 |
-| **Suspected errata** | location, what is printed, what is probably meant, the evidence, confidence | 4–5 |
-| **Published errata and retractions** | found from the records (Crossref, the publisher) | 0 |
-| **Verification record** | for each item: how it was read and checked, by which tool and model version, and what remains unchecked | all |
-
-**Open:**
-
-- **a.** Inline mathematics (within sentences): indexed too, or only display
-  equations?
-- **b.** Meaning trees (layer 5, for example OpenMath) for each equation: part
-  of the digest, later, or not at all?
-- **c.** Dependencies between results (which theorem uses which lemma):
-  recorded where the paper states them, or also inferred?
-
-## 4. The overview entry
-
-What Claude in a project reads: the plan's "summary with short quotations",
-now built from the digest. JSON with a rendered Markdown file (plan, 1a).
-
-| component | contents |
-|---|---|
-| **Citation** | each field with its provenance, checked against the first page (unchanged) |
-| **Version** | which version the entry describes; numbering between versions |
-| **Abstract and key results** | what the paper does; its key results paraphrased, each with its location and stated assumptions |
-| **Notation index** | each symbol (short LaTeX) with its meaning and where it is defined |
-| **Equation list** | each display equation: number, location, a one-line description (not its LaTeX), status |
-| **Results list** | each numbered result and definition: label, location, a one-line paraphrase, status |
-| **Suspected errata** | as in the digest |
-| **Published errata and retractions** | as in the digest |
-| **Cited excerpts** | each excerpt returned so far by `cite` (section 5) |
-| **Coverage** | what the digest does not cover (for example inline mathematics, figures, tables), and counts by status |
-| **Verification summary** | counts, tools and model versions |
-
-**Open:**
-
-- **d.** The equation list: one-line descriptions only (a description needs a
-  local model to understand the equation), or also the LaTeX of short
-  equations?
-- **e.** How many key results, and paraphrased or quoted?
-- **f.** A record of what has been retrieved by `cite` for each paper, with a
-  total, so that many retrievals do not quietly add up to much of the paper?
-
-## 5. The cited excerpt
-
-What `cite` returns, and what the entry records under "cited spans".
-
-- the target and how it was resolved (for a description: which elements it
-  was matched to, for the user to confirm);
-- the exact LaTeX or statement **as printed**, verified against the page
-  first, or marked unverified with the reason;
-- the symbols it uses, from the notation index;
-- the assumptions of the result it belongs to;
-- probable misprints in it, with the reading as meant;
-- its location and verification record.
-
-**The promise** (replaces the plan's): every excerpt that `cite` returns is
-verified against the page, or marked unverified with the reason. The digest
-promises completeness of discovery and a status for each item, not that every
-item is verified.
-
-## 6. Running on this laptop
+## 5. Running on this laptop
 
 The target machine is an M1 Max with 64 GB of unified memory. Measured on it
 (plan, section 2): Qwen3-VL 32B writes about 7.6 tokens a second and reads one
-equation crop in about 17 s; Marker converts a paper in 5–8 minutes. The
-plan's budget is 15 minutes for a typical 20-page paper (plan, section 5a).
-Memory holds one 32B model (about 20 GB at 4 bits) at a time, with small
-models beside it.
+equation crop in about 17 s; Marker converts a paper in 5–8 minutes. Memory
+holds one 32B model (about 20 GB at 4 bits) at a time, with small models
+beside it.
 
-Estimates for a 20-page paper with about 60 display equations (only the
-measured figures above are firm):
-
-| component | what runs | estimate | within budget? |
+| task | what runs | estimate | when |
 |---|---|---|---|
-| discovery (layers 2–3) | Marker; a 0.9B OCR model for a second reading of each equation | 5–8 min; 1–3 min (unmeasured) | yes |
-| `cite`: verify one target | a 32B vision model on one crop | 20–60 s | yes |
-| notation index (layer 4) | a text model over the paper | 32B: 5–10 min; 7–14B: 2–4 min | probably; quality unknown |
-| one-line descriptions | a text model | about 4 min (32B) | probably |
-| focus sweeps with feedback, whole paper | about 30 s per equation with a 32B model | about 30 min per sweep | no |
-| meaning trees (layer 5), whole paper | the strongest model | hours for 300 equations | no |
+| discovery | Marker; a 0.9B OCR model for a second reading of each equation | 6–11 min for 20 pages (the small model unmeasured) | once per paper, cached |
+| alignment | labels and numbers; a small embedding model | seconds per statement (unmeasured) | each `refine` |
+| verification | a vision model on one crop, small first, 32B on low confidence | 20–60 s per matched item | each `refine`, cached per item |
+| comparison | deterministic first; a small text model for what it does not settle | under a second to seconds | each `refine` |
 
-Two principles follow (decided 2026-10-18):
+So a `refine` of a five-statement draft on a paper already discovered takes a
+few minutes, mostly verification; the first call on a new paper adds
+discovery.
 
-- **Anytime.** Work goes in priority order (section 2) until the budget runs
-  out; whatever is not reached keeps its status (transcribed, uncertain) and
-  is counted in the coverage. `digest` runs discovery, the notation index and
-  the descriptions, then as many sweeps as the budget allows, and reports
-  how far it got; the user can give a longer budget (for example overnight
-  for a reading list). Layer 5 and repeated sweeps run where a focus puts
-  them (`cite`), not over whole papers.
-- **Narrow tasks for small models.** Each output component is built from
-  narrow tasks, each with a bounded input and a constrained output, so that
-  small local models can do them:
-  - **choice over generation:** "which of these candidate readings matches
-    the crop", "does this sentence define `E`, and as what", "given that `k`
-    is the index everywhere else and `K` occurs only here, is this a
-    misprint: yes, no, unsure";
-  - **deterministic code for bookkeeping:** where each symbol is used,
-    candidate definitions found by pattern ("let", "denote", "where"),
-    cross-references; code is tested and makes no reading errors;
-  - **short context from focus:** an element and its neighbourhood, about
-    1–2k tokens, not the whole paper;
-  - **a cascade:** a small model first; low confidence or disagreement goes
-    to a larger one (plan, section 5a);
-  - **the smallest model that passes, per task,** measured at the gates.
-    Small models' confidence is poorly calibrated, so it is measured on the
-    planted-error set for each task, not trusted.
-  - Tasks that need the whole paper (the abstract, choosing key results) are
-    built from the items' one-line descriptions, or are one call to a
-    mid-size model.
+Principles (decided 2026-10-18), kept from the earlier draft:
 
-**Open:**
+- **Anytime:** work in order until the budget runs out; what is not reached
+  is reported as not yet verified, not hidden.
+- **Narrow tasks for small models:** bounded input and constrained output;
+  choice over generation ("which candidate reading matches the crop");
+  deterministic code for bookkeeping; a cascade to a larger model on low
+  confidence; the smallest model that passes, per task, measured at the
+  gates, with confidence measured on planted errors rather than trusted.
 
-- **g.** The biggest uncertainty is quality, not speed: whether small local
-  models can build a correct notation index or spot misprints. Measuring it
-  needs a layer-4 ground truth for the judged set (the notation of each
-  paper), made by judges as in gate 1: test data, a few US$, with the user's
-  approval.
+## 6. Out of scope
 
-## 7. Out of scope
+Judging whether a claim is true, or whether a result applies to a project;
+summarizing a paper the caller has not described; writing to the user's
+Zotero library.
 
-Unchanged from the plan: judging whether a result applies to a project, and
-writing to the user's Zotero library.
+## 7. What follows for the layers and gates
 
-## 8. What follows for the layers and gates
-
-- Discovery must find every display equation and numbered item (layers 2–3,
-  the whole paper): gate 1's ground truth measures it.
-- `cite` must verify one item well (layer 2 against the page): gates 2 and 4.
-- The notation index needs layer 4 for the whole paper; suspected errata
-  need layers 4–5. Measuring them needs a layer-4 ground truth (open g).
-- Each narrow task gets its own measure and its smallest passing model
-  (gates 2 and 6); the anytime budget is measured at gate 6a.
-- The comparison note serves these outputs: equivalence at layer 2 for
-  verification and scoring; at layers 4–5 for the notation index and errata.
+- Discovery must find every display equation and numbered item: gate 1's
+  ground truth measures it.
+- Verification must read one item well against the page: gates 2 and 4.
+- Comparison of a remembered version with a printed one is gate 1b's
+  question, now with a second use beyond merging judges. Matching up to a
+  consistent renaming of symbols needs a structural representation (a parsed
+  tree, not tokens): a requirement on gate 1b's choice. Formula retrieval
+  (Tangent-S, Approach0: matching with renaming and wildcards) is prior work
+  to study. Matrix against index notation, or a rearranged formula, is the
+  hard case: the model stage, with "unsure" as an answer.
+- **Alignment is new** and needs its own measure: statements whose locations
+  are known (from the gate 1 ground truth, written as a caller would write
+  them, including with wrong labels, dropped assumptions and other notation),
+  checked for located, mislocated and missed; and the corrections, checked
+  that they are minimal and that the cap holds.
+- The interpretation layers (notation and meaning) shrink to what
+  verification and comparison need; the layers note is revised to match.
