@@ -22,6 +22,7 @@ from __future__ import annotations
 import argparse
 import base64
 import json
+import re
 import sys
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
@@ -103,7 +104,99 @@ def merge(judge1: dict[str, Any], judge2: dict[str, Any]) -> list[Entry]:
     return merged
 
 
-def summary(entries: list[Entry]) -> dict[str, int]:
+# Numbered results and definitions (the basis of coverage)
+
+
+@dataclass
+class Item:
+    """One numbered result, definition or section of the merged list."""
+
+    label: str  # as judge 1 wrote it (judge 2's if only judge 2 found it)
+    kind: str
+    pdf_page: int
+    printed_page: str
+    status: str  # "agreed", "kind", "page", "only-1", "only-2"
+    readings: dict[str, dict[str, Any]] = field(default_factory=dict)  # judge -> kind, page
+
+
+_KIND_WORDS = {
+    "sec": "section",
+    "thm": "theorem",
+    "lem": "lemma",
+    "prop": "proposition",
+    "cor": "corollary",
+    "def": "definition",
+    "defn": "definition",
+    "alg": "algorithm",
+    "eq": "equation",
+}
+
+
+_ROMAN = re.compile(r"[ivxlcdm]+")
+
+
+def item_key(item: dict[str, Any]) -> str:
+    """A label written one way: the kind and the number, without a title.
+    "Section 2.1", "2.1 Bayesian Reconstruction" and "Sec. 2.1" are one key;
+    so are "Section I-C-1" and "I-C-1 Training" (IEEE numbering)."""
+    words = [_KIND_WORDS.get(w, w) for w in re.findall(r"[^\W_]+", item["label"].casefold())]
+    kind = item["kind"]
+    if words and words[0] in set(_KIND_WORDS.values()) | {
+        "theorem",
+        "lemma",
+        "remark",
+        "example",
+        "section",
+    }:
+        kind = words.pop(0)
+    number: list[str] = []
+    if words and words[0].isdigit():
+        for w in words:  # 2.1.3: digits only, so "3. A method" keeps no "a"
+            if not w.isdigit():
+                break
+            number.append(w)
+    elif words and _ROMAN.fullmatch(words[0]):
+        for w in words:  # I-C-1: a Roman numeral, then letters and digits
+            if not (w.isdigit() or len(w) == 1 or _ROMAN.fullmatch(w)):
+                break
+            number.append(w)
+    return " ".join([kind, *(number or words)])
+
+
+def merge_items(judge1: dict[str, Any], judge2: dict[str, Any]) -> list[Item]:
+    """Pair the judges' items by label key, in order for a key that repeats; then
+    compare kind and page."""
+    by_key2: dict[str, list[dict[str, Any]]] = {}
+    for it in judge2["items"]:
+        by_key2.setdefault(item_key(it), []).append(it)
+    merged: list[Item] = []
+    for it1 in judge1["items"]:
+        candidates = by_key2.get(item_key(it1), [])
+        it2 = candidates.pop(0) if candidates else None
+        item = Item(it1["label"], it1["kind"], it1["pdf_page"], it1["printed_page"], "")
+        item.readings["1"] = {"kind": it1["kind"], "pdf_page": it1["pdf_page"]}
+        if it2 is None:
+            item.status = "only-1"
+        else:
+            item.readings["2"] = {"kind": it2["kind"], "pdf_page": it2["pdf_page"]}
+            item.status = (
+                "page"
+                if it1["pdf_page"] != it2["pdf_page"]
+                else "kind"
+                if it1["kind"] != it2["kind"]
+                else "agreed"
+            )
+        merged.append(item)
+    for rest in by_key2.values():
+        for it2 in rest:
+            item = Item(it2["label"], it2["kind"], it2["pdf_page"], it2["printed_page"], "only-2")
+            item.readings["2"] = {"kind": it2["kind"], "pdf_page": it2["pdf_page"]}
+            merged.append(item)
+    merged.sort(key=lambda i: i.pdf_page)
+    return merged
+
+
+def summary(entries: list[Entry] | list[Item]) -> dict[str, int]:
     counts: dict[str, int] = {}
     for e in entries:
         counts[e.status] = counts.get(e.status, 0) + 1
@@ -258,12 +351,15 @@ def main(argv: list[str] | None = None) -> int:
         print(f"merge: {ex.filename} is missing (both judges must be valid)", file=sys.stderr)
         return 1
     entries = merge(j1, j2)
+    items = merge_items(j1, j2)
     cost = adjudicate(args.paper, entries) if args.adjudicate else 0.0
     result = {
         "paper": args.paper,
         "summary": summary(entries),
+        "items_summary": summary(items),
         "adjudication_cost_usd": round(cost, 4),
         "entries": [asdict(e) for e in entries],
+        "items": [asdict(i) for i in items],
     }
     (folder / "merged.json").write_text(json.dumps(result, indent=1, ensure_ascii=False))
     print(
@@ -271,6 +367,7 @@ def main(argv: list[str] | None = None) -> int:
             {
                 "paper": args.paper,
                 **result["summary"],
+                "items": result["items_summary"],
                 "adjudication_cost_usd": result["adjudication_cost_usd"],
             }
         )
