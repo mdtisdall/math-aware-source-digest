@@ -54,4 +54,6 @@ addopts = ["-q", "--strict-markers"]
 # A change to Markdown runs scripts/check, for the relative link check.
 docs-skip-checks = false
 run-all = ["scripts/check_links.py"]
+[tool.affected-tests.map]
+"testdata/papers.toml" = ["tests/test_testdata.py"]
 source-roots = ["src"]
