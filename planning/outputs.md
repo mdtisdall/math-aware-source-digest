@@ -32,6 +32,48 @@ Both use the same layers and cache (comparison.md, section 3); `cite` is the
 plan's stage 5 (verify the cited spans), triggered by a citation instead of
 by guessing during drafting.
 
+**Figure 1. The two commands, and what leaves the machine.** Everything in
+the box stays local; only the overview entry and the cited excerpts reach
+Claude.
+
+```mermaid
+flowchart LR
+    subgraph local["This machine"]
+        pdf[("PDF and page images")]
+        digest["masd digest"]
+        cite["masd cite (a target)"]
+        store[("Local digest: complete indexes,<br/>errata, verification record")]
+        pdf --> digest
+        digest --> store
+        store --> cite
+        pdf -->|"verify the target<br/>against the page"| cite
+        cite -->|"record: verified"| store
+    end
+    digest --> overview["Overview entry:<br/>summary, indexes, one-line lists"]
+    cite --> excerpt["Cited excerpt:<br/>exact, verified"]
+    overview --> claude["Claude in a project"]
+    excerpt --> claude
+    claude -->|"asks for a target"| cite
+```
+
+**Figure 2. The layers on a shared store** (comparison.md, section 3; the
+form of feedback is open there). Each layer reads every layer above it
+through the store and writes its own; the PDF and the page images are fixed
+evidence.
+
+```mermaid
+flowchart TB
+    subgraph evidence["Fixed evidence"]
+        l0["0. PDF"] --> l1["1. Page images"]
+    end
+    store[("Shared store: each element with its value,<br/>provenance, confidence and status")]
+    evidence -->|"read only"| store
+    l2["2. Print: each equation as printed"] <--> store
+    l3["3. Document: equations, numbers,<br/>sentences, results, sections"] <--> store
+    l4["4. Notation: symbols and meanings, as meant"] <--> store
+    l5["5. Meaning: what applies to what, as meant"] <--> store
+```
+
 ### How the work is ordered: discovery, then focus
 
 - **Discovery (pass 1), focused on pages.** With no index yet, the first pass
@@ -55,6 +97,23 @@ by guessing during drafting.
   from the paper's own signals: the abstract, the introduction's list of
   contributions, labelled theorems, "our main result", the conclusion, and
   how often an equation or result is referred to.
+
+**Figure 3. Discovery, then focus, within a budget.**
+
+```mermaid
+flowchart TD
+    start(["digest or cite"]) --> discover["Discovery: sweep the pages in order;<br/>find equations, numbers, sections, results"]
+    discover --> queue[("Priority queue of elements")]
+    target["A user's target (cite)"] --> queue
+    queue --> pick["Take the highest priority"]
+    pick --> context["Assemble context: the element<br/>and its neighbourhood"]
+    context --> task["Narrow task: a small model first;<br/>a larger one on low confidence"]
+    task --> write["Write the result with its provenance"]
+    write --> spread["Re-prioritise: the neighbours of what changed"]
+    spread --> check{"Budget left, and<br/>work still open?"}
+    check -->|"yes"| pick
+    check -->|"no"| stop(["Stop; report how far it got;<br/>the rest keeps its status"])
+```
 
 ## 3. The local digest
 
