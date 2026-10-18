@@ -137,4 +137,44 @@ def test_cli_list(
     monkeypatch.chdir(tmp_path)
     assert cli.main(["testdata", "list", "--list", str(LIST)]) == 0
     out = capsys.readouterr().out
-    assert "student-1908" in out and "missing" in out
+    assert "student-1908" in out and "committed" in out
+
+
+def test_committed_papers_are_present_and_intact() -> None:
+    papers = testdata.load(LIST)
+    assert testdata.verify(papers, LIST) == []
+    zach = next(p for p in papers if p.key == "zach-knoll-pock-2023")
+    assert (LIST.parent.parent / zach.exact_source / "main.tex").is_file()
+
+
+def test_pdf_path_prefers_the_committed_copy_and_checks_it(tmp_path: Path) -> None:
+    listed = tmp_path / "testdata" / "papers.toml"
+    (tmp_path / "testdata" / "papers").mkdir(parents=True)
+    committed = tmp_path / "testdata" / "papers" / "x-2000.pdf"
+    committed.write_bytes(b"%PDF-1.4 x")
+    assert testdata.pdf_path(paper(), listed, cfg(tmp_path)) == committed
+    committed.write_bytes(b"%PDF-1.4 tampered")
+    with pytest.raises(testdata.TestDataError, match="differs"):
+        testdata.pdf_path(paper(), listed, cfg(tmp_path))
+    committed.unlink()
+    with pytest.raises(testdata.TestDataError, match="no committed or cached"):
+        testdata.pdf_path(paper(), listed, cfg(tmp_path))
+
+
+def test_verify_reports_missing_and_changed(tmp_path: Path) -> None:
+    listed = tmp_path / "testdata" / "papers.toml"
+    (tmp_path / "testdata" / "papers").mkdir(parents=True)
+    assert "missing" in testdata.verify([paper()], listed)[0]
+    (tmp_path / "testdata" / "papers" / "x-2000.pdf").write_bytes(b"other")
+    assert "does not match" in testdata.verify([paper()], listed)[0]
+
+
+@responses.activate
+def test_verify_remote(tmp_path: Path) -> None:
+    c = cfg(tmp_path)
+    responses.get("https://example.org/x.pdf", body=b"%PDF-1.4 x")
+    assert testdata.verify_remote(paper(), c, net.Fetcher(c, sleep=lambda s: None)) == "same"
+    responses.replace(responses.GET, "https://example.org/x.pdf", body=b"%PDF-1.4 new version")
+    verdict = testdata.verify_remote(paper(), c, net.Fetcher(c, sleep=lambda s: None))
+    assert verdict.startswith("changed")
+    assert testdata.verify_remote(paper(fetch="manual"), c).startswith("not checked")
