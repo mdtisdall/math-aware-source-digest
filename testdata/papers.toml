@@ -6,6 +6,8 @@
 # come from the records (masd resolve), not from this file.
 #
 #   masd testdata list               what is pinned, and what is in the cache
+#   masd testdata verify             check the committed PDFs (testdata/papers/)
+#   masd testdata verify-remote      compare the original sources with the pinned hashes
 #   masd testdata fetch              download the papers with fetch = "auto"
 #   masd testdata import <pdf>...    add papers downloaded by hand (fetch = "manual")
 #
@@ -61,6 +63,7 @@ roles = ["judged", "latex"]
 form = "born-digital"
 faces = "Times text (Nimbus Roman) with Computer Modern maths, Fraktur (EUFM), blackboard (MSBM) (pdffonts)"
 tests = "calligraphic and blackboard letters, gradients, integrals, parameter families; its CC BY LaTeX measures the judges' own accuracy"
+exact_source = "testdata/sources/zach-knoll-pock-2023/arxiv-2210.13834"
 
 [[paper]]
 key = "blumenthal-2026"

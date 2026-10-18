@@ -72,7 +72,10 @@ are pinned in [testdata/papers.toml](testdata/papers.toml): scans from 1908
 to 1968 (letterpress and typewritten), and born-digital CC BY articles in
 IEEE, Wiley and IOP house styles. Other test sets vary the publisher, the
 math typeface and the era, because look-alike swaps depend on glyph shapes
-and house styles. `masd testdata fetch` downloads them and checks the hashes.
+and house styles. The PDFs are committed in [testdata/papers](testdata/papers/README.md)
+with their attribution, so the tests run from the repository alone; `masd testdata
+verify` checks them against their hashes, and `masd testdata verify-remote` checks
+whether an original source has changed.
 
 ## Development
 

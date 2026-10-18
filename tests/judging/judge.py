@@ -168,17 +168,19 @@ class Page:
 
 
 def paper_pdf(key: str) -> Path:
-    """The cached PDF of a pinned test paper (refuses anything not on the list)."""
+    """The committed (or cached) PDF of a pinned test paper; refuses anything not on the list."""
     sys.path.insert(0, str(ROOT / "src"))
     from math_aware_source_digest import config, testdata
 
     papers = {p.key: p for p in testdata.load(ROOT / "testdata" / "papers.toml")}
     if key not in papers:
         raise JudgeError(f"{key} is not a pinned test paper; only test papers may be judged")
-    path = papers[key].cached_path(config.load(cwd=ROOT))
-    if path is None:
-        raise JudgeError(f"{key} is not in the cache: run masd testdata fetch (or import)")
-    return path
+    try:
+        return testdata.pdf_path(
+            papers[key], ROOT / "testdata" / "papers.toml", config.load(cwd=ROOT)
+        )
+    except testdata.TestDataError as ex:
+        raise JudgeError(str(ex)) from ex
 
 
 def render_pages(pdf: Path, out_dir: Path, dpi: int = PAGE_DPI) -> list[Page]:

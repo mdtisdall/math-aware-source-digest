@@ -51,7 +51,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     flag.add_argument("--model", default="qwen3-vl:32b-instruct")
     flag.add_argument("--ollama", default="http://127.0.0.1:11434")
     testdata = sub.add_parser("testdata", help="the pinned test papers: list, fetch, import")
-    testdata.add_argument("action", choices=["list", "fetch", "import"])
+    testdata.add_argument("action", choices=["list", "verify", "verify-remote", "fetch", "import"])
     testdata.add_argument("files", nargs="*", type=Path)
     testdata.add_argument("--list", type=Path, default=Path("testdata/papers.toml"))
     validate = sub.add_parser("validate", help="validate entry JSON files")
@@ -118,11 +118,36 @@ def main(argv: Sequence[str] | None = None) -> int:
             papers = td.load(args.list)
             if args.action == "list":
                 for paper in papers:
-                    where = paper.cached_path(cfg)
+                    committed = paper.committed_path(args.list).is_file()
+                    where = (
+                        "committed"
+                        if committed
+                        else ("cached" if paper.cached_path(cfg) else "missing")
+                    )
                     print(
                         f"{paper.key:28} {','.join(paper.roles):14} {paper.licence:13} "
-                        f"{paper.fetch:6} {'cached' if where else 'missing'}"
+                        f"{paper.fetch:6} {where}"
                     )
+            elif args.action == "verify":
+                issues = td.verify(papers, args.list)
+                for issue in issues:
+                    print(issue)
+                print(
+                    f"{len(papers) - len(issues)} of {len(papers)} committed papers intact"
+                    if not issues
+                    else f"{len(issues)} issue(s)"
+                )
+                return 1 if issues else 0
+            elif args.action == "verify-remote":
+                status = 0
+                for paper in papers:
+                    try:
+                        verdict = td.verify_remote(paper, cfg)
+                    except net.NetError as ex:
+                        verdict = f"not checked: {ex}"
+                    print(f"{paper.key:28} {verdict}")
+                    status = status or (1 if verdict.startswith("changed") else 0)
+                return status
             elif args.action == "fetch":
                 status = 0
                 for paper in papers:

@@ -43,6 +43,11 @@ class Paper:
     form: str
     faces: str
     tests: str
+    exact_source: str = ""  # a committed exact form (arXiv TeX), relative to the repository
+
+    def committed_path(self, list_path: Path) -> Path:
+        """Where the PDF is committed: testdata/papers/<key>.pdf next to the list."""
+        return list_path.parent / "papers" / f"{self.key}.pdf"
 
     def cache(self, cfg: Config) -> SourceCache:
         return SourceCache(cfg.cache_root, self.id)
@@ -89,6 +94,59 @@ def check(papers: list[Paper]) -> list[str]:
         if len(p.sha256) != 64 or any(c not in "0123456789abcdef" for c in p.sha256):
             problems.append(f"{p.key}: sha256 must be 64 lower-case hex digits")
     return problems
+
+
+def pdf_path(paper: Paper, list_path: Path, cfg: Config) -> Path:
+    """The paper's PDF: the committed copy first, else the cache; checked against its hash."""
+    for path in (paper.committed_path(list_path), paper.cached_path(cfg)):
+        if path is not None and path.is_file():
+            if sha256_file(path) != paper.sha256:
+                raise TestDataError(f"{path}: its SHA-256 differs from the pinned one")
+            return path
+    raise TestDataError(f"{paper.key}: no committed or cached PDF; run masd testdata fetch")
+
+
+def verify(papers: list[Paper], list_path: Path) -> list[str]:
+    """Problems with the committed PDFs and exact sources (empty: all present and intact)."""
+    problems = []
+    for paper in papers:
+        path = paper.committed_path(list_path)
+        if not path.is_file():
+            problems.append(f"{paper.key}: {path} is missing")
+        elif sha256_file(path) != paper.sha256:
+            problems.append(f"{paper.key}: {path} does not match its pinned SHA-256")
+        if paper.exact_source and not (list_path.parent.parent / paper.exact_source).is_dir():
+            problems.append(f"{paper.key}: exact source {paper.exact_source} is missing")
+    return problems
+
+
+def verify_remote(paper: Paper, cfg: Config, fetcher: net.Fetcher | None = None) -> str:
+    """Compare the original source with the pinned hash: "same", "changed: ...", or why not checked.
+
+    Downloads the file again (into memory only) from its pinned URL; publishers that refuse
+    scripts are reported for a check by hand.
+    """
+    if paper.fetch != "auto":
+        return f"not checked: download by hand from {paper.url} and compare its SHA-256"
+    policy = net.DownloadPolicy(cfg.downloads.allowed_hosts)
+    policy.approve(paper.url)
+    fetcher = fetcher or net.Fetcher(cfg, policy=policy, timeout_s=300)
+    fetcher.policy = policy
+    site = net.host_of(paper.url).split(".", 1)[-1]
+    url = paper.url
+    for _ in range(5):
+        try:
+            response = fetcher.get(url, cache=False)
+            break
+        except net.ApprovalRequired as ex:
+            if not net.host_matches(ex.host, site):
+                return f"not checked: redirected to another site ({ex.url})"
+            policy.approve(ex.url)
+            url = ex.url
+    else:
+        return "not checked: too many redirects"
+    digest = sha256_bytes(response.content)
+    return "same" if digest == paper.sha256 else f"changed: the source now has SHA-256 {digest}"
 
 
 def fetch(paper: Paper, cfg: Config, fetcher: net.Fetcher | None = None) -> Path:
