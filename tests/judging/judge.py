@@ -39,6 +39,9 @@ OUT = ROOT / "ground_truth"
 MODEL = "claude-opus-5-5"
 EFFORT = "high"
 MAX_TOKENS = 64000
+# Opus 5.5 allows 128000; a judge cut off at MAX_TOKENS is rerun with more,
+# and its request record says so (Hestenes-Stiefel judge 1, 2026-10-18).
+MAX_TOKENS_HELP = f"output limit (default {MAX_TOKENS}; at most 128000)"
 PAGE_DPI = 150
 PROMPT_VERSION = "1"
 # US$ per million tokens for MODEL (input, output, cache write, cache read); batches: half.
@@ -207,7 +210,7 @@ def render_pages(pdf: Path, out_dir: Path, dpi: int = PAGE_DPI) -> list[Page]:
     return pages
 
 
-def build_params(pages: list[Page]) -> dict[str, Any]:
+def build_params(pages: list[Page], max_tokens: int = MAX_TOKENS) -> dict[str, Any]:
     """The request; identical for every judge of a paper, so its image prefix can be cached."""
     content: list[dict[str, Any]] = []
     for page in pages:
@@ -226,14 +229,16 @@ def build_params(pages: list[Page]) -> dict[str, Any]:
     content.append({"type": "text", "text": TASK})
     return {
         "model": MODEL,
-        "max_tokens": MAX_TOKENS,
+        "max_tokens": max_tokens,
         "system": SYSTEM,
         "messages": [{"role": "user", "content": content}],
         "output_config": {"effort": EFFORT, "format": {"type": "json_schema", "schema": SCHEMA}},
     }
 
 
-def request_record(key: str, judge: int, pages: list[Page], mode: str) -> dict[str, Any]:
+def request_record(
+    key: str, judge: int, pages: list[Page], mode: str, max_tokens: int = MAX_TOKENS
+) -> dict[str, Any]:
     """What is committed instead of the request: images replaced by their hashes."""
     return {
         "paper": key,
@@ -241,7 +246,7 @@ def request_record(key: str, judge: int, pages: list[Page], mode: str) -> dict[s
         "mode": mode,
         "model": MODEL,
         "effort": EFFORT,
-        "max_tokens": MAX_TOKENS,
+        "max_tokens": max_tokens,
         "page_dpi": PAGE_DPI,
         "prompt_version": PROMPT_VERSION,
         "system": SYSTEM,
@@ -274,7 +279,8 @@ def check_answer(message: dict[str, Any]) -> dict[str, Any]:
     if message.get("stop_reason") == "refusal":
         raise JudgeError(f"refused: {message.get('stop_details')}")
     if message.get("stop_reason") == "max_tokens":
-        raise JudgeError(f"cut off at max_tokens={MAX_TOKENS}")
+        output = (message.get("usage") or {}).get("output_tokens")
+        raise JudgeError(f"cut off at max_tokens ({output} output tokens)")
     text = "".join(b.get("text", "") for b in message.get("content", []) if b.get("type") == "text")
     try:
         data: dict[str, Any] = json.loads(text)
@@ -331,10 +337,10 @@ def cache_dir(key: str) -> Path:
     return Path(base) / "math-aware-source-digest" / "judging" / key / f"pages-{PAGE_DPI}"
 
 
-def run_single(key: str, judge: int) -> dict[str, Any]:
+def run_single(key: str, judge: int, max_tokens: int = MAX_TOKENS) -> dict[str, Any]:
     """One judge as one streamed request, with a refusal fallback that makes it invalid."""
     pages = render_pages(paper_pdf(key), cache_dir(key))
-    params = build_params(pages)
+    params = build_params(pages, max_tokens)
     client = _client()
     counted = client.messages.count_tokens(
         model=params["model"], system=params["system"], messages=params["messages"]
@@ -349,7 +355,8 @@ def run_single(key: str, judge: int) -> dict[str, Any]:
         message = stream.get_final_message()
     raw = message.to_dict()
     raw["_seconds"] = round(time.monotonic() - started, 1)
-    return save(key, judge, request_record(key, judge, pages, "single"), raw, batch=False)
+    record = request_record(key, judge, pages, "single", max_tokens)
+    return save(key, judge, record, raw, batch=False)
 
 
 SEPARATOR = "__judge-"  # a batch custom_id allows only letters, digits, "_" and "-"
@@ -368,7 +375,9 @@ def estimate_usd(input_tokens: int, pages: int, batch: bool) -> float:
     return cost_usd(usage, batch)
 
 
-def submit_batch(keys: list[str], judges: list[int], skip_existing: bool = False) -> str:
+def submit_batch(
+    keys: list[str], judges: list[int], skip_existing: bool = False, max_tokens: int = MAX_TOKENS
+) -> str:
     from anthropic.types.message_create_params import MessageCreateParamsNonStreaming
     from anthropic.types.messages.batch_create_params import Request
 
@@ -376,7 +385,7 @@ def submit_batch(keys: list[str], judges: list[int], skip_existing: bool = False
     requests, records, estimates = [], {}, {}
     for key in keys:
         pages = render_pages(paper_pdf(key), cache_dir(key))
-        params = build_params(pages)
+        params = build_params(pages, max_tokens)
         counted = client.messages.count_tokens(
             model=params["model"], system=params["system"], messages=params["messages"]
         )
@@ -388,7 +397,7 @@ def submit_batch(keys: list[str], judges: list[int], skip_existing: bool = False
             requests.append(
                 Request(custom_id=custom_id, params=cast(MessageCreateParamsNonStreaming, params))
             )
-            records[custom_id] = request_record(key, judge, pages, "batch")
+            records[custom_id] = request_record(key, judge, pages, "batch", max_tokens)
     if not requests:
         raise JudgeError("nothing to submit")
     batch = client.messages.batches.create(requests=requests)
@@ -463,12 +472,14 @@ def main(argv: list[str] | None = None) -> int:
     run = sub.add_parser("run", help="one judge, one streamed request")
     run.add_argument("paper")
     run.add_argument("--judge", type=int, default=1)
+    run.add_argument("--max-tokens", type=int, default=MAX_TOKENS, help=MAX_TOKENS_HELP)
     submit = sub.add_parser("submit", help="a batch of judges (half price)")
     submit.add_argument("papers", nargs="+")
     submit.add_argument("--judges", type=int, nargs="+", default=[1, 2])
     submit.add_argument(
         "--skip-existing", action="store_true", help="skip judges whose judgement is already saved"
     )
+    submit.add_argument("--max-tokens", type=int, default=MAX_TOKENS, help=MAX_TOKENS_HELP)
     status = sub.add_parser("status", help="progress, time and cost of a batch")
     status.add_argument("batch_id")
     collect = sub.add_parser("collect", help="save the results of a finished batch")
@@ -476,9 +487,11 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     try:
         if args.command == "run":
-            print(json.dumps(run_single(args.paper, args.judge), indent=1))
+            print(json.dumps(run_single(args.paper, args.judge, args.max_tokens), indent=1))
         elif args.command == "submit":
-            print(f"batch {submit_batch(args.papers, args.judges, args.skip_existing)} submitted")
+            print(
+                f"batch {submit_batch(args.papers, args.judges, args.skip_existing, args.max_tokens)} submitted"
+            )
         elif args.command == "status":
             print(batch_status(args.batch_id))
         else:
