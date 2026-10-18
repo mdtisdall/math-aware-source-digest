@@ -1,0 +1,1034 @@
+{
+ "pages": [
+  {
+   "pdf_page": 1,
+   "printed_page": "",
+   "kind": "cover"
+  },
+  {
+   "pdf_page": 2,
+   "printed_page": "I",
+   "kind": "other"
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "II",
+   "kind": "other"
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "1",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "2",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "3",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "4",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "5",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "6",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "7",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "8",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "9",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "10",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "11",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "12",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "13",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "14",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "15",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 19,
+   "printed_page": "16",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 20,
+   "printed_page": "17",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "18",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "19",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 23,
+   "printed_page": "20",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "21",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 25,
+   "printed_page": "22",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 26,
+   "printed_page": "23",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 27,
+   "printed_page": "24",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 28,
+   "printed_page": "25",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 29,
+   "printed_page": "26",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 30,
+   "printed_page": "27",
+   "kind": "article"
+  }
+ ],
+ "equations": [
+  {
+   "pdf_page": 6,
+   "printed_page": "3",
+   "order_on_page": 1,
+   "number": "(1)",
+   "latex": "\\dot{x}(t)=F(t)x(t)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "3",
+   "order_on_page": 2,
+   "number": "(2)",
+   "latex": "x(t+\\Delta t)=\\Phi(t+\\Delta t;\\, t)x(t)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "4",
+   "order_on_page": 1,
+   "number": "(3)",
+   "latex": "m(t)=H(t)x(t)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "4",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "\\mathrm{cov}\\,[x_o, x_o]=E[x_o x_o^T]=P_o",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "4",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "\\begin{aligned}\\mathrm{cov}\\,[x(t), x(t)]&=E[x(t)x^T(t)]\\\\&=\\Phi(t;\\, t_o)P_o\\Phi^T(t;\\, t_o)\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "4",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "\\mathrm{cov}\\,[m(t), m(t)]=H(t)\\Phi(t;\\, t_o)P_o\\Phi^T(t;\\, t_o)H^T(t)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "4",
+   "order_on_page": 5,
+   "number": "(4)",
+   "latex": "n(t+\\Delta t)=\\Phi_n(t+\\Delta t;\\, t)n(t)+u'(t+\\Delta t, t)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "4",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "u'(t+\\Delta t, t)=\\int_t^{t+\\Delta t}\\Phi_n(t+\\Delta t;\\, \\tau)u_n(\\tau)d\\tau",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "4",
+   "order_on_page": 7,
+   "number": "",
+   "latex": "\\begin{aligned}N_o&=\\mathrm{cov}\\,[n(t_o), n(t_o)]=E[n(t_o)n^T(t_o)]\\\\Q_n(t)&=\\mathrm{cov}\\,[u_n(t), u_n(t)]=E[u_n(t)u_n^T(t)]\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "4",
+   "order_on_page": 8,
+   "number": "(5)",
+   "latex": "x^*(t+\\Delta t)=\\Phi^*(t+\\Delta t;\\, t)x^*(t)+u(t+\\Delta t, t)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "4",
+   "order_on_page": 9,
+   "number": "(6)",
+   "latex": "\\left.\\begin{aligned}Q^*&=\\begin{bmatrix}0&0\\\\0&Q'\\end{bmatrix}\\\\Q'(t+\\Delta t, t)&=\\int_t^{t+\\Delta t}\\Phi_n(t+\\Delta t;\\tau)\\\\&\\qquad Q_n(\\tau)\\Phi_n^T(t+\\Delta t;\\, \\tau)d\\tau\\end{aligned}\\right\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "5",
+   "order_on_page": 1,
+   "number": "(7)",
+   "latex": "\\begin{aligned}y(t_k)&=m(t_k)+D(t_k)n(t_k)\\\\&=H(t_k)x(t_k)+D(t_k)n(t_k)\\\\&=M(t_k)x^*(t_k)\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "5",
+   "order_on_page": 2,
+   "number": "(8)",
+   "latex": "\\hat{x}^*=\\sum_{i=1}^{k}A_i y_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "5",
+   "order_on_page": 3,
+   "number": "(9)",
+   "latex": "\\begin{aligned}\\hat{x}^*(t_k)&=\\Phi^*(t_k;\\, t_{k-1})\\hat{x}^*(t_{k-1})\\\\&\\quad+K^*(t_k)[y(t_k)-M(t_k)\\Phi^*(t_k;\\, t_{k-1})\\hat{x}^*(t_{k-1})]\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "6",
+   "order_on_page": 1,
+   "number": "(10)",
+   "latex": "K^*(t_k)=P^*(t_k)M^T(t_k)[M(t_k)P^*(t_k)M^T(t_k)]^{-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "6",
+   "order_on_page": 2,
+   "number": "(11)",
+   "latex": "\\begin{aligned}P^*(t_{k+1})&=\\Phi(t_{k+1};\\, t_k)[P^*(t_k)-K^*(t_k)M(t_k)P^*(t_k)]\\\\&\\qquad\\Phi^T(t_{k+1};\\, t_k)+Q^*(t_{k+1}, t_k)\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "6",
+   "order_on_page": 3,
+   "number": "(12)",
+   "latex": "\\begin{aligned}\\hat{x}(t_k)&=\\Phi(t_k;\\, t_{k-1})\\hat{x}(t_{k-1})\\\\&\\quad+K(t_k)[y(t_k)-H(t_k)\\Phi(t_k;\\, t_{k-1})\\hat{x}(t_{k-1})]\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "6",
+   "order_on_page": 4,
+   "number": "(13)",
+   "latex": "K(t_k)=P(t_k)H^T(t_k)[H(t_k)P(t_k)H^T(t_k)+Q(t_k)]^{-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "6",
+   "order_on_page": 5,
+   "number": "(14)",
+   "latex": "\\begin{aligned}P(t_{k+1})&=\\Phi(t_{k+1};\\, t_k)[P(t_k)\\\\&\\quad-K(t_k)H(t_k)P(t_k)]\\Phi^T(t_{k+1};\\, t_k)\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "7",
+   "order_on_page": 1,
+   "number": "(15)",
+   "latex": "P(t_{k+1})=\\Phi(t_{k+1};\\, t_k)P'(t_k)\\Phi^T(t_{k+1};\\, t_k)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "7",
+   "order_on_page": 2,
+   "number": "(16)",
+   "latex": "P'(t_k)=P(t_k)-K(t_k)H(t_k)P(t_k)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "7",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "H=[H_1\\quad 0]",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "7",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "P=\\begin{bmatrix}P_1&P_2^T\\\\P_2&P_3\\end{bmatrix}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "7",
+   "order_on_page": 5,
+   "number": "(17)",
+   "latex": "K=\\begin{bmatrix}P_1\\\\P_2\\end{bmatrix}H_1^T[H_1P_1H_1^T+Q]^{-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "9",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "P(t_o)=\\begin{bmatrix}\\sigma_{x_1}^2&0&0&0&0&0\\\\0&\\sigma_{x_2}^2&0&0&0&0\\\\0&0&\\sigma_{x_3}^2&0&0&0\\\\0&0&0&\\sigma_{x_4}^2&0&0\\\\0&0&0&0&\\sigma_{x_5}^2&0\\\\0&0&0&0&0&\\sigma_{x_6}^2\\end{bmatrix}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "9",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "Q(t)=\\begin{bmatrix}\\sigma_n^2&0&0\\\\0&\\sigma_n^2&0\\\\0&0&\\sigma_n^2\\end{bmatrix}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "9",
+   "order_on_page": 3,
+   "number": "(18)",
+   "latex": "R(t)=\\Phi(t;\\, t_o)P(t_o)\\Phi^T(t;\\, t_o)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "10",
+   "order_on_page": 1,
+   "number": "(19)",
+   "latex": "\\left.\\begin{aligned}r&=\\sqrt{x_1^2+x_2^2+x_3^2}\\\\v&=\\sqrt{x_4^2+x_5^2+x_6^2}\\end{aligned}\\right\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "10",
+   "order_on_page": 2,
+   "number": "(20)",
+   "latex": "\\left.\\begin{aligned}\\tilde{r}&=\\sqrt{\\tilde{x}_1^2+\\tilde{x}_2^2+\\tilde{x}_3^2}\\\\\\tilde{v}&=\\sqrt{\\tilde{x}_4^2+\\tilde{x}_5^2+\\tilde{x}_6^2}\\end{aligned}\\right\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "10",
+   "order_on_page": 3,
+   "number": "(21)",
+   "latex": "\\left.\\begin{aligned}r_{\\mathrm{rms}}&=\\sqrt{Ex_1^2+Ex_2^2+Ex_3^2}\\\\v_{\\mathrm{rms}}&=\\sqrt{Ex_4^2+Ex_5^2+Ex_6^2}\\end{aligned}\\right\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "10",
+   "order_on_page": 4,
+   "number": "(22)",
+   "latex": "\\left.\\begin{aligned}\\tilde{r}_{\\mathrm{rms}}&=\\sqrt{E\\tilde{x}_1^2+E\\tilde{x}_2^2+E\\tilde{x}_3^2}\\\\\\tilde{v}_{\\mathrm{rms}}&=\\sqrt{E\\tilde{x}_4^2+E\\tilde{x}_5^2+E\\tilde{x}_6^2}\\end{aligned}\\right\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "10",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "\\begin{aligned}x_1(t_o)&=0.495\\text{ km}\\\\x_2(t_o)&=-0.886\\text{ km}\\\\x_3(t_o)&=-1.001\\text{ km}\\\\x_4(t_o)&=0.281\\text{ m/sec}\\\\x_5(t_o)&=1.999\\text{ m/sec}\\\\x_6(t_o)&=0.194\\text{ m/sec}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 19,
+   "printed_page": "16",
+   "order_on_page": 1,
+   "number": "(23)",
+   "latex": "\\sigma_m=\\frac{\\sigma_n(d+1)}{\\sqrt{k}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 20,
+   "printed_page": "17",
+   "order_on_page": 1,
+   "number": "(A1)",
+   "latex": "\\begin{aligned}\\ddot{X}&=-\\frac{\\mu_e X}{r^3}\\left[1+J\\left(\\frac{a}{r}\\right)^2\\left(1-5\\frac{Z^2}{r^2}\\right)\\right]\\\\&\\quad-\\frac{\\mu_m(X-X_m)}{\\Delta_m^3}-\\frac{\\mu_m X_m}{r_m^3}-\\frac{\\mu_s(X-X_s)}{\\Delta_s^3}-\\frac{\\mu_s X_s}{r_s^3}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 20,
+   "printed_page": "17",
+   "order_on_page": 2,
+   "number": "(A2)",
+   "latex": "\\begin{aligned}\\ddot{Y}&=-\\frac{\\mu_e Y}{r^3}\\left[1+J\\left(\\frac{a}{r}\\right)^2\\left(1-5\\frac{Z^2}{r^2}\\right)\\right]\\\\&\\quad-\\frac{\\mu_m(Y-Y_m)}{\\Delta_m^3}-\\frac{\\mu_m Y_m}{r_m^3}-\\frac{\\mu_s(Y-Y_s)}{\\Delta_s^3}-\\frac{\\mu_s Y_s}{r_s^3}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 20,
+   "printed_page": "17",
+   "order_on_page": 3,
+   "number": "(A3)",
+   "latex": "\\begin{aligned}\\ddot{Z}&=-\\frac{\\mu_e Z}{r^3}\\left[1+J\\left(\\frac{a}{r}\\right)^2\\left(3-5\\frac{Z^2}{r^2}\\right)\\right]\\\\&\\quad-\\frac{\\mu_m(Z-Z_m)}{\\Delta_m^3}-\\frac{\\mu_m Z_m}{r_m^3}-\\frac{\\mu_s(Z-Z_s)}{\\Delta_s^3}-\\frac{\\mu_s Z_s}{r_s^3}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 20,
+   "printed_page": "17",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "\\begin{aligned}r&=\\sqrt{X^2+Y^2+Z^2}\\\\r_m&=\\sqrt{X_m^2+Y_m^2+Z_m^2}\\\\r_s&=\\sqrt{X_s^2+Y_s^2+Z_s^2}\\\\\\Delta_m&=\\sqrt{(X-X_m)^2+(Y-Y_m)^2+(Z-Z_m)^2}\\\\\\Delta_s&=\\sqrt{(X-X_s)^2+(Y-Y_s)^2+(Z-Z_s)^2}\\\\\\mu_e&=3.986135\\times10^{14}\\text{ m}^3/\\text{sec}^2\\\\\\mu_m&=4.89820\\times10^{12}\\text{ m}^3/\\text{sec}^2\\\\\\mu_s&=1.3253\\times10^{20}\\text{ m}^3/\\text{sec}^2\\\\a&=\\text{radius of earth at equator}=6.37826\\times10^6\\text{ m}\\\\J&=1.6246\\times10^{-3}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "18",
+   "order_on_page": 1,
+   "number": "(B1)",
+   "latex": "\\left.\\begin{aligned}\\ddot{X}&=f_1(X,Y,Z)\\\\\\ddot{Y}&=f_2(X,Y,Z)\\\\\\ddot{Z}&=f_3(X,Y,Z)\\end{aligned}\\right\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "18",
+   "order_on_page": 2,
+   "number": "(B2)",
+   "latex": "\\begin{aligned}\\ddot{X}&=f_1(X_R,Y_R,Z_R)+\\frac{\\partial f_1}{\\partial X}(X-X_R)+\\frac{\\partial f_1}{\\partial Y}(Y-Y_R)\\\\&\\quad+\\frac{\\partial f_1}{\\partial Z}(Z-Z_R)+\\text{higher order terms}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "18",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "\\{x\\}=\\left\\{\\begin{matrix}x_1\\\\x_2\\\\x_3\\\\\\cdot\\\\\\cdot\\\\x_6\\end{matrix}\\right\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "18",
+   "order_on_page": 4,
+   "number": "(B3)",
+   "latex": "\\left.\\begin{aligned}x_1&=X-X_R\\\\x_2&=Y-Y_R\\\\x_3&=Z-Z_R\\\\x_4&=\\dot{X}-\\dot{X}_R=\\dot{x}\\\\x_5&=\\dot{Y}-\\dot{Y}_R=\\dot{x}_2\\\\x_6&=\\dot{Z}-\\dot{Z}_R=\\dot{x}_3\\end{aligned}\\right\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "18",
+   "order_on_page": 5,
+   "number": "(B4)",
+   "latex": "\\left.\\begin{aligned}\\ddot{x}_1&=\\frac{\\partial f_1}{\\partial X}x_1+\\frac{\\partial f_1}{\\partial Y}x_2+\\frac{\\partial f_1}{\\partial Z}x_3\\\\\\ddot{x}_2&=\\frac{\\partial f_2}{\\partial X}x_1+\\frac{\\partial f_2}{\\partial Y}x_2+\\frac{\\partial f_2}{\\partial Z}x_3\\\\\\ddot{x}_3&=\\frac{\\partial f_3}{\\partial X}x_1+\\frac{\\partial f_3}{\\partial Y}x_2+\\frac{\\partial f_3}{\\partial Z}x_3\\end{aligned}\\right\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "18",
+   "order_on_page": 6,
+   "number": "(B5)",
+   "latex": "\\left.\\begin{aligned}\\dot{x}_1&=x_4\\\\\\dot{x}_2&=x_5\\\\\\dot{x}_3&=x_6\\\\\\dot{x}_4&=\\frac{\\partial f_1}{\\partial X}x_1+\\frac{\\partial f_1}{\\partial Y}x_2+\\frac{\\partial f_1}{\\partial Z}x_3\\\\\\dot{x}_5&=\\frac{\\partial f_2}{\\partial X}x_1+\\frac{\\partial f_2}{\\partial Y}x_2+\\frac{\\partial f_2}{\\partial Z}x_3\\\\\\dot{x}_6&=\\frac{\\partial f_3}{\\partial X}x_1+\\frac{\\partial f_3}{\\partial Y}x_2+\\frac{\\partial f_3}{\\partial Z}x_3\\end{aligned}\\right\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "18",
+   "order_on_page": 7,
+   "number": "(B6)",
+   "latex": "\\dot{x}(t)=F(t)x(t)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "18",
+   "order_on_page": 8,
+   "number": "(B7)",
+   "latex": "F=\\begin{bmatrix}0&0&0&1&0&0\\\\0&0&0&0&1&0\\\\0&0&0&0&0&1\\\\\\frac{\\partial f_1}{\\partial X}&\\frac{\\partial f_1}{\\partial Y}&\\frac{\\partial f_1}{\\partial Z}&0&0&0\\\\\\frac{\\partial f_2}{\\partial X}&\\frac{\\partial f_2}{\\partial Y}&\\frac{\\partial f_2}{\\partial Z}&0&0&0\\\\\\frac{\\partial f_3}{\\partial X}&\\frac{\\partial f_3}{\\partial Y}&\\frac{\\partial f_3}{\\partial Z}&0&0&0\\end{bmatrix}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "19",
+   "order_on_page": 1,
+   "number": "(C1)",
+   "latex": "\\left.\\begin{aligned}\\alpha_e&=-\\sin^{-1}\\left(\\frac{Z}{R}\\right)\\\\\\beta_e&=\\left\\{\\begin{matrix}\\sin^{-1}\\frac{Y}{(X^2+Y^2)^{1/2}}\\\\\\cos^{-1}\\frac{X}{(X^2+Y^2)^{1/2}}\\end{matrix}\\right.\\\\\\gamma_e&=\\sin^{-1}\\left(\\frac{R_o}{R}\\right)\\end{aligned}\\right\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "19",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "R=(X^2+Y^2+Z^2)^{1/2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "19",
+   "order_on_page": 3,
+   "number": "(C2)",
+   "latex": "\\left\\{\\begin{matrix}\\delta\\alpha_e\\\\\\delta\\beta_e\\\\\\delta\\gamma_e\\end{matrix}\\right\\}=\\begin{bmatrix}\\frac{\\partial\\alpha_e}{\\partial X}&\\frac{\\partial\\alpha_e}{\\partial Y}&\\frac{\\partial\\alpha_e}{\\partial Z}\\\\\\frac{\\partial\\beta_e}{\\partial X}&\\frac{\\partial\\beta_e}{\\partial Y}&\\frac{\\partial\\beta_e}{\\partial Z}\\\\\\frac{\\partial\\gamma_e}{\\partial X}&\\frac{\\partial\\gamma_e}{\\partial Y}&\\frac{\\partial\\gamma_e}{\\partial Z}\\end{bmatrix}\\left\\{\\begin{matrix}x_1\\\\x_2\\\\x_3\\end{matrix}\\right\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 23,
+   "printed_page": "20",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\begin{aligned}R^2&=X^2+Y^2+Z^2\\\\R_o&=\\text{radius of earth}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 23,
+   "printed_page": "20",
+   "order_on_page": 2,
+   "number": "(C3)",
+   "latex": "\\left.\\begin{aligned}X&=-\\frac{R_o\\cos\\alpha_e\\cos\\beta_e}{\\sin\\gamma_e}\\\\Y&=-\\frac{R_o\\cos\\alpha_e\\sin\\beta_e}{\\sin\\gamma_e}\\\\Z&=-\\frac{R_o\\sin\\alpha_e}{\\sin\\gamma_e}\\end{aligned}\\right\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "21",
+   "order_on_page": 1,
+   "number": "(D1)",
+   "latex": "\\hat{x}^*(t_{k-1})=\\left\\{\\begin{matrix}\\hat{x}(t_{k-1})\\\\\\hat{n}(t_{k-1})\\end{matrix}\\right\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "21",
+   "order_on_page": 2,
+   "number": "(D2)",
+   "latex": "\\begin{bmatrix}\\Phi&0\\\\0&\\Phi_n\\end{bmatrix}\\left\\{\\begin{matrix}\\hat{x}\\\\\\hat{n}\\end{matrix}\\right\\}=\\left\\{\\begin{matrix}\\Phi\\hat{x}\\\\\\Phi_n\\hat{n}\\end{matrix}\\right\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "21",
+   "order_on_page": 3,
+   "number": "(D3)",
+   "latex": "P^*=\\Phi P^{*\\prime}\\Phi^T+Q^*",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "21",
+   "order_on_page": 4,
+   "number": "(D4)",
+   "latex": "P^{*\\prime}=\\begin{bmatrix}P_s&P_{sn}\\\\P_{sn}^T&P_n\\end{bmatrix}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "21",
+   "order_on_page": 5,
+   "number": "(D5)",
+   "latex": "\\begin{aligned}P^*&=\\begin{bmatrix}\\Phi&0\\\\0&\\Phi_n\\end{bmatrix}\\begin{bmatrix}P_s&P_{sn}\\\\P_{sn}^T&P_n\\end{bmatrix}\\begin{bmatrix}\\Phi^T&0\\\\0&\\Phi_n^T\\end{bmatrix}+\\begin{bmatrix}0&0\\\\0&Q'\\end{bmatrix}\\\\&=\\begin{bmatrix}\\Phi P_s\\Phi^T&\\Phi P_{sn}\\Phi_n^T\\\\\\Phi_nP_{sn}^T\\Phi^T&\\Phi_nP_n\\Phi_n^T+Q'\\end{bmatrix}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "21",
+   "order_on_page": 6,
+   "number": "(D6)",
+   "latex": "P^*=\\begin{bmatrix}\\Phi P_s\\Phi^T&0\\\\0&Q'\\end{bmatrix}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "21",
+   "order_on_page": 7,
+   "number": "(D7)",
+   "latex": "\\begin{aligned}MP^*M^T&=[H\\quad D]\\begin{bmatrix}P&0\\\\0&Q\\end{bmatrix}\\begin{bmatrix}H^T\\\\D^T\\end{bmatrix}\\\\&=[HPH^T+\\mathrm{DQD}^T]=B\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "21",
+   "order_on_page": 8,
+   "number": "(D8)",
+   "latex": "P=\\Phi P_s\\Phi^T",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "21",
+   "order_on_page": 9,
+   "number": "(D9)",
+   "latex": "\\begin{aligned}P^{*\\prime}&=P^*-P^*M^TB^{-1}MP^*\\\\&=\\begin{bmatrix}P&0\\\\0&Q\\end{bmatrix}-\\begin{bmatrix}PH^TB^{-1}HP&PH^TB^{-1}DQ\\\\QD^TB^{-1}HP&QD^TB^{-1}DQ\\end{bmatrix}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "21",
+   "order_on_page": 10,
+   "number": "(D10)",
+   "latex": "\\begin{aligned}P(t_{k+1})&=\\Phi(t_{k+1};\\, t_k)[P(t_k)\\\\&\\quad-P(t_k)H^T(t_k)B^{-1}H(t_k)P(t_k)]\\Phi^T(t_{k+1};\\, t_k)\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "21",
+   "order_on_page": 11,
+   "number": "",
+   "latex": "B=[H(t_k)P(t_k)H^T(t_k)+Q(t_k)]",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 25,
+   "printed_page": "22",
+   "order_on_page": 1,
+   "number": "(D11)",
+   "latex": "K^*=P^*M^TB^{-1}=\\begin{bmatrix}P&0\\\\0&Q\\end{bmatrix}\\begin{bmatrix}H^T\\\\D^T\\end{bmatrix}B^{-1}=\\begin{bmatrix}PH^TB^{-1}\\\\QD^TB^{-1}\\end{bmatrix}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 25,
+   "printed_page": "22",
+   "order_on_page": 2,
+   "number": "(D12)",
+   "latex": "K=PH^TB^{-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 25,
+   "printed_page": "22",
+   "order_on_page": 3,
+   "number": "(D13)",
+   "latex": "\\begin{aligned}\\hat{x}(t_k)&=\\Phi(t_k;\\, t_{k-1})\\hat{x}(t_{k-1})+K(t_k)[y(t_k)\\\\&\\quad-H(t_k)\\Phi(t_k;\\, t_{k-1})\\hat{x}(t_{k-1})]\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 25,
+   "printed_page": "22",
+   "order_on_page": 4,
+   "number": "(D14)",
+   "latex": "K(t_k)=P(t_k)H^T(t_k)[H(t_k)P(t_k)H^T(t_k)+Q(t_k)]^{-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 25,
+   "printed_page": "22",
+   "order_on_page": 5,
+   "number": "(D15)",
+   "latex": "\\begin{aligned}P(t_{k+1})&=\\Phi(t_{k+1};\\, t_k)[P(t_k)\\\\&\\quad-K(t_k)H(t_k)P(t_k)]\\Phi^T(t_{k+1};\\, t_k)\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 26,
+   "printed_page": "23",
+   "order_on_page": 1,
+   "number": "(E1)",
+   "latex": "x(t)=\\Phi(t;\\, t_o)x(t_o)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 26,
+   "printed_page": "23",
+   "order_on_page": 2,
+   "number": "(E2)",
+   "latex": "\\Phi(t;\\, t_o)=\\begin{bmatrix}\\varphi_{11}&\\varphi_{12}&\\cdots&\\varphi_{16}\\\\\\varphi_{21}&\\varphi_{22}&\\cdots&\\cdot\\\\\\cdot&&&\\cdot\\\\\\cdot&&&\\cdot\\\\\\cdot&&&\\cdot\\\\\\varphi_{61}&\\cdot&\\cdots&\\varphi_{66}\\end{bmatrix}",
+   "uncertain": "subscript of last element (could read 36)"
+  },
+  {
+   "pdf_page": 26,
+   "printed_page": "23",
+   "order_on_page": 3,
+   "number": "(E3)",
+   "latex": "\\left\\{\\begin{matrix}\\varphi_{11}\\\\\\varphi_{21}\\\\\\varphi_{31}\\\\\\varphi_{41}\\\\\\varphi_{51}\\\\\\varphi_{61}\\end{matrix}\\right\\}=\\Phi(t;\\, t_o)\\left\\{\\begin{matrix}1\\\\0\\\\0\\\\0\\\\0\\\\0\\end{matrix}\\right\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 27,
+   "printed_page": "24",
+   "order_on_page": 1,
+   "number": "(F1)",
+   "latex": "x_k=\\Phi_kx_o",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 27,
+   "printed_page": "24",
+   "order_on_page": 2,
+   "number": "(F2)",
+   "latex": "m_k=H_kx_k",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 27,
+   "printed_page": "24",
+   "order_on_page": 3,
+   "number": "(F3)",
+   "latex": "y_k=H_kx_k+n_k",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 27,
+   "printed_page": "24",
+   "order_on_page": 4,
+   "number": "(F4)",
+   "latex": "y=H\\Phi x_o+n",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 27,
+   "printed_page": "24",
+   "order_on_page": 5,
+   "number": "(F5)",
+   "latex": "\\left\\{\\begin{matrix}y_1\\\\y_2\\\\\\cdot\\\\\\cdot\\\\\\cdot\\\\y_k\\end{matrix}\\right\\}=\\begin{bmatrix}H_1\\Phi_1&0&\\cdot&\\cdot&\\cdot&0\\\\0&H_2\\Phi_2&&&&\\\\\\cdot&&\\cdot&&&\\\\\\cdot&&&\\cdot&&\\\\\\cdot&&&&\\cdot&\\\\0&&&&&H_k\\Phi_k\\end{bmatrix}\\{x_o\\}+\\left\\{\\begin{matrix}n_1\\\\n_2\\\\\\cdot\\\\\\cdot\\\\\\cdot\\\\n_k\\end{matrix}\\right\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 27,
+   "printed_page": "24",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "\\begin{aligned}\\mathrm{cov}\\,[x_o, x_o]&=P_o\\\\\\mathrm{cov}\\,[n, n]&=Q\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 27,
+   "printed_page": "24",
+   "order_on_page": 7,
+   "number": "",
+   "latex": "Q=\\begin{bmatrix}Q_1&0&\\cdot&\\cdot&\\cdot&0\\\\0&Q_2&&&&\\\\\\cdot&&\\cdot&&&\\\\\\cdot&&&\\cdot&&\\\\\\cdot&&&&\\cdot&\\\\0&&&&&Q_k\\end{bmatrix}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 28,
+   "printed_page": "25",
+   "order_on_page": 1,
+   "number": "(F6)",
+   "latex": "p(x_o|\\, y)=\\frac{p(y|x_o)\\, p(x_o)}{p(y)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 28,
+   "printed_page": "25",
+   "order_on_page": 2,
+   "number": "(F7)",
+   "latex": "\\begin{aligned}p(y|x_o)&=p(n)=p(y-H\\Phi x_o)\\\\&=\\frac{1}{[(2\\pi)^{jk}|Q|]^{1/2}}\\exp\\left[-\\frac{1}{2}(y^T\\right.\\\\&\\qquad\\left.-x_o^T\\Phi^TH^T)\\, Q^{-1}(y-H\\Phi x_o)\\right]\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 28,
+   "printed_page": "25",
+   "order_on_page": 3,
+   "number": "(F8)",
+   "latex": "p(x_o)=\\frac{1}{[(2\\pi)^6|P_o|]^{1/2}}\\exp\\left[-\\frac{1}{2}x_o^TP_o^{-1}x_o\\right]",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 28,
+   "printed_page": "25",
+   "order_on_page": 4,
+   "number": "(F9)",
+   "latex": "p(y)=\\frac{1}{[(2\\pi)^{jk}|Q+\\Gamma|]^{1/2}}\\exp\\left[-\\frac{1}{2}y^T(Q+\\Gamma)^{-1}y\\right]",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 28,
+   "printed_page": "25",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "\\begin{aligned}\\Gamma&=\\mathrm{cov}\\,[H\\Phi x, H\\Phi x]=H\\Phi P_o\\Phi^TH^T\\\\j&=\\text{number of measurements in an observation}\\\\k&=\\text{number of observations}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 28,
+   "printed_page": "25",
+   "order_on_page": 6,
+   "number": "(F10)",
+   "latex": "\\begin{aligned}p(x_o|y)&=\\frac{|Q+\\Gamma|^{1/2}}{(2\\pi)^3|P_o|^{1/2}|Q|^{1/2}}\\exp\\left[-\\frac{1}{2}x_o^TP_o^{-1}x_o\\right.\\\\&\\quad-\\frac{1}{2}(y^T-x_o^T\\Phi^TH^T)Q^{-1}(y-H\\Phi x_o)\\\\&\\quad\\left.+\\frac{1}{2}y^T(Q+\\Gamma)^{-1}y\\right]\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 28,
+   "printed_page": "25",
+   "order_on_page": 7,
+   "number": "(F11)",
+   "latex": "\\begin{aligned}p(x_o|y)&=\\frac{|Q+\\Gamma|^{1/2}}{(2\\pi)^3|P_o|^{1/2}|Q|^{1/2}}\\exp\\left[-\\frac{1}{2}(x_o^T\\right.\\\\&\\quad\\left.-y^TQ^{-1}H\\Phi\\Lambda)\\Lambda^{-1}(x_o-\\Lambda\\Phi^TH^TQ^{-1}y)\\right]\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 28,
+   "printed_page": "25",
+   "order_on_page": 8,
+   "number": "",
+   "latex": "\\Lambda=(P_o^{-1}+\\Phi^TH^TQ^{-1}H\\Phi)^{-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 28,
+   "printed_page": "25",
+   "order_on_page": 9,
+   "number": "(F12)",
+   "latex": "\\hat{x}_o=\\Lambda\\Phi^TH^TQ^{-1}y",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 28,
+   "printed_page": "25",
+   "order_on_page": 10,
+   "number": "(F13)",
+   "latex": "\\hat{x}_k=\\Phi_k\\Lambda\\Phi^TH^TQ^{-1}y",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 28,
+   "printed_page": "25",
+   "order_on_page": 11,
+   "number": "(F14)",
+   "latex": "\\Lambda_k'=\\Phi_k\\Lambda\\Phi_k^T",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 28,
+   "printed_page": "25",
+   "order_on_page": 12,
+   "number": "(F15)",
+   "latex": "\\hat{x}_k=\\Phi_k\\left(P_o^{-1}+\\sum_{i=1}^{k}\\Phi_i^TH_i^TQ_i^{-1}H_i\\Phi_i\\right)^{-1}\\sum_{i=1}^{k}\\Phi_i^TH_i^TQ_i^{-1}y_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 28,
+   "printed_page": "25",
+   "order_on_page": 13,
+   "number": "(F16)",
+   "latex": "\\Lambda_k'=\\Phi_k\\left(P_o^{-1}+\\sum_{i=1}^{k}\\Phi_i^TH_i^TQ_i^{-1}H_i\\Phi_i\\right)^{-1}\\Phi_k^T",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 29,
+   "printed_page": "26",
+   "order_on_page": 1,
+   "number": "(F17)",
+   "latex": "\\begin{aligned}\\hat{x}_{k-1}&=\\Phi_{k-1}\\left(P_o^{-1}+\\sum_{i=1}^{k-1}\\Phi_i^TH_i^TQ_i^{-1}H_i\\Phi_i\\right)^{-1}\\\\&\\quad\\sum_{i=1}^{k-1}\\Phi_i^TH_i^TQ_i^{-1}y_i\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 29,
+   "printed_page": "26",
+   "order_on_page": 2,
+   "number": "(F18)",
+   "latex": "\\begin{aligned}\\Phi_k\\Phi_{k-1}^{-1}\\hat{x}_{k-1}&=\\Phi_k\\left(P_o^{-1}+\\sum_{i=1}^{k-1}\\Phi_i^TH_i^TQ_i^{-1}H_i\\Phi_i\\right)^{-1}\\\\&\\quad\\sum_{i=1}^{k-1}\\Phi_i^TH_i^TQ_i^{-1}y_i\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 29,
+   "printed_page": "26",
+   "order_on_page": 3,
+   "number": "(F19)",
+   "latex": "\\left(P_o^{-1}+\\sum_{i=1}^{k}\\Phi_i^TH_i^TQ_i^{-1}H_i\\Phi_i\\right)\\Phi_k^{-1}\\hat{x}_k=\\sum_{i=1}^{k}\\Phi_i^TH_i^TQ_i^{-1}y_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 29,
+   "printed_page": "26",
+   "order_on_page": 4,
+   "number": "(F20)",
+   "latex": "\\left(P_o^{-1}+\\sum_{i=1}^{k-1}\\Phi_i^TH_i^TQ_i^{-1}H_i\\Phi_i\\right)\\Phi_{k-1}^{-1}\\hat{x}_{k-1}=\\sum_{i=1}^{k-1}\\Phi_i^TH_i^TQ_i^{-1}y_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 29,
+   "printed_page": "26",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "\\begin{aligned}&\\left(P_o^{-1}+\\sum_{i=1}^{k}\\Phi_i^TH_i^TQ_i^{-1}H_i\\Phi_i\\right)(\\Phi_k^{-1}\\hat{x}_k-\\Phi_{k-1}^{-1}\\hat{x}_{k-1})\\\\&\\quad+\\Phi_k^TH_k^TQ_k^{-1}H_k\\Phi_k\\Phi_{k-1}^{-1}\\hat{x}_{k-1}=\\Phi_k^TH_k^TQ_k^{-1}y_k\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 29,
+   "printed_page": "26",
+   "order_on_page": 6,
+   "number": "(F21)",
+   "latex": "\\hat{x}_k=\\Phi_k\\Phi_{k-1}^{-1}\\hat{x}_{k-1}+\\Lambda_k'H_k^TQ_k^{-1}(y_k-H_k\\Phi_k\\Phi_{k-1}^{-1}\\hat{x}_{K-1})",
+   "uncertain": "subscript of last \\hat{x} appears as capital K"
+  },
+  {
+   "pdf_page": 29,
+   "printed_page": "26",
+   "order_on_page": 7,
+   "number": "",
+   "latex": "\\Lambda_k'H_k^TQ_k^{-1}=K(t_k)=P(t_k)H_k^T[H_kP(t_k)H_k^T+Q_k]^{-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 29,
+   "printed_page": "26",
+   "order_on_page": 8,
+   "number": "",
+   "latex": "\\Lambda_k'H_k^TQ_k^{-1}=\\Lambda_kH_k^T[H_k\\Lambda_kH_k^T+Q_k]^{-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 29,
+   "printed_page": "26",
+   "order_on_page": 9,
+   "number": "(F22)",
+   "latex": "\\begin{aligned}(\\Delta\\Lambda)_k&=\\Lambda_k'-\\Lambda_k=\\Phi_k\\left[\\left(P_o^{-1}+\\sum_{i=1}^{k}\\Psi_i\\right)^{-1}\\right.\\\\&\\quad\\left.-\\left(P_o^{-1}+\\sum_{1}^{k-1}\\Psi_i\\right)^{-1}\\right]\\Phi_k^T\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 29,
+   "printed_page": "26",
+   "order_on_page": 10,
+   "number": "(F23)",
+   "latex": "\\Lambda_k=(\\Phi_k\\Phi_{k-1}^{-1})\\,\\Lambda_{k-1}'\\,(\\Phi_k\\Phi_{k-1}^{-1})^T",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 29,
+   "printed_page": "26",
+   "order_on_page": 11,
+   "number": "(F24)",
+   "latex": "\\begin{aligned}&\\left(P_o^{-1}+\\sum_{1}^{k}\\Psi_i\\right)\\Phi_k^{-1}(\\Delta\\Lambda)_k\\Phi_k^{T-1}\\left(P_o^{-1}+\\sum_{1}^{k-1}\\Psi_i\\right)=-\\Psi_k\\\\&(\\Phi_{k-1}^T\\Lambda_{k-1}'^{-1}\\Phi_{k-1}+\\Psi_k)\\Phi_k^{-1}(\\Delta\\Lambda)_k\\Phi_k^{T-1}(\\Phi_{k-1}^T\\Lambda_{k-1}'^{-1}\\Phi_{k-1})=-\\Psi_k\\\\(\\Delta\\Lambda)_k&=-\\Phi_k[(\\Phi_{k-1}^T\\Lambda_{k-1}'^{-1}\\Phi_{k-1}+\\Psi_k)^{-1}\\Psi_k(\\Phi_{k-1}^{-1}\\Lambda_{k-1}'\\Phi_{k-1}^{T-1})]\\Phi_k^T\\\\&=-(\\Phi_k^{T-1}\\Phi_{k-1}^T\\Lambda_{k-1}'^{-1}\\Phi_{k-1}\\Phi_k^{-1}+H_k^TQ_k^{-1}H_k)^{-1}H_k^TQ_k^{-1}H_k(\\Phi_k^{T-1}\\Phi_{k-1}^T\\Lambda_{k-1}'^{-1}\\Phi_{k-1}\\Phi_k^{-1})^{-1}\\\\&=-\\Lambda_k(I+H_k^TQ_k^{-1}H_k\\Lambda_k)^{-1}H_k^TQ_k^{-1}H_k\\Lambda_k\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 30,
+   "printed_page": "27",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\begin{aligned}H_k^TQ_k^{-1}H_k&\\equiv H_k^TQ_k^{-1}(H_k\\Lambda_kH_k^T+Q_k)\\\\&\\quad(H_k\\Lambda_kH_k^T+Q_k)^{-1}H_k\\\\&=(H_k^TQ_k^{-1}H_k\\Lambda_k+I)H_k^T(H_k\\Lambda_kH_k^T+Q_k)^{-1}H_k\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 30,
+   "printed_page": "27",
+   "order_on_page": 2,
+   "number": "(F25)",
+   "latex": "\\begin{aligned}&(H_k^TQ_k^{-1}H_k\\Lambda_k+I)^{-1}H_k^TQ_k^{-1}H_k\\\\&\\qquad=H_k^T(H_k\\Lambda_kH_k^T+Q_k)^{-1}H_k\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 30,
+   "printed_page": "27",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "(\\Delta\\Lambda)_k=-\\Lambda_kH_k^T(H_k\\Lambda_kH_k^T+Q_k)^{-1}H_k\\Lambda_k",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 30,
+   "printed_page": "27",
+   "order_on_page": 4,
+   "number": "(F26)",
+   "latex": "\\Lambda_k'=\\Lambda_k-\\Lambda_kH_k^T(H_k\\Lambda_kH_k^T+Q_k)^{-1}H_k\\Lambda_k",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 30,
+   "printed_page": "27",
+   "order_on_page": 5,
+   "number": "(F27)",
+   "latex": "\\begin{aligned}\\Lambda_k'H_k^TQ_k^{-1}&=[\\Lambda_k-\\Lambda_kH_k^T(H_k\\Lambda_kH_k^T+Q_k)^{-1}H_k\\Lambda_k]H_k^TQ_k^{-1}\\\\&=\\Lambda_kH_k^T[Q_k^{-1}-(H_k\\Lambda_kH_k^T\\\\&\\quad+Q_k)^{-1}H_k\\Lambda_kH_k^TQ_k^{-1}]\\\\&=\\Lambda_kH_k^T[(H_k\\Lambda_kH_k^T+Q_k)^{-1}(H_k\\Lambda_kH_k^T\\\\&\\quad+Q_k)Q_k^{-1}-(H_k\\Lambda_kH_k^T\\\\&\\quad+Q_k)^{-1}H_k\\Lambda_kH_k^TQ_k^{-1}]\\\\&=\\Lambda_kH_k^T[(H_k\\Lambda_kH_k^T+Q_k)^{-1}(H_k\\Lambda_kH_k^TQ_k^{-1}+I\\\\&\\quad-H_k\\Lambda_kH_k^TQ_k^{-1})]\\\\&=\\Lambda_kH_k^T(H_k\\Lambda_kH_k^T+Q_k)^{-1}\\end{aligned}",
+   "uncertain": ""
+  }
+ ],
+ "items": [
+  {
+   "kind": "section",
+   "label": "Appendix A",
+   "pdf_page": 20,
+   "printed_page": "17"
+  },
+  {
+   "kind": "section",
+   "label": "Appendix B",
+   "pdf_page": 21,
+   "printed_page": "18"
+  },
+  {
+   "kind": "section",
+   "label": "Appendix C",
+   "pdf_page": 22,
+   "printed_page": "19"
+  },
+  {
+   "kind": "section",
+   "label": "Appendix D",
+   "pdf_page": 24,
+   "printed_page": "21"
+  },
+  {
+   "kind": "section",
+   "label": "Appendix E",
+   "pdf_page": 26,
+   "printed_page": "23"
+  },
+  {
+   "kind": "section",
+   "label": "Appendix F",
+   "pdf_page": 27,
+   "printed_page": "24"
+  }
+ ]
+}

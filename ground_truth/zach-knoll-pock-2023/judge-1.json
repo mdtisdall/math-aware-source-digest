@@ -1,0 +1,394 @@
+{
+ "pages": [
+  {
+   "pdf_page": 1,
+   "printed_page": "3817",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 2,
+   "printed_page": "3818",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "3819",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "3820",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "3821",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "3822",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "3823",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "3824",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "3825",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "3826",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "3827",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "3828",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "3829",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "3830",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "3831",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "3832",
+   "kind": "article"
+  }
+ ],
+ "equations": [
+  {
+   "pdf_page": 2,
+   "printed_page": "3818",
+   "order_on_page": 1,
+   "number": "(1)",
+   "latex": "\\min_{x} E(x, z) := D(x, z) + R(x)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 2,
+   "printed_page": "3818",
+   "order_on_page": 2,
+   "number": "(2)",
+   "latex": "\\max_{x} \\int p(x' \\mid z) \\; \\mathrm{d}\\delta_{x}(x')",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 2,
+   "printed_page": "3818",
+   "order_on_page": 3,
+   "number": "(3)",
+   "latex": "\\min_{x} \\int p(x' \\mid z) \\left\\| x - x' \\right\\|^{2} \\; \\mathrm{d}x' =: \\mathbb{E}[x \\mid z]",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "3819",
+   "order_on_page": 1,
+   "number": "(4)",
+   "latex": "\\int \\left( x_i' - \\mathbb{E}[x \\mid z]_i \\right)^{2} \\; p(x_i' \\mid z) \\; \\mathrm{d}x_i' =: (\\mathrm{Var}[x \\mid z])_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "3820",
+   "order_on_page": 1,
+   "number": "(5)",
+   "latex": "p_{\\theta}(x) := \\exp(-R_{\\theta}(x)) Z_{\\theta}^{-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "3820",
+   "order_on_page": 2,
+   "number": "(6)",
+   "latex": "\\min_{\\theta \\in \\Theta} \\left\\{ \\Gamma(\\theta) := \\mathbb{E}_{x \\sim p_{\\mathrm{data}}}[-\\log p_{\\theta}(x)] \\right\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "3820",
+   "order_on_page": 3,
+   "number": "(7)",
+   "latex": "x^{(j)} \\sim \\mathcal{N}\\Big( x^{(j-1)} + \\frac{\\zeta}{2} \\nabla \\log p_{\\theta}(x^{(j-1)}), \\zeta \\mathrm{Id} \\Big), \\quad j \\in [\\![ 1, J ]\\!]",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "3821",
+   "order_on_page": 1,
+   "number": "(8)",
+   "latex": "A \\colon \\mathbb{R}^{n} \\to \\mathbb{C}^{m}, \\quad x \\mapsto \\begin{pmatrix} \\mathcal{F}_{M}(\\sigma_1 \\odot x) \\\\ \\mathcal{F}_{M}(\\sigma_2 \\odot x) \\\\ \\vdots \\\\ \\mathcal{F}_{M}(\\sigma_C \\odot x) \\end{pmatrix}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "3821",
+   "order_on_page": 2,
+   "number": "(9)",
+   "latex": "x = u \\oslash |\\Sigma|_{\\mathcal{C}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "3821",
+   "order_on_page": 3,
+   "number": "(10)",
+   "latex": "\\operatorname*{arg\\,min}_{(u, \\Sigma) \\in \\mathbb{R}^{n} \\times \\mathcal{C}} H(u, \\Sigma) + \\delta_{\\mathbb{R}^{n}_{\\geq 0}}(u) + \\mu F(\\Sigma)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "3821",
+   "order_on_page": 4,
+   "number": "(11)",
+   "latex": "\\begin{aligned} &H \\colon \\mathbb{R}^{n} \\times \\mathcal{C} \\to \\mathbb{R}, \\\\ &(u, (\\sigma_c)_{c=1}^{C}) \\mapsto \\frac{1}{2} \\left\\| \\begin{pmatrix} \\mathcal{F}_{M}(\\sigma_1 \\odot u \\oslash |\\Sigma|_{\\mathcal{C}}) \\\\ \\vdots \\\\ \\mathcal{F}_{M}(\\sigma_C \\odot u \\oslash |\\Sigma|_{\\mathcal{C}}) \\end{pmatrix} - \\begin{pmatrix} z_1 \\\\ \\vdots \\\\ z_C \\end{pmatrix} \\right\\|_{2}^{2} \\\\ &\\qquad + \\lambda R(u) \\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "3821",
+   "order_on_page": 5,
+   "number": "(12)",
+   "latex": "\\begin{aligned} &F \\colon \\mathcal{C} \\to \\mathbb{R}_{\\geq 0}, \\\\ &(\\sigma_c)_{c=1}^{C} \\mapsto \\frac{1}{2} \\sum_{c=1}^{C} \\big( \\| \\mathrm{D} \\mathfrak{Re}(\\sigma_c) \\|_{2}^{2} + \\| \\mathrm{D} \\mathfrak{Im}(\\sigma_c) \\|_{2}^{2} \\big) \\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "3821",
+   "order_on_page": 6,
+   "number": "(13)",
+   "latex": "\\delta_{\\mathcal{A}} \\colon \\mathbb{R}^{n} \\to \\{0, \\infty\\}, \\quad x \\mapsto \\begin{cases} 0 & \\text{if } x \\in \\mathcal{A}, \\\\ \\infty & \\text{else.} \\end{cases}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "3821",
+   "order_on_page": 7,
+   "number": "(14)",
+   "latex": "(\\sigma_c)_{c=1}^{C} \\mapsto \\big( Q_{\\mu}(\\mathfrak{Re}(\\sigma_c)) + \\hat{\\imath} Q_{\\mu}(\\mathfrak{Im}(\\sigma_c)) \\big)_{i=1}^{C}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "3821",
+   "order_on_page": 8,
+   "number": "(15)",
+   "latex": "u^{(0)} = \\sqrt{\\sum_{c=1}^{C} |\\mathcal{F}_{M}^{*}(z_c)|^{2}} \\quad \\text{and} \\quad \\sigma_c^{(0)} = \\mathcal{F}_{M}^{*}(z_c) \\oslash u^{(0)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "3822",
+   "order_on_page": 1,
+   "number": "(16)",
+   "latex": "R_{\\theta} = U \\circ FC \\circ S_{L} \\circ S_{L-1} \\circ \\ldots \\circ S_{2} \\circ S_{1} \\circ \\lrcorner_{\\cdot}",
+   "uncertain": "final center-crop symbol (a crop-mark glyph with a subscript dot) rendered as \\lrcorner_{\\cdot}"
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "3823",
+   "order_on_page": 1,
+   "number": "(17)",
+   "latex": "\\pi_c = \\frac{\\sigma_c}{|\\Sigma|_{\\mathcal{C}}^{2}} \\sum_{i=1}^{C} \\bar{\\sigma}_i u_i - u_c",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "3823",
+   "order_on_page": 2,
+   "number": "(18)",
+   "latex": "\\mathrm{TV} : \\mathbb{R}^{n}_{\\geq 0} \\ni x \\mapsto \\sum_{i=1}^{n} \\sqrt{(\\mathrm{D}x)_i^{2} + (\\mathrm{D}x)_{i+n}^{2} + \\epsilon^{2}}",
+   "uncertain": ""
+  }
+ ],
+ "items": [
+  {
+   "kind": "section",
+   "label": "Section I",
+   "pdf_page": 1,
+   "printed_page": "3817"
+  },
+  {
+   "kind": "section",
+   "label": "Section I-A",
+   "pdf_page": 2,
+   "printed_page": "3818"
+  },
+  {
+   "kind": "section",
+   "label": "Section I-B",
+   "pdf_page": 3,
+   "printed_page": "3819"
+  },
+  {
+   "kind": "section",
+   "label": "Section I-C",
+   "pdf_page": 3,
+   "printed_page": "3819"
+  },
+  {
+   "kind": "section",
+   "label": "Section I-C-1",
+   "pdf_page": 3,
+   "printed_page": "3819"
+  },
+  {
+   "kind": "section",
+   "label": "Section I-C-2",
+   "pdf_page": 3,
+   "printed_page": "3819"
+  },
+  {
+   "kind": "section",
+   "label": "Section I-C-3",
+   "pdf_page": 4,
+   "printed_page": "3820"
+  },
+  {
+   "kind": "section",
+   "label": "Section II",
+   "pdf_page": 4,
+   "printed_page": "3820"
+  },
+  {
+   "kind": "section",
+   "label": "Section II-A",
+   "pdf_page": 4,
+   "printed_page": "3820"
+  },
+  {
+   "kind": "section",
+   "label": "Section II-B",
+   "pdf_page": 4,
+   "printed_page": "3820"
+  },
+  {
+   "kind": "algorithm",
+   "label": "Algorithm 1",
+   "pdf_page": 5,
+   "printed_page": "3821"
+  },
+  {
+   "kind": "section",
+   "label": "Section II-C",
+   "pdf_page": 5,
+   "printed_page": "3821"
+  },
+  {
+   "kind": "algorithm",
+   "label": "Algorithm 2",
+   "pdf_page": 6,
+   "printed_page": "3822"
+  },
+  {
+   "kind": "section",
+   "label": "Section II-D",
+   "pdf_page": 6,
+   "printed_page": "3822"
+  },
+  {
+   "kind": "section",
+   "label": "Section II-E",
+   "pdf_page": 6,
+   "printed_page": "3822"
+  },
+  {
+   "kind": "section",
+   "label": "Section II-F",
+   "pdf_page": 6,
+   "printed_page": "3822"
+  },
+  {
+   "kind": "section",
+   "label": "Section II-G",
+   "pdf_page": 7,
+   "printed_page": "3823"
+  },
+  {
+   "kind": "section",
+   "label": "Section III",
+   "pdf_page": 7,
+   "printed_page": "3823"
+  },
+  {
+   "kind": "section",
+   "label": "Section III-A",
+   "pdf_page": 7,
+   "printed_page": "3823"
+  },
+  {
+   "kind": "section",
+   "label": "Section III-B",
+   "pdf_page": 7,
+   "printed_page": "3823"
+  },
+  {
+   "kind": "section",
+   "label": "Section III-C",
+   "pdf_page": 8,
+   "printed_page": "3824"
+  },
+  {
+   "kind": "section",
+   "label": "Section III-D",
+   "pdf_page": 9,
+   "printed_page": "3825"
+  },
+  {
+   "kind": "section",
+   "label": "Section III-E",
+   "pdf_page": 10,
+   "printed_page": "3826"
+  },
+  {
+   "kind": "section",
+   "label": "Section IV",
+   "pdf_page": 10,
+   "printed_page": "3826"
+  },
+  {
+   "kind": "section",
+   "label": "Section V",
+   "pdf_page": 14,
+   "printed_page": "3830"
+  },
+  {
+   "kind": "section",
+   "label": "Appendix A",
+   "pdf_page": 15,
+   "printed_page": "3831"
+  },
+  {
+   "kind": "section",
+   "label": "Appendix B",
+   "pdf_page": 15,
+   "printed_page": "3831"
+  }
+ ]
+}

@@ -1,0 +1,3130 @@
+{
+ "pages": [
+  {
+   "pdf_page": 1,
+   "printed_page": "409",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 2,
+   "printed_page": "410",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "411",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "412",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "413",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "416",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "417",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "418",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "419",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "420",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "421",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "422",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "423",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "424",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "425",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "426",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 19,
+   "printed_page": "427",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 20,
+   "printed_page": "428",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "429",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "430",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 23,
+   "printed_page": "431",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "432",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 25,
+   "printed_page": "433",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 26,
+   "printed_page": "434",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 27,
+   "printed_page": "435",
+   "kind": "article"
+  },
+  {
+   "pdf_page": 28,
+   "printed_page": "436",
+   "kind": "article"
+  }
+ ],
+ "equations": [
+  {
+   "pdf_page": 2,
+   "printed_page": "410",
+   "order_on_page": 1,
+   "number": "(2:1)",
+   "latex": "\\begin{aligned} a_{11}x_1+a_{12}x_2+\\ldots+a_{1n}x_n&=k_1\\\\ a_{21}x_1+a_{22}x_2+\\ldots+a_{2n}x_n&=k_2\\\\ \\ldots\\quad\\ldots\\quad&\\ldots\\\\ a_{n1}x_1+a_{n2}x_2+\\ldots+a_{nn}x_n&=k_n\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 2,
+   "printed_page": "410",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "(x,y)=x_1y_1+x_2y_2+\\ldots+x_ny_n",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 2,
+   "printed_page": "410",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "|x|=(x_1^2+\\ldots+x_n^2)^{\\frac{1}{2}}=(x,x)^{\\frac{1}{2}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 2,
+   "printed_page": "410",
+   "order_on_page": 4,
+   "number": "(2:2)",
+   "latex": "(x,y)^2\\leq(x,x)(y,y)\\quad\\text{or}\\quad|(x,y)|\\leq|x||y|",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 2,
+   "printed_page": "410",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "(x,Ay)=\\sum_{i,j=1}^{n}a_{ij}x_iy_j=(A^*x,y)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "411",
+   "order_on_page": 1,
+   "number": "(3:1a)",
+   "latex": "p_0=r_0=k-Ax_0\\qquad(x_0\\text{ arbitrary})",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "411",
+   "order_on_page": 2,
+   "number": "(3:1b)",
+   "latex": "a_i=\\frac{|r_i|^2}{(p_i,Ap_i)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "411",
+   "order_on_page": 3,
+   "number": "(3:1c)",
+   "latex": "x_{i+1}=x_i+a_ip_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "411",
+   "order_on_page": 4,
+   "number": "(3:1d)",
+   "latex": "r_{i+1}=r_i-a_iAp_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "411",
+   "order_on_page": 5,
+   "number": "(3:1e)",
+   "latex": "b_i=\\frac{|r_{i+1}|^2}{|r_i|^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "411",
+   "order_on_page": 6,
+   "number": "(3:1f)",
+   "latex": "p_{i+1}=r_{i+1}+b_ip_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "411",
+   "order_on_page": 7,
+   "number": "(3:2a)",
+   "latex": "a_i=\\frac{(p_i,r_i)}{(p_i,Ap_i)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "411",
+   "order_on_page": 8,
+   "number": "(3:2b)",
+   "latex": "b_i=-\\frac{(r_{i+1},Ap_i)}{(p_i,Ap_i)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "411",
+   "order_on_page": 9,
+   "number": "(3:3)",
+   "latex": "(r_i,r_j)=0,\\quad(p_i,Ap_j)=0\\qquad(i\\neq j)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "411",
+   "order_on_page": 10,
+   "number": "(3:4)",
+   "latex": "Ax=k'",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "411",
+   "order_on_page": 11,
+   "number": "(3:5)",
+   "latex": "x=\\sum_{i=0}^{n-1}\\frac{(p_i,k')}{(Ap_i,p_i)}p_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "411",
+   "order_on_page": 12,
+   "number": "",
+   "latex": "\\sum_{i=0}^{n-1}\\frac{p_{ij}p_{ik}}{(p_i,Ap_i)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "411",
+   "order_on_page": 13,
+   "number": "(3:6)",
+   "latex": "\\begin{aligned} R_0&=P_0=1\\\\ R_{i+1}&=R_i-\\lambda a_iP_i\\\\ P_{i+1}&=R_{i+1}+b_iP_i\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 3,
+   "printed_page": "411",
+   "order_on_page": 14,
+   "number": "(3:7)",
+   "latex": "\\lambda_{k+1}=\\lambda_k-\\frac{R_m(\\lambda_k)}{R'_m(\\lambda_k)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "412",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\begin{aligned} R'_0&=P'_0=0\\\\ R'_{i+1}&=R'_i-\\lambda a_iP'_i-a_iP_i\\\\ P'_{i+1}&=R'_i+b_iP'_i\\end{aligned}",
+   "uncertain": "subscript of R' in the third line (i or i+1)"
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "412",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "\\det(A)=\\frac{1}{a_0a_1\\ldots a_{n-1}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "412",
+   "order_on_page": 3,
+   "number": "(3:8)",
+   "latex": "\\begin{aligned} r_0&=k-Ax_0,\\qquad p_0=A^*r_0,\\\\ a_i&=\\frac{|A^*r_i|^2}{|Ap_i|^2}\\\\ x_{i+1}&=x_i+a_ip_i,\\\\ r_{i+1}&=r_i-a_iAp_i,\\\\ b_i&=\\frac{|A^*r_{i+1}|^2}{|A^*r_i|^2}\\\\ p_{i+1}&=A^*r_{i+1}+b_ip_i\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "412",
+   "order_on_page": 4,
+   "number": "(4:1a)",
+   "latex": "a_i=\\frac{(p_i,r_i)}{(p_i,Ap_i)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "412",
+   "order_on_page": 5,
+   "number": "(4:1b)",
+   "latex": "x_{i+1}=x_i+a_ip_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "412",
+   "order_on_page": 6,
+   "number": "(4:1c)",
+   "latex": "r_{i+1}=r_i-a_iAp_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "412",
+   "order_on_page": 7,
+   "number": "(4:2)",
+   "latex": "(p_{i+1},Ap_j)=0\\qquad(j=0,1,\\ldots,i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "412",
+   "order_on_page": 8,
+   "number": "(4:3a)",
+   "latex": "(p_i,Ap_j)=0\\qquad(i\\neq j)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "412",
+   "order_on_page": 9,
+   "number": "(4:3b)",
+   "latex": "(p_j,r_i)=0\\qquad(j=0,1,\\cdots,i-1)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "412",
+   "order_on_page": 10,
+   "number": "(4:3c)",
+   "latex": "(p_i,r_0)=(p_i,r_1)=\\cdots=(p_i,r_i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "412",
+   "order_on_page": 11,
+   "number": "(4:4)",
+   "latex": "a_i=\\frac{(p_i,r_0)}{(p_i,Ap_i)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "412",
+   "order_on_page": 12,
+   "number": "",
+   "latex": "(p_j,r_{k+1})=(p_j,r_k)-a_k(p_j,Ap_k)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "412",
+   "order_on_page": 13,
+   "number": "",
+   "latex": "y_0=\\alpha_0p_0+\\cdots+\\alpha_{m-1}p_{m-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "412",
+   "order_on_page": 14,
+   "number": "",
+   "latex": "h=x_0+\\alpha_0p_0+\\cdots+\\alpha_{m-1}p_{m-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 4,
+   "printed_page": "412",
+   "order_on_page": 15,
+   "number": "",
+   "latex": "r_0=k-Ax_0=A(h-x_0)=\\alpha_0Ap_0+\\cdots+\\alpha_{m-1}Ap_{m-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "413",
+   "order_on_page": 1,
+   "number": "(4:5)",
+   "latex": "f(x)=(h-x,A(h-x))=(x,Ax)-2(x,k)+(h,k)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "413",
+   "order_on_page": 2,
+   "number": "(4:6)",
+   "latex": "f(x+\\alpha p)=f(x)-2\\alpha(p,r)+\\alpha^2(p,Ap)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "413",
+   "order_on_page": 3,
+   "number": "(4:7)",
+   "latex": "a=\\frac{(p,r)}{(p,Ap)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "413",
+   "order_on_page": 4,
+   "number": "(4:8)",
+   "latex": "f(x)-f(x+ap)=a^2(p,Ap)=\\frac{(p,r)^2}{(p,Ap)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "413",
+   "order_on_page": 5,
+   "number": "(4:9)",
+   "latex": "f(x_{i-1})-f(x_i)=\\frac{(p_{i-1},r_{i-1})^2}{(p_{i-1},Ap_{i-1})}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "413",
+   "order_on_page": 6,
+   "number": "(4:10)",
+   "latex": "x=x_0+\\alpha_0p_0+\\ldots+\\alpha_{i-1}p_{i-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "413",
+   "order_on_page": 7,
+   "number": "",
+   "latex": "f(x)=f(x_0)-\\sum_{j=0}^{i-1}[2\\alpha_j(p_j,r_0)-\\alpha_j^2(p_j,Ap_j)]",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "413",
+   "order_on_page": 8,
+   "number": "",
+   "latex": "\\alpha_j=\\frac{(p_j,r_0)}{(p_j,Ap_j)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "413",
+   "order_on_page": 9,
+   "number": "(4:11)",
+   "latex": "\\frac{|r|^2}{\\mu(r)}\\leqq f(x)\\leqq\\frac{|r|^2}{\\mu(y)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "413",
+   "order_on_page": 10,
+   "number": "(4:12)",
+   "latex": "\\mu(z)=\\frac{(z,Az)}{|z|^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "413",
+   "order_on_page": 11,
+   "number": "(4:13)",
+   "latex": "\\mu(y)\\leqq\\mu(r)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "413",
+   "order_on_page": 12,
+   "number": "(4:14)",
+   "latex": "\\frac{|r|}{\\mu(r)}\\leqq|y|\\leqq\\frac{|r|}{\\mu(y)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "413",
+   "order_on_page": 13,
+   "number": "(4:15)",
+   "latex": "\\frac{(z,Az)}{(z,z)}\\leqq\\frac{(Az,Az)}{(z,Az)}\\leqq\\frac{(Az,A^2z)}{(Az,Az)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "413",
+   "order_on_page": 14,
+   "number": "(4:16)",
+   "latex": "|(p,q)|^2\\leqq(p,p)(q,q)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "413",
+   "order_on_page": 15,
+   "number": "",
+   "latex": "\\begin{aligned} r&=k-Ax=A(h-x)=Ay\\\\ f(x)&=(y,Ay)\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 5,
+   "printed_page": "413",
+   "order_on_page": 16,
+   "number": "",
+   "latex": "\\begin{aligned}\\mu(y)=\\frac{(y,Ay)}{(y,y)}&\\leqq\\frac{(Ay,Ay)}{(y,Ay)}=\\frac{|r|^2}{f(x)}\\leqq\\frac{(Ay,A^2y)}{(Ay,Ay)}\\\\ &=\\frac{(r,Ar)}{(r,r)}=\\mu(r)\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "f(x)=(y,Ay)=(y,r)\\leqq|y|\\,|r|",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "f(x)=\\mu(y)|y|^2\\leqq|y|\\,|r|",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "\\frac{|r|^2}{\\mu(r)}\\leqq f(x)\\leqq|y|\\,|r|",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "\\sum_{i=0}^{n-1}\\frac{p_{ij}p_{ik}}{(p_i,Ap_i)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "h=\\sum_{i=0}^{n-1}\\frac{(p_ik)}{(p_i,Ap_i)}p_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "(Ap_j,x-x_i)=0\\qquad(j=0,1,\\ldots,i-1)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "order_on_page": 7,
+   "number": "",
+   "latex": "x_k-x_i=a_ip_i+\\ldots+a_{k-1}p_{k-1}\\qquad(k>i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "order_on_page": 8,
+   "number": "",
+   "latex": "f(x_i+ta_ip_i)=f(x_i)-(2t-t^2)a_i^2(p_i,Ap_i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "order_on_page": 9,
+   "number": "(5:1a)",
+   "latex": "p_0=r_0=k-Ax_0",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "order_on_page": 10,
+   "number": "(5:1b)",
+   "latex": "a_i=\\frac{|r_i|^2}{(p_i,Ap_i)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "order_on_page": 11,
+   "number": "(5:1c)",
+   "latex": "x_{i+1}=x_i+a_ip_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "order_on_page": 12,
+   "number": "(5:1d)",
+   "latex": "r_{i+1}=r_i-a_iAp_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "order_on_page": 13,
+   "number": "(5:1e)",
+   "latex": "b_i=\\frac{|r_{i+1}|^2}{|r_i|^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "order_on_page": 14,
+   "number": "(5:1f)",
+   "latex": "p_{i+1}=r_{i+1}+b_ip_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "order_on_page": 15,
+   "number": "(5:2)",
+   "latex": "p_k=|r_k|^2\\sum_{j=0}^{k}\\frac{r_j}{|r_j|^2}\\qquad k=0,1,2,\\ldots",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "order_on_page": 16,
+   "number": "(5:3a)",
+   "latex": "(r_i,r_j)=0\\qquad(i\\neq j)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "order_on_page": 17,
+   "number": "(5:3b)",
+   "latex": "(p_i,Ap_j)=0\\qquad(i\\neq j)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "order_on_page": 18,
+   "number": "(5:3c)",
+   "latex": "(p_i,r_j)=0\\quad(i<j),\\qquad(p_i,r_j)=|r_i|^2\\quad(i\\geqq j)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "order_on_page": 19,
+   "number": "(5:3d)",
+   "latex": "(r_i,Ap_i)=(p_i,Ap_i),\\ (r_i,Ap_j)=0\\ (i\\neq j,i\\neq j+1)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 6,
+   "printed_page": "414",
+   "order_on_page": 20,
+   "number": "",
+   "latex": "(r_0,r_1)=(p_0,r_1)=|r_0|^2-a_0(r_0,Ap_0)=0",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 1,
+   "number": "(5:4a)",
+   "latex": "(r_i,p_k)=|r_k|^2\\qquad(i\\leqq k)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 2,
+   "number": "(5:4b)",
+   "latex": "(p_i,Ap_k)=0\\qquad(i<k)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 3,
+   "number": "(5:4c)",
+   "latex": "(r_k,Ap_i)=(p_k,Ap_i)\\qquad(i\\leqq k,i\\neq k-1)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "(r_{i+1},p_k)=(r_i,p_k)-a_i(Ap_i,p_k)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "|r_k|^2=|r_k|^2-a_i(Ap_i,p_k)\\qquad(i<k)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "(p_k,Ap_i)=(r_k,Ap_i)+b_{k-1}(p_{k-1},Ap_i)=(r_k,Ap_i)\\qquad(i\\neq k-1)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 7,
+   "number": "(5:5a)",
+   "latex": "(r_i,r_{k+1})=0\\qquad(i\\leqq k)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 8,
+   "number": "(5:5b)",
+   "latex": "(Ap_i,r_{k+1})=0\\qquad(i<k)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 9,
+   "number": "(5:5c)",
+   "latex": "(p_i,r_{k+1})=0\\qquad(i\\leqq k)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 10,
+   "number": "",
+   "latex": "(r_i,r_{k+1})=(r_i,r_k)-a_k(r_i,Ap_k)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 11,
+   "number": "",
+   "latex": "0=(r_{k+1},r_{i+1})=(r_{k+1},r_i)-a_i(r_{k+1},Ap_i)=-a_i(r_{k+1},Ap_i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 12,
+   "number": "",
+   "latex": "p_i=\\sum_{j=0}^{n-1}\\alpha_{ij}r_j",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 13,
+   "number": "",
+   "latex": "\\alpha_{ij}=\\frac{|r_i|^2}{|r_j|^2}\\,(i\\geqq j),\\quad\\alpha_{ij}=0\\qquad(<j)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 14,
+   "number": "(5:6a)",
+   "latex": "(p_i,p_j)=\\frac{|r_j|^2|p_i|^2}{|r_i|^2}\\qquad(i\\leqq j)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 15,
+   "number": "(5:6b)",
+   "latex": "|p_i|^2=|r_i|^2+b_{i-1}^2|p_{i-1}|^2=|r_i|^4\\sum_{j=0}^{i}\\frac{1}{|r_j|^2}\\qquad(i>0)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 16,
+   "number": "(5:6c)",
+   "latex": "(r_i,Ar_j)=0\\qquad|i-j|>1",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 17,
+   "number": "(5:6d)",
+   "latex": "(r_i,Ar_i)=(p_i,Ap_i)+b_{i-1}^2(p_{i-1},Ap_{i-1})\\qquad(i>0)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 18,
+   "number": "",
+   "latex": "(r_i,Ar_j)=(r_i,Ap_j)-b_{j-1}(r_i,Ap_{j-1})=0\\qquad(i<j-1)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 19,
+   "number": "(5:7a)",
+   "latex": "p_1=(1+b_0)p_0-a_0Ap_0",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 20,
+   "number": "(5:7b)",
+   "latex": "p_{i+1}=(1+b_i)p_i-a_iAp_i-b_{i-1}p_{i-1}\\qquad(i>0)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 21,
+   "number": "(5:8a)",
+   "latex": "r_1=r_0-a_0Ar_0",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 22,
+   "number": "(5:8b)",
+   "latex": "r_{i+1}=(1+b'_{i-1})r_i-a_iAr_i-b'_{i-1}r_{i-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 7,
+   "printed_page": "415",
+   "order_on_page": 23,
+   "number": "(5:9)",
+   "latex": "b_{i-1}=\\frac{a_i}{a_{i-1}}b_{i-1}",
+   "uncertain": "possible prime on the left-hand b_{i-1} not visible"
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "416",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\begin{aligned} p_{i+1}&=r_{i+1}+b_ip_i\\\\ r_{i+1}&=r_i-a_iAp_i\\\\ p_i&=r_i+b_{i-1}p_{i-1}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "416",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "\\begin{aligned} r_{i+1}&=r_i-a_iAp_i\\\\ Ap_i&=Ar_i+b_{i-1}Ap_{i-1}\\\\ r_i&=r_{i-1}-a_{i-1}Ap_{i-1}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "416",
+   "order_on_page": 3,
+   "number": "(5:10)",
+   "latex": "a_i=\\frac{|r_i|^2}{(p_i,Ap_i)}=\\frac{(p_i,r_i)}{(p_i,Ap_i)}=\\frac{(p_i,r_0)}{(p_i,Ap_i)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "416",
+   "order_on_page": 4,
+   "number": "(5:11)",
+   "latex": "b_i=\\frac{|r_{i+1}|^2}{|r_i|^2}=-\\frac{(r_{i+1},Ap_i)}{(p_i,Ap_i)}=-\\frac{(r_{i+1},Ar_i)}{(p_i,Ap_i)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "416",
+   "order_on_page": 5,
+   "number": "(5:12)",
+   "latex": "\\frac{1}{a_0}=\\mu(r_0),\\qquad\\mu(p_i)<\\frac{1}{a_i}<\\mu(r_i)\\quad(i>0)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "416",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "|r_i|<|p_i|,\\qquad(r_i,Ar_i)>(p_i,Ap_i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "416",
+   "order_on_page": 7,
+   "number": "",
+   "latex": "\\frac{(p_i,Ap_i)}{|p_i|^2}<\\frac{(p_i,Ap_i)}{|r_i|^2}<\\frac{(r_i,Ar_i)}{|r_i|^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "416",
+   "order_on_page": 8,
+   "number": "(6:1)",
+   "latex": "f(x_{i-1})-f(x_i)=a_{i-1}|r_{i-1}|^2=\\mu(p_{i-1})|x_{i-1}-x_i|^2",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "416",
+   "order_on_page": 9,
+   "number": "(6:2)",
+   "latex": "f(x_i)-f(x_j)=a_i|r_i|^2+\\cdots+a_{j-1}|r_{j-1}|^2\\qquad(i<j)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "416",
+   "order_on_page": 10,
+   "number": "(6:3)",
+   "latex": "x_i=x_0+\\sum_{j=0}^{i-1}a_jp_j=x_0+\\sum_{j=0}^{i-1}\\frac{f(x_j)-f(x_i)}{|r_j|^2}r_j",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "416",
+   "order_on_page": 11,
+   "number": "",
+   "latex": "x=\\alpha_0x_0+\\cdots+\\alpha_ix_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "416",
+   "order_on_page": 12,
+   "number": "",
+   "latex": "\\begin{aligned} x_i-x=\\alpha_0(x_i-x_0)+\\cdots+\\alpha_{i-1}(x_i-x_{i-1})&=\\beta_0p_0\\\\ &+\\cdots+\\beta_{i-1}p_{i-1}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "416",
+   "order_on_page": 13,
+   "number": "",
+   "latex": "(x_j-x_i,x_i-x)>0\\qquad(i<j)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "416",
+   "order_on_page": 14,
+   "number": "(6:4)",
+   "latex": "|x_j-x|^2=|x_j-x_i|^2+2(x_j-x_i,x_i-x)+|x_i-x|^2",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "416",
+   "order_on_page": 15,
+   "number": "",
+   "latex": "|x_j-x_i|<|x_j-x|\\qquad(i<j)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 8,
+   "printed_page": "416",
+   "order_on_page": 16,
+   "number": "(6:5)",
+   "latex": "|y_{i-1}|^2-|y_i|^2=\\frac{f(x_i)+f(x_{i-1})}{\\mu(p_{i-1})}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "417",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\begin{aligned}(y_i,x_i-x_{i-1})&=(x_m-x_i,p_{i-1})a_{i-1}\\\\ &=[a_i(p_i,p_{i-1})+\\ldots+a_{m-1}(p_{m-1},p_{i-1})]a_{i-1}\\\\ &=[a_i|r_i|^2+\\ldots+a_{m-1}|r_{m-1}|^2]\\frac{a_{i-1}|p_{i-1}|^2}{|r_{i-1}|^2}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "417",
+   "order_on_page": 2,
+   "number": "(6:6)",
+   "latex": "(y_i,x_i-x_{i-1})=\\frac{f(x_i)}{\\mu(p_{i-1})}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "417",
+   "order_on_page": 3,
+   "number": "(6:7a)",
+   "latex": "x_k^{(i)}=x_{i-1}+\\frac{f(x_{i-1})-f(x_k)}{f(x_{i-1})-f(x_i)}(x_i-x_{i-1})",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "417",
+   "order_on_page": 4,
+   "number": "(6:7b)",
+   "latex": "x_k^{(i)}=x_{i-1}+\\frac{f(x_i)-f(x_k)}{|r_{i-1}|^2}p_{i-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "417",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "p_j-\\frac{|r_j|^2}{|r_{i-1}|^2}p_{i-1}\\qquad(j\\geqq i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "417",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "(p_l,p_j)-\\frac{|r_j|^2}{|r_{i-1}|^2}(p_l,p_{i-1})=\\frac{|p_l|^2}{|r_l|^2}[|r_j|^2-|r_j|^2]=0",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "417",
+   "order_on_page": 7,
+   "number": "",
+   "latex": "x_k=x_{i-1}+a_{i-1}p_{i-1}+a_ip_i+\\ldots+a_{k-1}p_{k-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "417",
+   "order_on_page": 8,
+   "number": "",
+   "latex": "x_k^{(i)}=x_{i-1}+\\frac{a_{i-1}|r_{i-1}|^2+\\ldots+a_{k-1}|r_{k-1}|^2}{|r_{i-1}|^2}p_{i-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "417",
+   "order_on_page": 9,
+   "number": "(6:8)",
+   "latex": "x_m^{(i)}=x_i+\\frac{f(x_i)}{|r_{i-1}|^2}p_{i-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "417",
+   "order_on_page": 10,
+   "number": "(6.9)",
+   "latex": "\\frac{1}{f(x_m^{(i)})}=\\frac{1}{f(x_i)}-\\frac{1}{f(x_{i-1})}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "417",
+   "order_on_page": 11,
+   "number": "(6.10)",
+   "latex": "|h-x_i|^2=|h-x_m^{(i)}|^2+\\frac{f(x_m^{(i)})-f(x_i)}{\\mu(p_{i-1})}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "417",
+   "order_on_page": 12,
+   "number": "",
+   "latex": "f(x_i+\\alpha p_{i-1})=f(x_i)+\\alpha^2(p_{i-1},Ap_{i-1})",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "417",
+   "order_on_page": 13,
+   "number": "",
+   "latex": "f(x_m^{(i)})=f(x_1)+\\frac{f(x_i)^2}{a_{i-1}|r_{i-1}|^2}=f(x_i)^2+\\frac{f(x_i)^2}{f(x_{i-1})-f(x_i)}",
+   "uncertain": "subscript of first f(x_1) (1 or i); exponent on f(x_i)^2 after second equals sign"
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "417",
+   "order_on_page": 14,
+   "number": "",
+   "latex": "\\begin{aligned}|h-x_i|^2-|h-x_m^{(i)}|^2&=\\frac{f(x_i)^2|p_{i-1}|^2}{|r_{i-1}|^4}\\\\ &=\\frac{f(x_i)^2}{f(x_{i-1})-f(x_i)}\\,\\frac{a_{i-1}|p_{i-1}|^2}{|r_{i-1}|^2}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "417",
+   "order_on_page": 15,
+   "number": "",
+   "latex": "\\begin{aligned}(x_m-x_0,x_i-x_{i-1})&=(x_m-x_0,a_{i-1},p_{i-1})\\\\ &=a_{i-1}\\sum_{j=0}^{m-1}a_j(p_j,p_{i-1})>0\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "417",
+   "order_on_page": 16,
+   "number": "",
+   "latex": "(Ap_j,x-x_i)=0\\qquad(j=0,1,\\ldots,i-1)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 9,
+   "printed_page": "417",
+   "order_on_page": 17,
+   "number": "",
+   "latex": "q_i=-r_i+\\alpha_0Ap_0+\\ldots+\\alpha_{i-1}Ap_{i-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "418",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\begin{aligned} p_i&=|r_i|^2\\sum_{j=0}^{i}\\frac{r_j}{|r_j|^2}\\\\ r_{j+1}&=r_j-a_jAp_j\\qquad(j=0,1,\\ldots,i-1)\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "418",
+   "order_on_page": 2,
+   "number": "(7:1)",
+   "latex": "p_i=c_i(k-A\\bar{x}_i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "418",
+   "order_on_page": 3,
+   "number": "(7:2a)",
+   "latex": "c_0=1,\\ c_{i+1}=1+b_ic_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "418",
+   "order_on_page": 4,
+   "number": "(7:2b)",
+   "latex": "\\bar{x}_0=x_0,\\ \\bar{x}_{i+1}=\\frac{x_{i+1}+b_ic_i\\bar{x}_i}{c_{i+1}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "418",
+   "order_on_page": 5,
+   "number": "(7:3a)",
+   "latex": "c_i=|r_i|^2\\sum_{j=0}^{i}\\frac{1}{|r_j|^2}=\\frac{|p_i|^2}{|r_i|^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "418",
+   "order_on_page": 6,
+   "number": "(7:3b)",
+   "latex": "\\bar{x}_i=\\frac{|r_i|^2}{c_i}\\sum_{j=0}^{i}\\frac{x_j}{|r_j|^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "418",
+   "order_on_page": 7,
+   "number": "(7:3c)",
+   "latex": "\\bar{r}_i=k-A\\bar{x}_i=\\frac{1}{c_i}p_i=\\frac{|r_i|^2}{c_i}\\sum_{j=0}^{i}\\frac{r_j}{|r_j|^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "418",
+   "order_on_page": 8,
+   "number": "",
+   "latex": "\\begin{aligned} p_{i+1}=r_{i+1}+b_ip_i&=(1+b_ic_i)k-A(x_{i+1}+b_ic_i\\bar{x}_i)\\\\ &=c_{i+1}(k-A\\bar{x}_{i+1})\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "418",
+   "order_on_page": 9,
+   "number": "(7:4)",
+   "latex": "|\\bar{r}_i|^2=\\frac{|r_i|^2}{c_i}=\\frac{|r_i|^4}{|p_i|^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "418",
+   "order_on_page": 10,
+   "number": "(7:5)",
+   "latex": "|\\bar{r}_{i-1}|^2-|\\bar{r}_i|^2=\\frac{|\\bar{r}_{i-1}|^2}{c_i}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "418",
+   "order_on_page": 11,
+   "number": "",
+   "latex": "x-\\bar{x}_i=z_i=\\alpha_0p_0+\\cdots+\\alpha_{i-1}p_{i-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "418",
+   "order_on_page": 12,
+   "number": "",
+   "latex": "\\begin{aligned} r&=\\bar{r}_i-Az_i\\\\ Az_i&=\\alpha_0Ap_0+\\cdots+\\alpha_{i-1}Ap_{i-1}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "418",
+   "order_on_page": 13,
+   "number": "",
+   "latex": "(\\bar{r}_i,Ap_j)=\\frac{1}{c_i}(p_i,Ap_j)=0\\qquad(j<i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 10,
+   "printed_page": "418",
+   "order_on_page": 14,
+   "number": "",
+   "latex": "|r|^2=|\\bar{r}_i|^2+|Az_i|^2>|\\bar{r}_i|^2\\qquad(x\\neq\\bar{x}_i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "419",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\begin{aligned}|\\bar{r}_{i-1}|^2-|\\bar{r}_i|^2&=|\\bar{r}_{i-1}|^2\\left(1-\\frac{c_{i-1}}{c_i}\\frac{|r_i|^2}{|r_{i-1}|^2}\\right)\\\\ &=|\\bar{r}_{i-1}|^2\\left(1-\\frac{b_{i-1}c_{i-1}}{c_i}\\right)=\\frac{|\\bar{r}_{i-1}|^2}{c_i}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "419",
+   "order_on_page": 2,
+   "number": "(7:6a)",
+   "latex": "\\frac{\\mu(r_i)}{|r_i|^2}=\\frac{\\mu(\\bar{r}_i)}{|\\bar{r}_i|^2}+\\frac{\\mu(\\bar{r}_{i-1})}{|\\bar{r}_{i-1}|^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "419",
+   "order_on_page": 3,
+   "number": "(7:6b)",
+   "latex": "\\frac{\\mu(\\bar{r}_i)}{|\\bar{r}_i|^2}=\\frac{\\mu(r_i)}{|r_i|^2}-\\frac{\\mu(r_{i-1})}{|r_{i-1}|^2}+\\cdots+(-1)^i\\frac{\\mu(r_0)}{|r_0|^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "419",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "\\frac{(r_i,Ar_i)}{|r_i|^4}=\\frac{(p_i,Ap_i)}{|r_i|^4}+\\frac{(p_{i-1},Ap_{i-1})}{|r_{i-1}|^4}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "419",
+   "order_on_page": 5,
+   "number": "(7:7)",
+   "latex": "f(\\bar{x}_i)=f(x_i)+|\\bar{r}_i|^4\\sum_{j=0}^{i-1}\\frac{f(x_j)-f(x_{j+1})}{|\\bar{r}_j|^4}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "419",
+   "order_on_page": 6,
+   "number": "(7:8)",
+   "latex": "f(x_i)<f(\\bar{x}_i)<f(\\bar{x}_{i-1})",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "419",
+   "order_on_page": 7,
+   "number": "(7:9)",
+   "latex": "\\bar{b}_{i-1}=\\frac{|\\bar{r}_i|^2}{|\\bar{r}_{i-1}|^2}=\\frac{c_{i-1}|r_i|^2}{c_i|r_{i-1}|^2}=\\frac{b_{i-1}c_{i-1}}{c_i}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "419",
+   "order_on_page": 8,
+   "number": "(7:10)",
+   "latex": "\\bar{x}_i-x_i=\\bar{b}_{i-1}(\\bar{x}_{i-1}-x_i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "419",
+   "order_on_page": 9,
+   "number": "",
+   "latex": "f(x)-f(x_i)=(x-x_i,A(x-x_i))",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "419",
+   "order_on_page": 10,
+   "number": "",
+   "latex": "f(\\bar{x}_i)-f(x_i)=\\bar{b}_{i-1}^2(\\bar{x}_{i-1}-x_i,A(\\bar{x}_{i-1}-x_i))",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "419",
+   "order_on_page": 11,
+   "number": "(7:11)",
+   "latex": "f(\\bar{x}_i)-f(x_i)=\\bar{b}_{i-1}^2[f(\\bar{x}_{i-1})-f(x_i)]",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "419",
+   "order_on_page": 12,
+   "number": "",
+   "latex": "\\frac{f(\\bar{x}_i)-f(x_i)}{|\\bar{r}_i|^4}=\\frac{f(x_{i-1})-f(x_i)}{|\\bar{r}_{i-1}|^4}+\\frac{f(\\bar{x}_{i-1})-f(x_{i-1})}{|\\bar{r}_{i-1}|^4}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "419",
+   "order_on_page": 13,
+   "number": "(8:1a)",
+   "latex": "p_0=r_0",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "419",
+   "order_on_page": 14,
+   "number": "(8:1b)",
+   "latex": "a_i=\\frac{|r_i|^2}{(p_i,Ap_i)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "419",
+   "order_on_page": 15,
+   "number": "(8:1c)",
+   "latex": "\\mathrm{r}_{i+1}=r_i-a_iAp_i",
+   "uncertain": "left-hand r appears upright"
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "419",
+   "order_on_page": 16,
+   "number": "(8:1d)",
+   "latex": "b_1=\\frac{|r_{i+1}|^2}{|r_i|^2}",
+   "uncertain": "subscript of b (1 or i)"
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "419",
+   "order_on_page": 17,
+   "number": "(8:1e)",
+   "latex": "p_{i+1}=r_{i+1}+b_ip_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 11,
+   "printed_page": "419",
+   "order_on_page": 18,
+   "number": "(8:2)",
+   "latex": "(r_i,r_k)=0,\\quad(Ap_i,p_k)=0\\qquad(i\\neq k)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "420",
+   "order_on_page": 1,
+   "number": "(8:3)",
+   "latex": "(r_{i-1},r_i),\\qquad(Ap_{i-1},p_i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "420",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "(r_i,r_{i+1})=(p_i,r_{i+1})-b_{i-1}(p_{i-1},r_{i+1})",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "420",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "\\begin{aligned}(r_i,r_{i+1})=(p_i,r_i)-a_i(p_i,Ap_i)-b_{i-1}(p_{i-1},r_i)&\\\\ +b_{i-1}a_i(Ap_{i-1},p_i)&\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "420",
+   "order_on_page": 4,
+   "number": "(8:4)",
+   "latex": "(r_i,r_{i+1})=(r_i,r_i)-a_i(p_i,Ap_i)+b_{i-1}a_i(Ap_{i-1},p_i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "420",
+   "order_on_page": 5,
+   "number": "(8:5)",
+   "latex": "(r_i,r_{i+1})=b_{i-1}a_i(Ap_{i-1},p_i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "420",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "(Ap_i,p_{i+1})=Ap_i,r_{i+1})+b_i(Ap_i,p_i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "420",
+   "order_on_page": 7,
+   "number": "(8:6)",
+   "latex": "(Ap_i,p_{i+1})=-\\frac{1}{a_i}|r_{i+1}|^2+\\frac{1}{a_i}(r_i,r_{i+1})+b_i(Ap_i,p_i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "420",
+   "order_on_page": 8,
+   "number": "(8:7)",
+   "latex": "|r_{i+1}|^2=a_ib_i(Ap_i,p_i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "420",
+   "order_on_page": 9,
+   "number": "(8:8)",
+   "latex": "(Ap_i,p_{i+1})=\\frac{1}{a_i}(r_i,r_{i+1})",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "420",
+   "order_on_page": 10,
+   "number": "(8:9a)",
+   "latex": "(r_i,r_{i+1})=\\frac{b_{i+1}a_i}{a_{i-1}}(r_{i-1},r_i)",
+   "uncertain": "subscript of b (i+1 or i-1)"
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "420",
+   "order_on_page": 11,
+   "number": "(8:9b)",
+   "latex": "(Ap_i,p_{i+1})=b_{i-1}(Ap_{i-1},p_i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "420",
+   "order_on_page": 12,
+   "number": "(8:10a)",
+   "latex": "\\frac{(r_i,r_{i+1})}{|r_i|^2}=\\frac{a_i}{a_{i-1}}\\frac{(r_{i-1},r_i)}{|r_{i-1}|^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "420",
+   "order_on_page": 13,
+   "number": "(8:10b)",
+   "latex": "\\frac{(Ap_i,p_{i+1})}{(Ap_i,p_i)}=\\frac{a_i}{a_{i-1}}\\frac{(Ap_{i-1},p_i)}{(Ap_{i-1},p_{i-1})}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "420",
+   "order_on_page": 14,
+   "number": "(8:11)",
+   "latex": "h=x_0+a'_0p_0+a'_1p_1+\\cdots+a'_{n-1}p_{n-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "420",
+   "order_on_page": 15,
+   "number": "",
+   "latex": "(x_0,Ap_i)+\\sum_k(Ap_i,p_k)a'_k=(h,Ap_i)=(Ah,p_i)=(k,p_i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "420",
+   "order_on_page": 16,
+   "number": "(8:12)",
+   "latex": "\\sum_k(Ap_i,p_k)a'_k=(r_0,p_i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "420",
+   "order_on_page": 17,
+   "number": "(8:13)",
+   "latex": "h'=x_0+a_0p_0+\\cdots+a_{n-1}p_{n-1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 12,
+   "printed_page": "420",
+   "order_on_page": 18,
+   "number": "(8:14)",
+   "latex": "\\frac{(Ap_i,p_k)}{(Ap_i,p_i)}\\qquad(i\\neq k)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "421",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\frac{1}{\\lambda_{\\mathrm{max}}}<a_i<\\frac{1}{\\lambda_{\\mathrm{min}}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "421",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "\\lambda_{\\mathrm{min}}=\\lambda_0<\\lambda_1<\\lambda_2<\\ldots<\\lambda_{n-1}=\\lambda_{\\mathrm{max}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "421",
+   "order_on_page": 3,
+   "number": "(8:14a)",
+   "latex": "r_0=(\\alpha_0,\\alpha_1\\epsilon,\\alpha_2\\epsilon^2,\\ldots,\\alpha_{n-1}\\epsilon^{n-1})",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "421",
+   "order_on_page": 4,
+   "number": "(8:14b)",
+   "latex": "a_i=\\frac{1}{\\lambda_i}+\\epsilon^2(*)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "421",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "\\frac{a_i}{a_{i-1}}=\\frac{\\lambda_{i-1}}{\\lambda_i}+\\epsilon^2(*)<1",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "421",
+   "order_on_page": 6,
+   "number": "(8:15)",
+   "latex": "(r_0,p_i)-\\sum_k(Ap_i,p_k)a_k",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "421",
+   "order_on_page": 7,
+   "number": "(8:16)",
+   "latex": "(r_0,p_i)=(r_{i+1},p_i)+a_0(Ap_i,p_0)+\\ldots+a_i(Ap_i,p_i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "421",
+   "order_on_page": 8,
+   "number": "(8:17)",
+   "latex": "\\begin{aligned}(r_{i+1},p_i)-(Ap_i,p_{i+1})a_{i+1}-(Ap_i,p_{i+2})a_{i+2}-\\ldots&\\\\ -(Ap_i,p_{n-1})a_{n-1}&\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "421",
+   "order_on_page": 9,
+   "number": "(8:18)",
+   "latex": "\\begin{aligned}\\Delta a_i=\\frac{1}{(Ap_i,p_i)}\\{&(r_{i+1},p_i)-(Ap_i,p_{i+1})a_{i+1}\\\\ &-(Ap_i,p_{i+2})a_{i+2}-\\ldots-(Ap_i,p_{n-1})a_{n-1}\\}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "421",
+   "order_on_page": 10,
+   "number": "",
+   "latex": "a'_i\\sim a_i+\\Delta a_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "421",
+   "order_on_page": 11,
+   "number": "(8:19)",
+   "latex": "a_i=\\frac{(p_i,r_i)}{(p_i,Ap_i)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 13,
+   "printed_page": "421",
+   "order_on_page": 12,
+   "number": "",
+   "latex": "a_i=\\frac{1}{(p_i,Ap_i)}\\{|r_i|^2+b_{i-1}(r_i,p_{i-1})\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "422",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "b_i=\\frac{1}{a_i(p_i,Ap_i)}\\{|r_{i+1}|^2-(r_{i+1},r_i)\\}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "422",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "(r_{i+1},p_i)=0,\\quad(p_{i+1},Ap_i)=0",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "422",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "(r_{i+1},r_i)=(r_{i+1},p_i)-b_{i-1}(r_i,p_{i-1})+a_ib_{i-1}(p_i,Ap_{i-1})",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "422",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "\\begin{aligned} r_n&=r_{i+1}-a_{i+1}Ap_{i+1}-a_{i+2}Ap_{i+2}-\\ldots-a_{n-1}Ap_{n-1}\\\\ (r_n,p_i)&=(r_{i+1},p_i)-a_{i+1}(Ap_i,p_{i+1})\\\\ &\\quad-\\ldots-a_{n+1}(Ap_i,p_{n-1})\\end{aligned}",
+   "uncertain": "subscript a_{n+1} (possibly n-1)"
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "422",
+   "order_on_page": 5,
+   "number": "(8:20)",
+   "latex": "\\Delta a_i=\\frac{(r_n,p_i)}{(Ap_i,p_i)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "422",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "(r_i,r_{i+1})=(r_i,r_i)-\\bar{a}_i(Ap_i,p_i)+b_{i-1}\\bar{a}_i(Ap_{i-1},p_i)=0",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "422",
+   "order_on_page": 7,
+   "number": "",
+   "latex": "\\bar{a}_i=\\frac{|r_i|^2}{(Ap_i,p_i)-b_{i-1}(Ap_{i-1},p_i)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "422",
+   "order_on_page": 8,
+   "number": "(8:21)",
+   "latex": "d_i=1-b_{i-1}\\frac{(Ap_{i-1},p_i)}{(Ap_i,p_i)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "422",
+   "order_on_page": 9,
+   "number": "(8:22)",
+   "latex": "\\bar{a}_i=\\frac{a_i}{d_i}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "422",
+   "order_on_page": 10,
+   "number": "",
+   "latex": "-|r_{i+1}|^2+(r_i,r_{i+1})+\\bar{a}_i\\bar{b}_i(Ap_i,p_i)=0",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "422",
+   "order_on_page": 11,
+   "number": "(8:23)",
+   "latex": "\\bar{b}_i=b_id_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "422",
+   "order_on_page": 12,
+   "number": "(8:24)",
+   "latex": "\\begin{aligned} p_0&=r_0=k-Ax_0,\\qquad d_0=1\\\\ a_i&=\\frac{|r_i|^2}{(p_i,Ap_i)}\\frac{1}{d_i}\\\\ x_{i+1}&=x_i+a_ip_i\\\\ r_{i+1}&=r_i-a_iAp_i\\\\ b_i&=\\frac{|r_{i+1}|^2}{|r_i|^2}d_i\\\\ p_{i+1}&=r_{i+1}+b_ip_i\\\\ d_{i+1}&=1-b_i\\frac{(Ap_{i+1},p_i)}{(Ap_{i+1},p_{i+1})}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 14,
+   "printed_page": "422",
+   "order_on_page": 13,
+   "number": "(8:25)",
+   "latex": "\\bar{p}_i=p_i-\\frac{(Ap_i,p_k)}{(Ap_k,p_k)}p_k",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "423",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "p_0=r_0,\\quad p_i=r_i+b_{i-1}p_{i-1}\\qquad(i>0)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "423",
+   "order_on_page": 2,
+   "number": "(9:1)",
+   "latex": "\\begin{aligned} r_0&=k-Ax_0,\\qquad p_0=\\frac{r_0}{d_0}\\\\ x_{i+1}&=x_i+a_ip_i\\\\ r_{i+1}&=r_i-a_iAp_i\\\\ p_{i+1}&=\\frac{r_{i+1}+b_ip_i}{d_{i+1}}\\\\ a_i&=\\frac{|r_i|^2}{(p_i,Ap_i)d_i}=\\frac{(p_i,r_i)}{(p_i,Ap_i)}\\\\ b_i&=\\frac{|r_{i+1}|^2d_i}{|r_i|^2}=-\\frac{(r_{i+1},Ap_i)}{(p_i,Ap_i)}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "423",
+   "order_on_page": 3,
+   "number": "(9:2)",
+   "latex": "\\begin{aligned}&\\mu(r_0)-\\frac{d_0}{a_0}=0\\\\ &\\mu(r_i)-\\frac{d_i}{a_i}=\\frac{b_{i-1}}{a_{i-1}}=\\frac{|r_i|^2}{|r_{i-1}|^2}\\frac{d_{i-1}}{a_{i-1}}\\qquad(i>0)\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "423",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "\\begin{aligned}|r_i|^2&=a_i(r_i,Ap_i)\\\\ |r_{i+1}|^2&=-a_i(r_{i+1},Ap_i)\\end{aligned}\\qquad(i\\geqq0)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "423",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "\\begin{aligned}\\frac{d_i}{a_i}|r_i|^2&=d_i(r_i,Ap_i)\\\\ &=(r_i,Ar_i)+b_{i-1}(r_i,Ap_{i-1})\\\\ &=(r_i,Ar_i)-\\frac{b_{i-1}}{a_{i-1}}|r_i|^2\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "423",
+   "order_on_page": 6,
+   "number": "(9:3)",
+   "latex": "d_0=1,\\qquad d_{i+1}=1+b_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "423",
+   "order_on_page": 7,
+   "number": "(9:4)",
+   "latex": "\\bar{x}_{i+1}=\\frac{x_{i+1}+b_i\\bar{x}_i}{1+b_i}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "423",
+   "order_on_page": 8,
+   "number": "",
+   "latex": "p_i=\\sum_{j=0}^{j}\\frac{r_j}{|r_j|^2}",
+   "uncertain": "upper summation limit (j or i)"
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "423",
+   "order_on_page": 9,
+   "number": "(9:5)",
+   "latex": "\\begin{aligned} r_0&=k-Ax_0,\\qquad p_0=\\frac{r_0}{|r_0|^2}\\\\ x_{i+1}&=x_i+\\frac{p_i}{(p,Ap_i)}\\\\ r_{i+1}&=r_i-\\frac{Ap_i}{(p_i,Ap_i)}\\\\ p_{i+1}&=p_i+\\frac{r_{i+1}}{|r_{i+1}|^2}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "423",
+   "order_on_page": 10,
+   "number": "",
+   "latex": "d_i=|r_i|^2",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "423",
+   "order_on_page": 11,
+   "number": "",
+   "latex": "|p_{i+1}|^2=|p_i|^2+\\frac{1}{|r_{i+1}|^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 15,
+   "printed_page": "423",
+   "order_on_page": 12,
+   "number": "(9:6)",
+   "latex": "\\begin{aligned} r_0&=k-Ax_0,\\qquad p_0=\\frac{r_0}{d_0}\\\\ x_{i+1}&=x_i+p_i\\\\ r_{i+1}&=r_i-Ap_i\\\\ p_{i+1}&=\\frac{r_{i+1}+b_ip_i}{d_{i+1}}\\\\ d_0&=\\mu(r_0),\\qquad d_{i+1}=\\mu(r_{i+1})-b_i\\\\ b_i&=\\frac{|r_{i+1}|^2}{|r_i|^2}d_i\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "424",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\begin{aligned} a_i&=\\frac{|r_i|^2}{(r_i,Ar_i)}\\\\ b_i&=\\frac{|r_{i+1}|^2}{|r_i|^2}d_i\\\\ d_0&=1,\\qquad d_{i+1}=1-\\frac{b_ia_{i+1}}{a_i}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "424",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "g(x)=(x,Ax)-2(k,x)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "424",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "g(x_m+tp_m)=g(x_m)-2t|r_m|^2",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "424",
+   "order_on_page": 4,
+   "number": "(10:1)",
+   "latex": "A^*Ax=A^*k",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "424",
+   "order_on_page": 5,
+   "number": "(10:2)",
+   "latex": "\\begin{aligned} r_0&=k-Ax_0,\\qquad p_0=A^*r_0,\\\\ a_i&=\\frac{|A^*r_i|^2}{|Ap_i|^2}\\\\ x_{i+1}&=x_i+a_ip_i\\\\ r_{i+1}&=r_i-a_iAp_i\\\\ b_i&=\\frac{|A^*r_{i+1}|^2}{|A^*r_i|^2}\\\\ p_{i+1}&=A^*r_{i+1}+b_ip_i\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "424",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "\\begin{aligned} a_i&=\\frac{(Ap_i,r_i)}{|Ap_i|^2}\\\\ b_i&=-\\frac{(Ap_i,AA^*r_{i+1})}{|Ap_i|^2}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "424",
+   "order_on_page": 7,
+   "number": "(10:3)",
+   "latex": "BAx=Bk",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "424",
+   "order_on_page": 8,
+   "number": "(10:4)",
+   "latex": "\\begin{aligned} r_0&=k-Ax_0,\\qquad p_0=Br_0,\\\\ a_i&=\\frac{|Br_i|^2}{(p_i,BAp_i)},\\\\ x_{i+1}&=x_i+a_ip_i,\\\\ r_{i+1}&=r_i-a_iAp_i,\\\\ b_i&=\\frac{|Br_{i+1}|^2}{|Br_i|^2},\\\\ p_{i+1}&=Br_{i+1}+b_ip_i\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 16,
+   "printed_page": "424",
+   "order_on_page": 9,
+   "number": "",
+   "latex": "\\begin{aligned} a_i&=\\frac{(p_i,Br_i)}{(p_i,BAp_i)}\\\\ b_i&=-\\frac{(Br_{i+1},BAp_i)}{(p_i,BAp_i)}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "425",
+   "order_on_page": 1,
+   "number": "(10:5)",
+   "latex": "\\begin{aligned}(q_i,Ap_j)&=0\\qquad(i\\neq j),\\\\ (q_i,Ap_i)&>0\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "425",
+   "order_on_page": 2,
+   "number": "(10:6)",
+   "latex": "\\begin{aligned} r_0&=k-Ax_0,\\\\ a_i&=\\frac{(q_i,r_i)}{(q_i,Ap_i)}=\\frac{(q_i,r_0)}{(q_i,Ap_i)},\\\\ x_{i+1}&=x_i+a_ip_i,\\\\ r_{i+1}&=r_i-a_iAp_i\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "425",
+   "order_on_page": 3,
+   "number": "(10:7)",
+   "latex": "q_i=B^*p_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "425",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "(p_i,BAp_j)=0,\\qquad(i\\neq j)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "425",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "\\begin{aligned} r_0&=k-Ax_0\\\\ a_i&=\\frac{(p_i,Br_i)}{(p_i,BAp_i)}=\\frac{(p_i,Br_0)}{(p_i,BAp_i)}\\\\ x_{i+1}&=x_i+a_ip_i\\\\ r_{i+1}&=r_i-a_iAp_i\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "425",
+   "order_on_page": 6,
+   "number": "(11:1)",
+   "latex": "\\begin{aligned} p_0&=u_0,\\\\ p_1&=u_1-\\alpha_{10}p_0,\\\\ p_2&=u_2-\\alpha_{20}p_0-\\alpha_{21}p_1,\\\\ &\\vdots\\\\ p_i&=u_i-\\alpha_{i0}p_0-\\alpha_{i1}p_1-\\ldots-\\alpha_{i,i-1}p_{i-1}\\\\ &\\vdots\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "425",
+   "order_on_page": 7,
+   "number": "(11:2)",
+   "latex": "\\alpha_{ij}=\\frac{(u_i,Ap_j)}{(p_j,Ap_j)}\\qquad(j<i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "425",
+   "order_on_page": 8,
+   "number": "(11:3)",
+   "latex": "\\begin{aligned}(p_i,Au_j)&=0\\qquad(j<i)\\\\ (p_i,Au_i)&=(p_i,Ap_i)\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "425",
+   "order_on_page": 9,
+   "number": "(11:4)",
+   "latex": "\\alpha_{ij}=\\frac{(Au_i,p_j)}{(Au_j,p_j)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "425",
+   "order_on_page": 10,
+   "number": "(11:5)",
+   "latex": "x_0=0,\\qquad x_{i+1}=x_i+a_ip_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "425",
+   "order_on_page": 11,
+   "number": "(11:6)",
+   "latex": "a_i=\\frac{(p_i,k)}{(p_i,Ap_i)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "425",
+   "order_on_page": 12,
+   "number": "(11:7a)",
+   "latex": "u_i^{(0)}=u_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "425",
+   "order_on_page": 13,
+   "number": "(11:7b)",
+   "latex": "p_j=u_j^{(j)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "425",
+   "order_on_page": 14,
+   "number": "(11:7c)",
+   "latex": "u_i^{(j+1)}=u_i^{(j)}-\\alpha_{ij}p_j,\\qquad(i=j+1,\\ldots,n)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 17,
+   "printed_page": "425",
+   "order_on_page": 15,
+   "number": "(11:7d)",
+   "latex": "\\alpha_{ij}=\\frac{(u_i^{(j)},Au_j)}{(p_j,Au_j)}\\qquad(i>j)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "426",
+   "order_on_page": 1,
+   "number": "(11:8a)",
+   "latex": "(u_i^{(k)},Au_j)=0\\qquad(j<k)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "426",
+   "order_on_page": 2,
+   "number": "(11:8b)",
+   "latex": "(u_i^{(k)},Ap_j)=0\\qquad(j<k)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "426",
+   "order_on_page": 3,
+   "number": "(11:8c)",
+   "latex": "u_i^{(k)}=u_i-\\alpha_{i0}p_0-\\ldots-\\alpha_{i,j-1}p_{j-1}\\quad(i>j)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "426",
+   "order_on_page": 4,
+   "number": "(11:8d)",
+   "latex": "(p_i,Ap_j)=0\\qquad(i\\neq j)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "426",
+   "order_on_page": 5,
+   "number": "(12:1a)",
+   "latex": "u_i^{(1)}=e_i\\qquad(i=1,\\ldots,n)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "426",
+   "order_on_page": 6,
+   "number": "(12:1b)",
+   "latex": "p_i=u_i^{(i)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "426",
+   "order_on_page": 7,
+   "number": "(12:1c)",
+   "latex": "u_i^{(j+1)}=u_i^{(j)}-\\alpha_{ij}p_j\\qquad(i=j+1,\\ldots,n)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "426",
+   "order_on_page": 8,
+   "number": "(12:1d)",
+   "latex": "\\alpha_{ij}=\\frac{(Au_i^{(j)},e_j)}{(Ap_j,e_j)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "426",
+   "order_on_page": 9,
+   "number": "(12:1e)",
+   "latex": "x_0=0,\\qquad x_i=x_{i-1}+a_ip_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "426",
+   "order_on_page": 10,
+   "number": "(12:1f)",
+   "latex": "a_i=\\frac{(p_i,k)}{(Ap_i,e_i)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "426",
+   "order_on_page": 11,
+   "number": "(12:2)",
+   "latex": "\\begin{matrix} a_{11}&a_{12}&a_{13}&\\ldots&a_{1n}&1&0&0&\\ldots&0&k_1\\\\ a_{21}&a_{22}&a_{23}&\\ldots&a_{2n}&0&1&0&\\ldots&0&k_2\\\\ a_{31}&a_{32}&a_{33}&\\ldots&a_{3n}&0&0&1&\\ldots&0&\\cdot\\\\ \\cdot&\\cdot&\\cdot&&\\cdot&\\cdot&&&&&\\cdot\\\\ \\cdot&\\cdot&\\cdot&&\\cdot&\\cdot&&&&&\\cdot\\\\ \\cdot&\\cdot&\\cdot&&\\cdot&\\cdot&&&&0&\\cdot\\\\ a_{n1}&a_{n2}&a_{n3}&\\ldots&a_{nn}&0&\\ldots&&0&1&k_n\\end{matrix}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "426",
+   "order_on_page": 12,
+   "number": "",
+   "latex": "x_1=a_1p_1=\\left(\\frac{k_1}{a_{11}},0,\\ldots,0\\right)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "426",
+   "order_on_page": 13,
+   "number": "",
+   "latex": "\\alpha_{i1}=\\frac{a_{i1}}{a_{11}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "426",
+   "order_on_page": 14,
+   "number": "(12:3)",
+   "latex": "\\begin{matrix} a_{11}&a_{12}&a_{13}&\\ldots&a_{1n}&p_{11}&\\ldots&p_{1n}&k_1\\\\ 0&a_{22}^{(2)}&a_{23}^{(2)}&\\ldots&a_{2n}^{(2)}&p_{21}&\\ldots&p_{2n}&k_2^{(2)}\\\\ 0&a_{32}^{(2)}&a_{33}^{(2)}&\\ldots&a_{3n}^{(2)}&u_{31}^{(2)}&\\ldots&u_{3n}^{(2)}&k_3^{(2)}\\\\ \\cdot&&\\cdot&&\\cdot&\\cdot&&\\cdot&\\cdot\\\\ \\cdot&&\\cdot&&\\cdot&\\cdot&&\\cdot&\\cdot\\\\ \\cdot&&\\cdot&&\\cdot&\\cdot&&\\cdot&\\cdot\\\\ 0&a_{n2}^{(2)}&a_{n3}^{(2)}&\\ldots&a_{nn}^{(2)}&u_{n1}^{(2)}&\\ldots&u_{nn}^{(2)}&k_n^{(2)}\\end{matrix}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "426",
+   "order_on_page": 15,
+   "number": "",
+   "latex": "\\begin{aligned} a_{i2}^{(2)}&=(Au_i^{(2)},e_i)\\qquad(i=2,\\ldots,n)\\\\ a_{22}^{(2)}&=(Ap_2,e_2),\\qquad k_2^{(2)}=(p_2,k)\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "426",
+   "order_on_page": 16,
+   "number": "",
+   "latex": "x_2=x_1+\\frac{k_2^{(2)}}{a_{22}^{(2)}}p_2",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 18,
+   "printed_page": "426",
+   "order_on_page": 17,
+   "number": "",
+   "latex": "\\alpha_{i2}=\\frac{a_{i2}^{(2)}}{a_{22}^{(2)}}\\qquad(i=3,\\ldots,n)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 19,
+   "printed_page": "427",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\begin{matrix} a_{11}&a_{12}&a_{13}&\\ldots&a_{1n}&p_{11}&\\ldots&p_{1n}&k_1\\\\ 0&a_{22}^{(2)}&a_{23}^{(2)}&\\ldots&a_{2n}^{(2)}&p_{21}&\\ldots&p_{2n}&k_2^{(2)}\\\\ 0&0&a_{33}^{(3)}&\\ldots&a_{3n}^{(3)}&p_{31}&\\ldots&p_{3n}&k_3^{(3)}\\\\ 0&0&a_{43}^{(3)}&\\ldots&a_{4n}^{(3)}&u_{41}^{(3)}&\\ldots&u_{4n}^{(3)}&k_4^{(3)}\\\\ \\cdot&\\cdot&\\cdot&&\\cdot&\\cdot&&\\cdot&\\cdot\\\\ \\cdot&\\cdot&\\cdot&&\\cdot&\\cdot&&\\cdot&\\cdot\\\\ \\cdot&\\cdot&\\cdot&&\\cdot&\\cdot&&\\cdot&\\cdot\\\\ 0&0&a_{n3}^{(3)}&\\ldots&a_{nn}^{(3)}&u_{n1}^{(3)}&\\ldots&u_{nn}^{(3)}&k_n^{(3)}\\end{matrix}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 19,
+   "printed_page": "427",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "\\begin{aligned} a_{i3}^{(3)}&=(Au_i^{(3)},e_i)\\qquad(i=3,\\ldots,n)\\\\ a_{33}^{(3)}&=(Ap_3,e_3),\\qquad k_3^{(3)}=(p_3,k)\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 19,
+   "printed_page": "427",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "x_3=x_2+\\frac{k_3^{(3)}}{a_{33}^{(3)}}p_3",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 19,
+   "printed_page": "427",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "\\alpha_{i3}=\\frac{a_{i3}^{(3)}}{a_{33}^{(3)}}\\qquad(i=4,\\ldots,n)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 19,
+   "printed_page": "427",
+   "order_on_page": 5,
+   "number": "(12:4)",
+   "latex": "\\begin{matrix} a_{11}&a_{12}&a_{13}&\\ldots&a_{1n}&p_{11}&\\ldots&p_{1n}&k_1\\\\ 0&a_{22}^{(2)}&a_{23}^{(2)}&\\ldots&a_{3n}^{(2)}&p_{21}&\\ldots&p_{2n}&k_1^{(2)}\\\\ 0&0&a_{33}^{(3)}&\\ldots&a_{3n}^{(3)}&p_{31}&\\ldots&p_{3n}&k_1^{(3)}\\\\ \\cdot&\\cdot&&&\\cdot&\\cdot&&\\cdot&\\cdot\\\\ \\cdot&\\cdot&&&\\cdot&\\cdot&&\\cdot&\\cdot\\\\ \\cdot&\\cdot&&&\\cdot&\\cdot&&\\cdot&\\cdot\\\\ 0&0&\\ldots&0&a_{nn}^{(n)}&p_{n1}&\\ldots&p_{nn}&k_n^{(n)}\\end{matrix}",
+   "uncertain": "subscripts of a_{3n}^{(2)} in row 2 and of k_1^{(2)}, k_1^{(3)}"
+  },
+  {
+   "pdf_page": 19,
+   "printed_page": "427",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "\\alpha_{ij}=\\frac{a_{ij}^{(j)}}{a_{jj}^{(j)}}\\qquad(i=j+1,\\ldots,n)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 19,
+   "printed_page": "427",
+   "order_on_page": 7,
+   "number": "",
+   "latex": "a_{ii}^{(i)}=(p_i,Ap_i),\\qquad k_i^{(i)}=(p_i,k)=(p_i,r_i)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 19,
+   "printed_page": "427",
+   "order_on_page": 8,
+   "number": "",
+   "latex": "x_i=x_{i-1}+\\frac{k_i^{(i)}}{a_{ii}^{(i)}}p_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 19,
+   "printed_page": "427",
+   "order_on_page": 9,
+   "number": "",
+   "latex": "||P^*A\\quad P^*\\quad P^*k||",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 19,
+   "printed_page": "427",
+   "order_on_page": 10,
+   "number": "",
+   "latex": "a_{11}a_{22}^{(2)}\\ldots a_{nn}^{(n)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 19,
+   "printed_page": "427",
+   "order_on_page": 11,
+   "number": "",
+   "latex": "f(x)=(h-x,A(h-x))",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 19,
+   "printed_page": "427",
+   "order_on_page": 12,
+   "number": "",
+   "latex": "f(x_0),f(x_1),\\ldots,f(x_{n-1}),f(x_n)=0",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 19,
+   "printed_page": "427",
+   "order_on_page": 13,
+   "number": "",
+   "latex": "|y_0|,|y_1|,\\ldots,|y_{n-1}|,|y_n|=0",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 19,
+   "printed_page": "427",
+   "order_on_page": 14,
+   "number": "",
+   "latex": "|h-x_{i-1}|<|h-x_i|\\qquad(i=1,\\ldots,n-1)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 20,
+   "printed_page": "428",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\int_0^l f(\\lambda)dm(\\lambda)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 20,
+   "printed_page": "428",
+   "order_on_page": 2,
+   "number": "(14:1)",
+   "latex": "R_0(\\lambda),R_1(\\lambda),\\cdots,R_n(\\lambda)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 20,
+   "printed_page": "428",
+   "order_on_page": 3,
+   "number": "(14:2)",
+   "latex": "\\int_0^l R_i(\\lambda)R_k(\\lambda)dm(\\lambda)=0\\qquad(i\\neq k)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 20,
+   "printed_page": "428",
+   "order_on_page": 4,
+   "number": "(14:3)",
+   "latex": "R_i(0)=1\\qquad(i=1,\\cdots,n)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 20,
+   "printed_page": "428",
+   "order_on_page": 5,
+   "number": "(14:4)",
+   "latex": "\\int_0^l R(\\lambda)dm(\\lambda)=m_1R(\\lambda_1)+m_2R(\\lambda_2)+\\ldots+m_nR(\\lambda_n)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 20,
+   "printed_page": "428",
+   "order_on_page": 6,
+   "number": "(14:5)",
+   "latex": "r_0=\\alpha_1e_1+\\alpha_2e_2+\\cdots+\\alpha_ne_n",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "429",
+   "order_on_page": 1,
+   "number": "(14:6)",
+   "latex": "\\alpha_i^2=m_i\\qquad(i=1,\\cdots,n)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "429",
+   "order_on_page": 2,
+   "number": "(14:7)",
+   "latex": "A^kr_0=\\alpha_1\\lambda_1{}^ke_1+\\alpha_2\\lambda_2{}^ke_2+\\cdots+\\alpha_n\\lambda_n{}^ke_n",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "429",
+   "order_on_page": 3,
+   "number": "(14:8)",
+   "latex": "\\lambda_k\\to A^kr_0\\qquad(k=0,1,\\cdots,n-1)",
+   "uncertain": "index on lambda (subscript k or superscript k)"
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "429",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "||R||=\\left[\\int_0^l R(\\lambda)^2dm(\\lambda)\\right]^{\\frac{1}{2}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "429",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "\\int_0^l R(\\lambda)R'(\\lambda)dm(\\lambda)=(r,r')",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "429",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "\\begin{aligned}\\int_0^l\\lambda^j\\lambda^kdm(\\lambda)&=\\int_0^l\\lambda^{j+k}dm(\\lambda)\\\\ &=m_1\\lambda_1^{j+k}+m_2\\lambda_2^{j+k}+\\ldots+m_n\\lambda_n^{j+k}\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "429",
+   "order_on_page": 7,
+   "number": "",
+   "latex": "\\left[\\int_0^l R(\\lambda)^2\\lambda dm(\\lambda)\\right]^{\\frac{1}{2}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "429",
+   "order_on_page": 8,
+   "number": "(14:9)",
+   "latex": "\\int_0^l R(\\lambda)R'(\\lambda)\\lambda dm(\\lambda)=(Ar,r')",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "429",
+   "order_on_page": 9,
+   "number": "(14:10)",
+   "latex": "\\int_0^l\\lambda^{j+1}\\lambda^kdm(\\lambda)=(A^{j+1}r_0,A^kr_0)\\qquad(j,k\\leq n-1)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "429",
+   "order_on_page": 10,
+   "number": "(14:11)",
+   "latex": "\\int_0^l\\lambda^n\\lambda^kdm(\\lambda)=(A^nr_0,A^kr_0)\\qquad(k\\leq n-1)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "429",
+   "order_on_page": 11,
+   "number": "(14:12)",
+   "latex": "\\int_0^l R(\\lambda)R'(\\lambda)dm(\\lambda),\\qquad\\int_0^l R(\\lambda)R'(\\lambda)\\lambda dm(\\lambda)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 21,
+   "printed_page": "429",
+   "order_on_page": 12,
+   "number": "(15:1)",
+   "latex": "R_{i+1}(\\lambda)=(d_i-a_i\\lambda)R_i(\\lambda)-c_iR_{i-1}(\\lambda)\\quad R_0=1,\\ c_0=0",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "430",
+   "order_on_page": 1,
+   "number": "(15:2)",
+   "latex": "1=d_i-c_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "430",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "R_{i+1}(\\lambda)=(1+c_i-a_i\\lambda)R_i(\\lambda)-c_iR_{i-1}(\\lambda)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "430",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "\\frac{R_{i+1}-R_i}{a_i\\lambda}=-R_i+\\frac{c_i}{a_i}\\frac{R_i-R_{i-1}}{\\lambda}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "430",
+   "order_on_page": 4,
+   "number": "(15:3)",
+   "latex": "P_i(\\lambda)=-\\frac{R_{i+1}-R_i}{a_i\\lambda}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "430",
+   "order_on_page": 5,
+   "number": "(15:4)",
+   "latex": "b_{i-1}=\\frac{c_ia_{i-1}}{a_i},\\qquad b_{-1}=0",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "430",
+   "order_on_page": 6,
+   "number": "(15:5a)",
+   "latex": "P_i(\\lambda)=R_i(\\lambda)+b_{i-1}P_{i-1}(\\lambda)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "430",
+   "order_on_page": 7,
+   "number": "(15:5b)",
+   "latex": "R_{i+1}(\\lambda)=R_i(\\lambda)-a_i\\lambda P_i(\\lambda)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "430",
+   "order_on_page": 8,
+   "number": "(15:6)",
+   "latex": "\\int_0^l P_i(\\lambda)P_k(\\lambda)\\lambda dm(\\lambda)=0\\qquad(i\\neq k)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "430",
+   "order_on_page": 9,
+   "number": "",
+   "latex": "\\int_0^l(R_{i+1}-R_i)P_kdm(\\lambda)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "430",
+   "order_on_page": 10,
+   "number": "",
+   "latex": "\\int_0^l R_i(\\lambda)P_i(\\lambda)\\lambda dm(\\lambda)=\\int_0^l P_i(\\lambda)^2\\lambda dm(\\lambda)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "430",
+   "order_on_page": 11,
+   "number": "(15:7)",
+   "latex": "a_i=\\frac{\\int_0^l R_i(\\lambda)^2dm(\\lambda)}{\\int_0^l P_i(\\lambda)^2\\lambda dm(\\lambda)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "430",
+   "order_on_page": 12,
+   "number": "",
+   "latex": "0=\\int_0^l R_i(\\lambda)P_{i-1}(\\lambda)\\lambda dm(\\lambda)+b_{i-1}\\int_0^l P_{i-1}(\\lambda)^2\\lambda dm(\\lambda)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "430",
+   "order_on_page": 13,
+   "number": "",
+   "latex": "\\frac{1}{a_{i-1}}\\int_0^l R_i(\\lambda)^2dm(\\lambda)=b_{i-1}\\int_0^l P_{i-1}(\\lambda)^2\\lambda dm(\\lambda)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "430",
+   "order_on_page": 14,
+   "number": "(15:8)",
+   "latex": "b_{i-1}=\\frac{\\int_0^l R_i(\\lambda)^2dm(\\lambda)}{\\int_0^l R_{i-1}(\\lambda)^2dm(\\lambda)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "430",
+   "order_on_page": 15,
+   "number": "(16:1)",
+   "latex": "p_i=r_i+b_{i-1}p_{i-1},\\qquad r_{i+1}=r_i-a_iAp_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "430",
+   "order_on_page": 16,
+   "number": "",
+   "latex": "p_i=P_i(A)r_0,\\quad r_i=R_i(A)r_0\\qquad(i=0,1,\\ldots,n-1)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "430",
+   "order_on_page": 17,
+   "number": "",
+   "latex": "a_i=\\frac{|r_i|^2}{(Ap_i,p_i)},\\qquad b_{i-1}=\\frac{|r_i|^2}{|r_{i-1}|^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "430",
+   "order_on_page": 18,
+   "number": "",
+   "latex": "k-Ax_{i+1}=(k-Ax_i)-a_iAp_i=r_i-a_iAp_i=r_{i+1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 22,
+   "printed_page": "430",
+   "order_on_page": 19,
+   "number": "",
+   "latex": "\\begin{aligned}(r_n,r_i)&=(r_{n-1}r_i)-a_{n-1}(Ap_{n-1},r_i)\\\\ &=\\int R_{n-1}R_idm-a_{n-1}\\int P_{n-1}R_i\\lambda dm\\\\ &=\\int R_nR_idm=0\\end{aligned}",
+   "uncertain": "subscript of first r in (r_{n-1}r_i) (n-1 or n-i); missing comma as printed"
+  },
+  {
+   "pdf_page": 23,
+   "printed_page": "431",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\alpha_1^2\\bar{R}_i(\\lambda_1)^2+\\alpha_2^2\\bar{R}_2(\\lambda_2)^2+\\ldots+\\alpha_n^2\\bar{R}_i(\\lambda_n)^2=\\mathrm{minimum}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 23,
+   "printed_page": "431",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "R_{i+1}(\\lambda)=\\frac{2i+1}{i+1}(1-2\\lambda)R_i(\\lambda)-\\frac{i}{i+1}R_{i-1}(\\lambda),\\quad R_i(0)=1",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 23,
+   "printed_page": "431",
+   "order_on_page": 3,
+   "number": "(17:1)",
+   "latex": "a_i=\\frac{4i+2}{i+1},\\qquad c_i=\\frac{i}{i+1},\\qquad b_{i-1}=\\frac{2i-1}{2i+1}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 23,
+   "printed_page": "431",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "r_0=\\alpha_1e_1+\\alpha_2e_2+\\ldots+\\alpha_ne_n",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 23,
+   "printed_page": "431",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "(r_i,r_i)=b_{i-1}b_{i-2}\\ldots b_0(r_0,r_0)=\\frac{1}{2i+1}(r_0,r_0)\\qquad(i<n)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 23,
+   "printed_page": "431",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "\\frac{(r_i,Ar_i)}{|r_i|^2}=\\frac{1}{a_i}+\\frac{b_{i-1}}{a_{i-1}}=\\frac{1}{2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 23,
+   "printed_page": "431",
+   "order_on_page": 7,
+   "number": "(18:1)",
+   "latex": "F(\\lambda)=\\frac{m_1}{\\lambda-\\lambda_1}+\\cdots+\\frac{m_n}{\\lambda-\\lambda_n}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 23,
+   "printed_page": "431",
+   "order_on_page": 8,
+   "number": "(18:2)",
+   "latex": "F(\\lambda)=\\cfrac{-1}{d_0-a_0\\lambda-\\cfrac{c_1}{d_1-a_1\\lambda-\\cfrac{c_2}{d_2-a_2\\lambda-\\ddots-\\cfrac{c_{n-1}}{d_{n-1}-a_{n-1}\\lambda}}}}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "432",
+   "order_on_page": 1,
+   "number": "(18:3)",
+   "latex": "R_{i+1}=(d_i-a_i\\lambda)R_i-c_iR_{i-1},\\quad R_0=1,\\quad c_0=0",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "432",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "F(\\lambda)=\\frac{Q_{n-1}(\\lambda)}{R_n(\\lambda)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "432",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "Q_{n-1}(\\lambda)=\\sum_{i=1}^{n}m_i\\prod_{j\\neq i}(\\lambda-\\lambda_j)",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "432",
+   "order_on_page": 4,
+   "number": "",
+   "latex": "r_0=\\alpha_1e_1+\\ldots+\\alpha_ne_n,\\qquad\\alpha_i^2=m_i",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "432",
+   "order_on_page": 5,
+   "number": "",
+   "latex": "Q_{n-1}(\\lambda)=\\begin{vmatrix}\\lambda_1-\\lambda&0&0&\\ldots&0&\\alpha_1\\\\ 0&\\lambda_2-\\lambda&0&\\ldots&0&\\alpha_2\\\\ 0&0&&\\ldots&&\\\\ \\cdot&\\cdot&&&\\cdot&\\cdot\\\\ \\cdot&\\cdot&&&\\cdot&\\cdot\\\\ \\cdot&\\cdot&&&\\cdot&\\cdot\\\\ 0&0&&\\ldots&\\lambda_n-\\lambda&\\alpha_n\\\\ \\alpha_1&\\alpha_2&&\\ldots&\\alpha_n&0\\end{vmatrix}=0",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 24,
+   "printed_page": "432",
+   "order_on_page": 6,
+   "number": "",
+   "latex": "b_i=\\frac{|r_{i+1}|^2}{|r_i|^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 25,
+   "printed_page": "433",
+   "order_on_page": 1,
+   "number": "(19:1)",
+   "latex": "a_i=\\frac{(p_i,r_i)}{(p_i,Ap_i)},\\qquad b_i=-\\frac{(r_{i+1},Ap_i)}{(p_i,Ap_i)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 25,
+   "printed_page": "433",
+   "order_on_page": 2,
+   "number": "(19:2)",
+   "latex": "a_i=\\frac{|r_i|^2}{(p_i,Ap_i)},\\qquad\\frac{|r_{i+1}|^2}{|r_i|^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 25,
+   "printed_page": "433",
+   "order_on_page": 3,
+   "number": "(19:3)",
+   "latex": "a_i=\\frac{|r_i|^2}{(p_i,Ap_i)d_i},\\ b_i=\\frac{|r_{i+1}|^2}{|r_i|^2}d_i,\\ d_i=1-b_{i-1}\\frac{(p_{i-1},Ap_i)}{(p_i,Ap_i)}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 25,
+   "printed_page": "433",
+   "order_on_page": 4,
+   "number": "(19:4)",
+   "latex": "a_i=\\frac{|A^*r_i|^2}{|Ap_i|^2},\\qquad b_i=\\frac{|A^*r_{i+1}|^2}{|A^*r_i|^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 25,
+   "printed_page": "433",
+   "order_on_page": 5,
+   "number": "(19:5)",
+   "latex": "(r_i,r_{i+1})=0,\\qquad(p_i,Ap_{i+1})=0",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 25,
+   "printed_page": "433",
+   "order_on_page": 6,
+   "number": "(19:6)",
+   "latex": "(p_i,r_{i+1})=0,\\qquad(p_i,Ap_{i+1})=0",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 25,
+   "printed_page": "433",
+   "order_on_page": 7,
+   "number": "(19:2')",
+   "latex": "a_i=\\frac{|r_i|^2}{(p_i,Ap_i)},\\qquad b_i=\\frac{|r_{i+1}|^2-(r_{i+1},r_i)}{|r_i|^2}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 25,
+   "printed_page": "433",
+   "order_on_page": 8,
+   "number": "",
+   "latex": "A=\\begin{Vmatrix}1&2&-1&1\\\\ 2&5&0&2\\\\ -1&0&6&0\\\\ 1&2&0&3\\end{Vmatrix}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 26,
+   "printed_page": "434",
+   "order_on_page": 1,
+   "number": "",
+   "latex": "\\begin{matrix}.263879&.014799&.016836&.079773&-.020052&.011463\\\\ -.014799&.249379&.028764&.057757&-.056648&-.134493\\\\ .016836&.028764&.263734&-.033628&-.012128&.084932\\\\ .079773&.057757&-.033628&.215331&.090696&-.037489\\\\ -.020052&-.056648&-.012128&.090696&.324486&-.022484\\\\ .011463&-.134493&.084932&-.037489&-.022484&.339271\\end{matrix}",
+   "uncertain": "sign of entries (1,2) and (2,1) obscured by handwritten marks"
+  },
+  {
+   "pdf_page": 26,
+   "printed_page": "434",
+   "order_on_page": 2,
+   "number": "",
+   "latex": "\\begin{aligned}6x+13y-17z&=1\\\\ 13x+29y-38z&=2\\\\ -17x-38y+50z&=-3\\end{aligned}",
+   "uncertain": ""
+  },
+  {
+   "pdf_page": 26,
+   "printed_page": "434",
+   "order_on_page": 3,
+   "number": "",
+   "latex": "\\lambda_1=.0588,\\qquad\\lambda_2=.2007,\\qquad\\lambda_3=84.7405",
+   "uncertain": ""
+  }
+ ],
+ "items": [
+  {
+   "kind": "section",
+   "label": "Section 1",
+   "pdf_page": 1,
+   "printed_page": "409"
+  },
+  {
+   "kind": "section",
+   "label": "Section 2",
+   "pdf_page": 2,
+   "printed_page": "410"
+  },
+  {
+   "kind": "section",
+   "label": "Section 3",
+   "pdf_page": 2,
+   "printed_page": "410"
+  },
+  {
+   "kind": "section",
+   "label": "Section 4",
+   "pdf_page": 4,
+   "printed_page": "412"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 4:1",
+   "pdf_page": 4,
+   "printed_page": "412"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 4:2",
+   "pdf_page": 4,
+   "printed_page": "412"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 4:3",
+   "pdf_page": 5,
+   "printed_page": "413"
+  },
+  {
+   "kind": "corollary",
+   "label": "Corollary 1",
+   "pdf_page": 5,
+   "printed_page": "413"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 4:4",
+   "pdf_page": 5,
+   "printed_page": "413"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 4:5",
+   "pdf_page": 6,
+   "printed_page": "414"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 4:6",
+   "pdf_page": 6,
+   "printed_page": "414"
+  },
+  {
+   "kind": "section",
+   "label": "Section 5",
+   "pdf_page": 6,
+   "printed_page": "414"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 5:1",
+   "pdf_page": 6,
+   "printed_page": "414"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 5:2",
+   "pdf_page": 7,
+   "printed_page": "415"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 5:3",
+   "pdf_page": 7,
+   "printed_page": "415"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 5:4",
+   "pdf_page": 7,
+   "printed_page": "415"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 5:5",
+   "pdf_page": 8,
+   "printed_page": "416"
+  },
+  {
+   "kind": "section",
+   "label": "Section 6",
+   "pdf_page": 8,
+   "printed_page": "416"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 6:1",
+   "pdf_page": 8,
+   "printed_page": "416"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 6:2",
+   "pdf_page": 8,
+   "printed_page": "416"
+  },
+  {
+   "kind": "corollary",
+   "label": "Corollary",
+   "pdf_page": 8,
+   "printed_page": "416"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 6:3",
+   "pdf_page": 8,
+   "printed_page": "416"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 6:4",
+   "pdf_page": 9,
+   "printed_page": "417"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 6:5",
+   "pdf_page": 9,
+   "printed_page": "417"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 6:6",
+   "pdf_page": 9,
+   "printed_page": "417"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 6:7",
+   "pdf_page": 9,
+   "printed_page": "417"
+  },
+  {
+   "kind": "section",
+   "label": "Section 7",
+   "pdf_page": 10,
+   "printed_page": "418"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 7:1",
+   "pdf_page": 10,
+   "printed_page": "418"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 7:2",
+   "pdf_page": 10,
+   "printed_page": "418"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 7:3",
+   "pdf_page": 11,
+   "printed_page": "419"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 7:4",
+   "pdf_page": 11,
+   "printed_page": "419"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 7:5",
+   "pdf_page": 11,
+   "printed_page": "419"
+  },
+  {
+   "kind": "section",
+   "label": "Section 8",
+   "pdf_page": 11,
+   "printed_page": "419"
+  },
+  {
+   "kind": "section",
+   "label": "Section 8.1",
+   "pdf_page": 12,
+   "printed_page": "420"
+  },
+  {
+   "kind": "section",
+   "label": "Section 8.2",
+   "pdf_page": 12,
+   "printed_page": "420"
+  },
+  {
+   "kind": "section",
+   "label": "Section 8.3",
+   "pdf_page": 13,
+   "printed_page": "421"
+  },
+  {
+   "kind": "section",
+   "label": "Section 8.4",
+   "pdf_page": 14,
+   "printed_page": "422"
+  },
+  {
+   "kind": "section",
+   "label": "Section 9",
+   "pdf_page": 15,
+   "printed_page": "423"
+  },
+  {
+   "kind": "section",
+   "label": "Section 10",
+   "pdf_page": 16,
+   "printed_page": "424"
+  },
+  {
+   "kind": "section",
+   "label": "Section 11",
+   "pdf_page": 17,
+   "printed_page": "425"
+  },
+  {
+   "kind": "section",
+   "label": "Section 12",
+   "pdf_page": 18,
+   "printed_page": "426"
+  },
+  {
+   "kind": "section",
+   "label": "Section 13",
+   "pdf_page": 19,
+   "printed_page": "427"
+  },
+  {
+   "kind": "section",
+   "label": "Section 14",
+   "pdf_page": 20,
+   "printed_page": "428"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 14:1",
+   "pdf_page": 21,
+   "printed_page": "429"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 14:2",
+   "pdf_page": 21,
+   "printed_page": "429"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 14:3",
+   "pdf_page": 21,
+   "printed_page": "429"
+  },
+  {
+   "kind": "section",
+   "label": "Section 15",
+   "pdf_page": 21,
+   "printed_page": "429"
+  },
+  {
+   "kind": "section",
+   "label": "Section 16",
+   "pdf_page": 22,
+   "printed_page": "430"
+  },
+  {
+   "kind": "section",
+   "label": "Section 17",
+   "pdf_page": 23,
+   "printed_page": "431"
+  },
+  {
+   "kind": "section",
+   "label": "Section 18",
+   "pdf_page": 23,
+   "printed_page": "431"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 18:1",
+   "pdf_page": 24,
+   "printed_page": "432"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 18:2",
+   "pdf_page": 24,
+   "printed_page": "432"
+  },
+  {
+   "kind": "theorem",
+   "label": "Theorem 18:3",
+   "pdf_page": 24,
+   "printed_page": "432"
+  },
+  {
+   "kind": "section",
+   "label": "Section 19",
+   "pdf_page": 25,
+   "printed_page": "433"
+  },
+  {
+   "kind": "example",
+   "label": "Example 1",
+   "pdf_page": 25,
+   "printed_page": "433"
+  },
+  {
+   "kind": "example",
+   "label": "Example 2",
+   "pdf_page": 26,
+   "printed_page": "434"
+  },
+  {
+   "kind": "example",
+   "label": "Example 3",
+   "pdf_page": 26,
+   "printed_page": "434"
+  }
+ ]
+}
