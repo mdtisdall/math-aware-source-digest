@@ -48,6 +48,9 @@ class Entry:
     latex: str  # the agreed reading ("" until a disagreement is resolved)
     readings: dict[str, str] = field(default_factory=dict)  # judge number -> LaTeX
     order: dict[str, int] = field(default_factory=dict)  # judge number -> order on page
+    uncertain: dict[str, str] = field(
+        default_factory=dict
+    )  # judge number -> what it could not read
     resolution: dict[str, Any] = field(default_factory=dict)
 
 
@@ -89,10 +92,11 @@ def merge(judge1: dict[str, Any], judge2: dict[str, Any]) -> list[Entry]:
             any_e = e1 or e2
             assert any_e is not None
             entry = Entry(page, any_e["printed_page"], any_e["number"], "", "")
-            if e1 is not None:
-                entry.readings["1"], entry.order["1"] = e1["latex"], e1["order_on_page"]
-            if e2 is not None:
-                entry.readings["2"], entry.order["2"] = e2["latex"], e2["order_on_page"]
+            for judge, e in (("1", e1), ("2", e2)):
+                if e is not None:
+                    entry.readings[judge], entry.order[judge] = e["latex"], e["order_on_page"]
+                    if e["uncertain"]:
+                        entry.uncertain[judge] = e["uncertain"]
             if e1 is None or e2 is None:
                 entry.status = "only-1" if e2 is None else "only-2"
             else:
@@ -194,6 +198,24 @@ def merge_items(judge1: dict[str, Any], judge2: dict[str, Any]) -> list[Item]:
             merged.append(item)
     merged.sort(key=lambda i: i.pdf_page)
     return merged
+
+
+def uncertain_report(key: str, entries: list[Entry]) -> str:
+    """The parts that a judge could not read with certainty, for a person to check
+    against the page: Markdown, one section per equation."""
+    lines = [f"# {key}: what the judges could not read with certainty", ""]
+    flagged = [e for e in entries if e.uncertain]
+    if not flagged:
+        lines.append("Nothing.")
+    for e in flagged:
+        orders = sorted(set(e.order.values()))
+        label = e.number or "unnumbered, number " + " or ".join(map(str, orders)) + " on the page"
+        lines += [f"## PDF page {e.pdf_page} (printed {e.printed_page}), {label}: {e.status}", ""]
+        for judge in sorted(e.readings):
+            note = e.uncertain.get(judge)
+            lines.append(f"- Judge {judge}" + (f", uncertain: {note}" if note else ", no note"))
+            lines += ["", "  ```latex", f"  {e.readings[judge]}", "  ```", ""]
+    return "\n".join(lines).rstrip() + "\n"
 
 
 def summary(entries: list[Entry] | list[Item]) -> dict[str, int]:
@@ -342,6 +364,9 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("paper")
     parser.add_argument("--adjudicate", action="store_true")
+    parser.add_argument(
+        "--uncertain", action="store_true", help="also write uncertain.md for a person to check"
+    )
     args = parser.parse_args(argv)
     folder = OUT / args.paper
     try:
@@ -362,6 +387,8 @@ def main(argv: list[str] | None = None) -> int:
         "items": [asdict(i) for i in items],
     }
     (folder / "merged.json").write_text(json.dumps(result, indent=1, ensure_ascii=False))
+    if args.uncertain:
+        (folder / "uncertain.md").write_text(uncertain_report(args.paper, entries))
     print(
         json.dumps(
             {
