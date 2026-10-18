@@ -92,6 +92,7 @@ ALIASES = {
     "rbrace": "\\}",
     "vert": "|",
     "Vert": "\\|",
+    "parallel": "\\|",
     "|": "\\|",
     "dfrac": "frac",
     "tfrac": "frac",

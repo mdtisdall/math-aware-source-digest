@@ -26,6 +26,7 @@ from math_aware_source_digest import compare
         (r"a \, b \quad c", r"a b c", "same"),
         (r"a \le b", r"a \leq b", "same"),
         (r"\Vert x \Vert", r"\| x \|", "same"),
+        (r"\parallel y - Ax\|_2", r"\| y - Ax \|_2", "same"),
         (r"\lbrace a \rbrace", r"\{ a \}", "same"),
         (r"E = mc^2 .", r"E = mc^{2}", "same"),
         (r"\dfrac{a}{b}", r"\frac{a}{b}", "same"),
