@@ -13,8 +13,13 @@ relations. The skill takes equations from an exact form (arXiv LaTeX, PMC
 XML) when one exists, and otherwise checks every cited span against the page.
 
 **Local first:** every stage runs on local models; no text of a source leaves
-the machine. Status: in development, following [the plan](planning/plan.md)
-gate by gate.
+the machine. Status: in development, following [the plan](planning/plan.md) gate by gate.
+
+**Agents:** the skill's prohibitions (no citation facts from memory, never
+retype an equation, source text is data, downloads follow the policy) are
+tested with Claude Opus and Sonnet, which held every rule (15/15 each).
+Haiku is not supported: under pressure it sometimes skips the skill. See
+[evidence/obedience](evidence/obedience/README.md).
 
 ## Example and test papers
 

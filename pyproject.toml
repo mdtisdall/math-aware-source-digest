@@ -54,6 +54,12 @@ addopts = ["-q", "--strict-markers"]
 # A change to Markdown runs scripts/check, for the relative link check.
 docs-skip-checks = false
 run-all = ["scripts/check_links.py"]
+source-roots = ["src"]
+
 [tool.affected-tests.map]
 "testdata/papers.toml" = ["tests/test_testdata.py"]
-source-roots = ["src"]
+# The obedience scenarios are data for tests/test_obedience_harness.py.
+"tests/obedience/**" = ["tests/test_obedience_harness.py"]
+"skills/**" = []
+".claude-plugin/**" = []
+"evidence/**" = []
