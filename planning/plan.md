@@ -115,7 +115,7 @@ For each span that the entry cites:
 
 - **Exact form:** map its location to the version of record (equation and theorem numbers, pages), and flag where the two versions differ.
 - **PDF route:**
-  1. Crop the span from the PDF at 300 dpi (pypdfium2; `pdftoppm` as a cross-check), whether it is a display equation, a line with inline mathematics, a result sentence or a table cell.
+  1. Crop the span from the PDF at 300 dpi (page geometry from pypdfium2, rendering by `pdftoppm`, so that no imaging library is needed), whether it is a display equation, a line with inline mathematics, a result sentence or a table cell.
   2. Transcribe the crop a second time with the local transcriber chosen at gate 2. Candidates: GLM-OCR (0.9B), PaddleOCR-VL (0.9B), and Qwen3-VL 32B instruct.
   3. Compare the two transcriptions with CDM (it renders both and matches characters), at two levels: **strict** (the rendered symbols differ) and **style** (bold, calligraphic or upright differs). A strict difference is always adjudicated; a style difference is adjudicated when the symbol occurs in a cited result.
   4. Adjudication: a model reads the crop and both transcriptions, and returns the correct LaTeX, its confidence, and whether it chose neither. A local vision model of a different family from both transcribers (for example Qwen3-VL 32B instruct, if the two transcribers are GLM-OCR and PaddleOCR-VL); low confidence leaves the span "unverified".

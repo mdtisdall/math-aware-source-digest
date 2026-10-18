@@ -40,6 +40,16 @@ def main(argv: Sequence[str] | None = None) -> int:
         help="validate every <key>.json in the output directory, render "
         "its Markdown, and write the index",
     )
+    flag = sub.add_parser(
+        "flag",
+        help="crop each display equation of a Marker conversion, transcribe it again "
+        "with a local model, and flag disagreements (needs a running Ollama server)",
+    )
+    flag.add_argument("pdf", type=Path)
+    flag.add_argument("marker_json", type=Path)
+    flag.add_argument("out_dir", type=Path)
+    flag.add_argument("--model", default="qwen3-vl:32b-instruct")
+    flag.add_argument("--ollama", default="http://127.0.0.1:11434")
     validate = sub.add_parser("validate", help="validate entry JSON files")
     validate.add_argument("files", nargs="+", type=Path)
     args = parser.parse_args(argv)
@@ -72,6 +82,31 @@ def main(argv: Sequence[str] | None = None) -> int:
         results = resolver.resolve_many(args.inputs)
         print(json.dumps([r.to_json() for r in results], indent=2, ensure_ascii=False, default=str))
         return 0 if all(r.found for r in results) else 1
+    if args.command == "flag":
+        from . import flag as flagging
+        from . import marker
+        from .local.ollama import LocalModelError, OllamaClient
+
+        doc = json.loads(args.marker_json.read_text())
+        spans = [
+            flagging.Span(f"eq{i:03d}", b.page_index, b.box, marker.latex_of(b.html))
+            for i, b in enumerate(marker.equations(doc))
+        ]
+        try:
+            client = OllamaClient(base=args.ollama)
+            flagged_spans = flagging.flag_spans(
+                args.pdf, spans, flagging.transcriber(client, args.model), args.out_dir / "crops"
+            )
+        except LocalModelError as ex:
+            print(f"masd: {ex}", file=sys.stderr)
+            return 1
+        flagging.write_flags(
+            flagged_spans, args.out_dir / "flags.json", {"model": args.model, "pdf": args.pdf.name}
+        )
+        flagged = sum(1 for r in flagged_spans if r.flags)
+        total = len(flagged_spans)
+        print(f"{flagged} of {total} equations flagged; {args.out_dir / 'flags.json'}")
+        return 0
     if args.command == "validate":
         status = 0
         for path in args.files:

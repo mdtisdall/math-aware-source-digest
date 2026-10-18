@@ -34,6 +34,8 @@ extend-exclude = [".worktrees"]
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "UP", "B", "SIM", "RUF"]
+# Greek, script and look-alike letters are this project's subject matter.
+ignore = ["RUF001", "RUF002", "RUF003"]
 
 [tool.mypy]
 strict = true
