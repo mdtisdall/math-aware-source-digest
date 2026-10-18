@@ -30,6 +30,37 @@ from math_aware_source_digest import compare
         (r"\lbrace a \rbrace", r"\{ a \}", "same"),
         (r"E = mc^2 .", r"E = mc^{2}", "same"),
         (r"\dfrac{a}{b}", r"\frac{a}{b}", "same"),
+        # The same notation written another way (seen in Zach et al. 2023).
+        (r"E \coloneqq D", r"E := D", "same"),
+        (r"\mathbb{E}[x] \eqqcolon m", r"\mathbb{E}[x] =: m", "same"),
+        (r"p(x^\prime \mid z)", r"p(x' \mid z)", "same"),
+        (r"x^\prime_i", r"x_i'", "same"),
+        (r"x''", r"x^{\prime\prime}", "same"),
+        (r"Z^{-1}_\theta", r"Z_{\theta}^{-1}", "same"),
+        (r"\mathbb{R}_{\geq 0}^n", r"\mathbb{R}^{n}_{\geq 0}", "same"),
+        (r"A^\mathrm{T}_k", r"A_k^{\mathrm{T}}", "same"),
+        (r"j \in \llbracket 1, J \rrbracket", r"j \in [\![ 1, J ]\!]", "same"),
+        (
+            r"\begin{Bmatrix} a \\ b \end{Bmatrix}",
+            r"\left\{ \begin{matrix} a \\ b \end{matrix} \right\}",
+            "same",
+        ),
+        (
+            r"\begin{pmatrix} a & b \end{pmatrix}",
+            r"\left( \begin{array}{cc} a & b \end{array} \right)",
+            "same",
+        ),
+        (
+            r"\begin{cases} 0 & x \in A \\ 1 \end{cases}",
+            r"\left\{ \begin{matrix} 0 & x \in A \\ 1 \end{matrix} \right.",
+            "same",
+        ),
+        (r"\left. \begin{aligned} r &= 1 \end{aligned} \right\}", r"r = 1 \}", "same"),
+        (r"\begin{pmatrix} {a} \end{pmatrix}", r"(a)", "same"),
+        (r"x'", r"x^*", "strict"),
+        (r"\begin{bmatrix} a \end{bmatrix}", r"\begin{pmatrix} a \end{pmatrix}", "strict"),
+        (r"\left. \begin{aligned} r &= 1 \end{aligned} \right\}", r"r = 1", "strict"),
+        (r"x_i^2", r"x_2^i", "strict"),
         # Marker's output format: numbers, entities, environments, alignment.
         (r"f(u) = 1 . [1]", r"f(u) = 1", "same"),
         (r"f(u) = 1, \qquad (12)", r"f(u) = 1", "same"),
@@ -55,9 +86,3 @@ def test_levels(a: str, b: str, level: str) -> None:
 
 def test_braces_are_not_style() -> None:
     assert compare.compare(r"\lbrace", r"{").level == "strict"
-
-
-def test_cdm_reports_missing_tools(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr("shutil.which", lambda name: None)
-    ok, message = compare.cdm_available()
-    assert not ok and "pdflatex" in message and "magick" in message

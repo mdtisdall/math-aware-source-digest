@@ -93,7 +93,7 @@
           "route": {"enum": ["latex", "jats", "pdf"]},
           "status": {"enum": ["exact", "verified", "unverified"]},
           "reason": {"type": "string", "minLength": 1},
-          "method": {"type": "string", "description": "how it was verified, e.g. second transcription + CDM, adjudicated"}
+          "method": {"type": "string", "description": "how it was verified, e.g. second transcription, equivalence check, adjudicated"}
         },
         "anyOf": [{"required": ["latex"]}, {"required": ["text"]}],
         "if": {"properties": {"status": {"const": "unverified"}}},
