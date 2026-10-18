@@ -26,6 +26,39 @@ tested with Claude Opus and Sonnet, which held every rule (15/15 each).
 Haiku is not supported: under pressure it sometimes skips the skill. See
 [evidence/obedience](evidence/obedience/README.md).
 
+## Why local first
+
+Most research papers are under copyright, and a reader's access to them
+usually comes with a licence. Sending a paper to a cloud model for a summary
+is common, but the terms of the services and of the licences put the
+responsibility on the person who sends it:
+
+- **Anthropic's terms** (checked 2026-10-18). The
+  [Usage Policy](https://www.anthropic.com/legal/aup) lists among
+  prohibited uses: "Infringe, misappropriate, or violate the intellectual
+  property rights of a third party". Under the
+  [Consumer Terms](https://www.anthropic.com/legal/consumer-terms), the
+  user is "responsible for all Inputs you submit" and represents that they
+  have "all rights, licenses, and permissions that are necessary"; under the
+  [Commercial Terms](https://www.anthropic.com/legal/commercial-terms) (the
+  API), the customer "represents and warrants that it has all rights and
+  permissions required to submit Inputs". Neither set of terms addresses
+  research papers specifically.
+- **Publishers' licences, through a library.** As one example, the
+  University of Pennsylvania's library
+  [warns](https://guides.library.upenn.edu/usingeresources/ai_uses) that
+  "many publisher license agreements prohibit uploading licensed materials
+  to third party platforms", and asks readers to consult a subject
+  librarian before using licensed content with AI. Other institutions and
+  publishers have their own rules.
+
+So whether a paper may be sent to a cloud model depends on each paper's
+licence, which is rarely quick to check. This skill avoids the question: the
+paper is read on the reader's own machine, and only what a project needs (a
+summary, indexes, and short verified excerpts on request) reaches Claude. It
+is not legal advice; for a specific paper, the licence and the reader's
+library decide.
+
 ## Example and test papers
 
 All test data is in the public domain or under CC0, CC BY or CC BY-SA, so
