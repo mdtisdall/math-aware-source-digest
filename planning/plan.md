@@ -216,7 +216,7 @@ The ground truth stays as described in 6.1, so every later change of a tool or a
 
 A Claude Code plugin in its own repository with the dev-workflow setup: a skill and a Python package (uv). Licence: MIT (decided 2026-10-17). Dependencies of the package have permissive licences; for that reason the PDF library is pypdfium2 (BSD and Apache), not PyMuPDF (AGPL).
 
-- **Default devShell (and CI):** Python, uv, `poppler-utils`, `pandoc`.
+- **Default devShell (and CI):** Python, uv, `poppler-utils`, `pandoc`, and Claude Code (for the scripted sessions of gate 0b; the only unfree package, allowed by name).
 - **Not in CI:** the converters and the local models (Marker or MinerU through `uvx` at pinned versions; `llama-server` and Ollama from the pinned nixpkgs through `nix shell`; GROBID and the CDM renderer, which needs TeX Live and ImageMagick, in their own shells). The scripts that need them check for them and stop with a clear message.
 
 **SKILL.md** stays short and loads reference files when needed. It states:

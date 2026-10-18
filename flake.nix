@@ -9,7 +9,11 @@
   outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = nixpkgs.legacyPackages.${system};
+        pkgs = import nixpkgs {
+          inherit system;
+          # Claude Code (unfree) runs the scripted sessions of gate 0b; no other unfree package.
+          config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [ "claude-code" ];
+        };
         python = pkgs.python312;
       in {
         devShells.default = pkgs.mkShell {
@@ -17,6 +21,7 @@
             python
             pkgs.uv
             pkgs.gh
+            pkgs.claude-code
             pkgs.poppler-utils
             pkgs.pandoc
           ];
