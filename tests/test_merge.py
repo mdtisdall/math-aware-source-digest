@@ -152,3 +152,14 @@ def test_merge_items() -> None:
     }
     status = {i.label: i.status for i in merge.merge_items(j1, j2)}
     assert status == {"Theorem 1": "agreed", "Lemma 2": "page", "Appendix": "only-2"}
+
+
+def test_uncertain_parts_are_kept_and_reported() -> None:
+    e1 = {**eq(3, 1, r"a_i"), "uncertain": "subscript i or l"}
+    e2 = {**eq(3, 1, r"a_i"), "uncertain": ""}
+    entries = merge.merge({"equations": [e1]}, {"equations": [e2]})
+    assert entries[0].uncertain == {"1": "subscript i or l"}
+    report = merge.uncertain_report("paper", entries)
+    assert "Judge 1, uncertain: subscript i or l" in report
+    assert "Judge 2, no note" in report
+    assert "number 1 on the page" in report
