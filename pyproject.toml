@@ -40,7 +40,7 @@ ignore = ["RUF001", "RUF002", "RUF003"]
 
 [tool.ruff.lint.per-file-ignores]
 # Prompt text, kept as written.
-"tests/judging/judge.py" = ["E501"]
+"tests/judging/*.py" = ["E501"]
 
 [tool.mypy]
 strict = true
