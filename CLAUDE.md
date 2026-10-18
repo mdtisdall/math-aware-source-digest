@@ -10,13 +10,20 @@ source entries. The plan is [planning/plan.md](planning/plan.md).
   transcription, adjudication, drafting, checking. No text of a source leaves
   the machine. The cloud fallback (Claude subagents) is built only if local
   mode fails a gate for some route, and is used only with the user's approval.
-  During development, Claude judges local output only on material that may be
-  sent: the three pilot papers and openly licensed papers.
-- **Nothing copyrighted is committed.** This repository is public. Do not
-  commit PDFs, page images, crops, conversions, or long excerpts of
-  copyrighted papers. Commit identifiers, hashes, and ground-truth error lists
-  (locations and correct LaTeX) only. Tests that need a copyrighted PDF read
-  it from the user's library at test time, and are skipped in CI.
+  During development, Claude judges local output only on test data.
+- **Test data may be sent, shared and committed: nothing else.** Only the
+  public domain, CC0, CC BY and CC BY-SA, checked for each article from its
+  record (not CC BY-NC or CC BY-ND, nor figures marked as someone else's).
+  No test uses a copyrighted PDF, not even locally: the tests must be a
+  process anyone may follow, and their results reproducible from the
+  repository (pinned papers with hashes, committed judge prompts and
+  answers, pinned tool and model versions).
+  Local-only tests on copyrighted PDFs may be reconsidered only by the
+  user's decision, if a compelling reason arises.
+- **Nothing copyrighted is committed.** This repository is public. Commit
+  identifiers, hashes and licences of sources; for test data, also small
+  fixtures (crops, page images, excerpts) with their attribution. Never
+  commit a copyrighted PDF, page image, crop, conversion or excerpt.
 - **The cache is outside the repository:** `~/.cache/math-aware-source-digest/`.
 - **Converters, local model servers, and models are not in the default
   devShell or in CI.** They run through `uvx` or `nix shell` at pinned
