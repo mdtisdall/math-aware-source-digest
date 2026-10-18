@@ -44,11 +44,22 @@ masd refine <source> <draft>
 - **`source`:** a DOI, arXiv ID, ISBN, title, Zotero item or PDF path. The
   tool finds and fetches the paper if needed (the existing resolver and
   download policy).
-- **`draft`:** the caller's account of the paper, written from memory. It may
-  be a whole-paper annotation ("introduces the conjugate gradient method;
+- **`draft`:** the caller's account of the paper, written from memory, as a
+  list of **statements** (decided 2026-10-18), each with:
+  - `kind`: `equation`, `result` (a theorem, lemma, definition or other
+    numbered item), `citation` (a citation field) or `other`;
+  - `text`: the statement as the caller remembers it (LaTeX for an
+    equation), in the caller's notation;
+  - `claimed_location` (optional): where the caller thinks it is
+    ("Theorem 4.1", "eq. (12)", "section 3").
+
+  Free prose is accepted too ("introduces the conjugate gradient method;
   proves termination in at most n steps for symmetric positive definite A,
-  Theorem 4.1; gives an error bound ..."), a focused draft of what the caller
-  wants to cite, or a single line ("CG terminates in n steps").
+  Theorem 4.1"; or a single line, "CG terminates in n steps"): the tool then
+  splits it into statements first (section 4, task 2) and returns the
+  statements it made, so that the caller can see and correct the split.
+  Cloud models are asked to send structured statements; people may write
+  prose.
 
 **Output:** the same entry, refined, as JSON with a rendered Markdown file.
 For each statement of the draft:
@@ -139,6 +150,20 @@ flowchart LR
   Never a proof, a page or a passage of prose.
 - **A local log** of what was returned for each paper, reported on request.
 
+**Across calls.** The cap bounds one answer, not many. A caller can probe:
+send a guess, receive corrections, send the corrected guess, and repeat; and
+*matches* or *differs* is itself an answer that can be asked again and again.
+Over enough calls that reconstructs an item. So the log also enforces a
+**budget per paper** (proposed, open e):
+
+- each comparison against an item counts against that item and against the
+  paper, across calls and sessions;
+- after a set number of comparisons against one item, further requests about
+  it get its location only;
+- beyond the paper's budget, the tool returns locations only, and says why;
+- only the user, on the local machine, can raise a budget (for example for a
+  paper under an open licence); a caller cannot.
+
 **Open:**
 
 - **a. Omissions.** May the refined entry say what the draft did not cover,
@@ -147,22 +172,27 @@ flowchart LR
 - **b. Statements of results:** corrections to the caller's paraphrase (a
   missing assumption, a wrong constant, a wrong label), as for equations, or
   also a short quotation of the key part?
+- **c. Unsure alignment:** several candidate locations, or "not located"?
 - **d. The cap:** how large a correction may be before it is withheld (for
   example a share of the equation's symbols), and whether the user can raise
   it for a paper (for example one under CC BY).
-- **c. Unsure alignment:** several candidate locations, or "not located"?
+- **e. The budget across calls** (below): its measure and default.
 
 ## 4. What the tool does locally
 
-Four tasks; nothing else:
+Five tasks; nothing else:
 
 1. **Discovery,** once per paper and cached: every display equation, number,
    section, numbered result and definition, with its location (layers 2–3 of
    the comparison note). This is what gate 1's judges produced.
-2. **Alignment:** matching each statement of the draft to items of the
-   index, first by label and number, then by a small embedding model.
-3. **Verification** of the matched items against the page (layer 2).
-4. **Comparison** of the caller's version with the printed one (stage 5,
+2. **Splitting the draft** into statements, when it comes as prose: a small
+   text model, whose split is returned to the caller; structured input skips
+   this task. Its errors (a statement split in two, two merged, an equation
+   mistaken for prose) are measured like the others.
+3. **Alignment:** matching each statement to items of the index, first by
+   label and number, then by a small embedding model.
+4. **Verification** of the matched items against the page (layer 2).
+5. **Comparison** of the caller's version with the printed one (stage 5,
    step 3; gate 1b), including **matching up to a consistent renaming of
    symbols**, with the paper's definition links as context (the paper's `K`
    is a matrix, its `u` a vector); the minimal corrections and the cap.
@@ -178,13 +208,13 @@ flowchart TD
     start(["refine: source and draft"]) --> known{"Paper discovered<br/>already?"}
     known -->|"no"| discover["Discovery: sweep the pages;<br/>find equations, numbers, sections, results"]
     known -->|"yes"| split
-    discover --> split["Split the draft into statements"]
+    discover --> split["Split a prose draft into statements<br/>(structured drafts skip this)"]
     split --> align["Align each statement: label and number first,<br/>then a small embedding model"]
     align --> verify["Verify the matched items against the page"]
     verify --> compare["Compare the caller's version with the printed one"]
     compare --> check{"Budget left and<br/>statements open?"}
     check -->|"yes"| align
-    check -->|"no"| out(["Refined entry: located, the paper's version,<br/>differences, not located; JSON and Markdown"])
+    check -->|"no"| out(["Refined entry: located, how it matches,<br/>notation correspondence, capped corrections,<br/>not located; JSON and Markdown"])
 ```
 
 ## 5. Running on this laptop
@@ -198,6 +228,7 @@ beside it.
 | task | what runs | estimate | when |
 |---|---|---|---|
 | discovery | Marker; a 0.9B OCR model for a second reading of each equation | 6–11 min for 20 pages (the small model unmeasured) | once per paper, cached |
+| splitting a prose draft | a small text model | seconds (unmeasured) | each `refine` with prose |
 | alignment | labels and numbers; a small embedding model | seconds per statement (unmeasured) | each `refine` |
 | verification | a vision model on one crop, small first, 32B on low confidence | 20–60 s per matched item | each `refine`, cached per item |
 | comparison | deterministic first; a small text model for what it does not settle | under a second to seconds | each `refine` |
@@ -239,5 +270,32 @@ Zotero library.
   them, including with wrong labels, dropped assumptions and other notation),
   checked for located, mislocated and missed; and the corrections, checked
   that they are minimal and that the cap holds.
+- Splitting a prose draft needs its own measure: drafts written in prose
+  from the same known statements, checked for statements split, merged or
+  missed.
+- The budget across calls needs a test: a scripted caller that probes one
+  item repeatedly must be cut off at the budget.
 - The interpretation layers (notation and meaning) shrink to what
   verification and comparison need; the layers note is revised to match.
+
+## 8. Existing work to evaluate before building
+
+No tool found (2026-10-18) combines a local tool, output bounded by the
+caller's knowledge, and matching aware of notation. Two existing projects
+cover large parts, and are evaluated before the corresponding part is built:
+
+- **PaperQA2** (FutureHouse, now Edison Scientific; open source): indexing a
+  folder of PDFs and retrieval with locations, with any LiteLLM model, and a
+  local variant. Candidate for discovery's text index and for alignment, with
+  a local embedding model. It writes answers from passages, which this tool
+  does not do; only its indexing and retrieval would be reused.
+- **Approach0** (and Tangent-S, MathWebSearch; the NTCIR and ARQMath tasks):
+  formula search on operator or layout trees, aware of symbol substitution.
+  Candidate for matching up to a consistent renaming (task 5) and for the
+  representation of gate 1b.
+
+Also relevant: Zotero's local API and the Zotero MCP servers (access to the
+library; they send full text to the cloud, which this tool avoids); the
+citation-existence checkers (CheckIfExist, CiteAudit, CiteVerifier) for
+citation fields; converters (Marker, MinerU, Nougat) and GROBID for
+discovery. Each is checked against its records before it is cited.
