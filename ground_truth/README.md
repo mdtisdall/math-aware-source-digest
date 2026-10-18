@@ -107,6 +107,15 @@ version and the page images are the version of record. This measures the
 judges on clean type only. The scans, where the disagreements are, have no
 exact source.
 
+**Memory may inflate this result.** The judges were told to use only the page
+images, but a model cannot fully set aside what it learned in training. Zach
+et al. has been on arXiv since 2022 and may be in Opus 5.5's training data, so
+17 of 17 may be partly recall rather than reading, and overstate how well the
+judges read a page. The scans are less likely to be remembered equation by
+equation. Checks that memory cannot pass: a paper published after the model's
+training cutoff with an exact source, and equations altered on purpose (a
+planted change cannot be recalled).
+
 ## Cost
 
 | run | judges | cost (US$) |
@@ -126,6 +135,9 @@ of every page but the last.
 - **Agreement is not correctness.** The two judges are the same model with the
   same prompt, so their errors may be correlated: where both misread the same
   glyph, the merge accepts it. Zach et al. checks this only on clean type.
+- **Memory is a confound** for any test on a paper that may be in the model's
+  training data: a correct answer may be recalled, not read (see the judges'
+  accuracy above).
 - **Transcription limits:** a 300-equation paper needs about 61,000 output
   tokens; long papers need 128,000.
 - **Printed, not intended:** one judge corrected a misprint (`K` to `k`)
