@@ -109,3 +109,46 @@ def test_invalid_verdicts(changes: dict[str, Any], match: str) -> None:
     assert merge.check_verdict(verdict_message(good)) == good
     with pytest.raises(ValueError, match=match):
         merge.check_verdict(verdict_message(good, **changes))
+
+
+def item(kind: str, label: str, page: int) -> dict[str, Any]:
+    return {"kind": kind, "label": label, "pdf_page": page, "printed_page": str(page)}
+
+
+@pytest.mark.parametrize(
+    "a, b",
+    [
+        (item("section", "Section 2.1", 2), item("section", "2.1 Bayesian Reconstruction", 2)),
+        (item("section", "1. Introduction", 2), item("section", "Section 1", 2)),
+        (item("section", "Section I-C-1", 3), item("section", "I-C-1 Training", 3)),
+        (item("theorem", "Thm. 3", 8), item("theorem", "Theorem 3", 8)),
+        (item("lemma", "2", 7), item("lemma", "Lemma 2", 7)),
+    ],
+)
+def test_item_labels_written_differently_pair(a: dict[str, Any], b: dict[str, Any]) -> None:
+    assert merge.item_key(a) == merge.item_key(b)
+
+
+@pytest.mark.parametrize(
+    "a, b",
+    [
+        (item("section", "3. A method", 6), item("section", "Section 3.1", 6)),
+        (item("theorem", "Theorem 3", 8), item("lemma", "Lemma 3", 8)),
+        (item("section", "Section I-A", 2), item("section", "Section I-B", 2)),
+    ],
+)
+def test_different_items_do_not_pair(a: dict[str, Any], b: dict[str, Any]) -> None:
+    assert merge.item_key(a) != merge.item_key(b)
+
+
+def test_merge_items() -> None:
+    j1 = {"items": [item("theorem", "Theorem 1", 3), item("lemma", "Lemma 2", 4)]}
+    j2 = {
+        "items": [
+            item("theorem", "Theorem 1", 3),
+            item("lemma", "Lemma 2", 5),
+            item("section", "Appendix", 9),
+        ]
+    }
+    status = {i.label: i.status for i in merge.merge_items(j1, j2)}
+    assert status == {"Theorem 1": "agreed", "Lemma 2": "page", "Appendix": "only-2"}
