@@ -1,9 +1,17 @@
 # Design note: existing work to reuse before building
 
-Status: **draft for discussion**, 2026-10-18. Step 1 of the evaluation that
-[outputs.md](outputs.md) section 8 asks for (on the branch of PR #36,
-`docs/outputs-review-fixes`, not yet merged): a desk review, by reading
-only. Nothing was cloned, installed or downloaded; web pages and the papers'
+**Status, 2026-10-19: a record, superseded in part.** The conclusions held:
+the comparison was built, not reused (layer 1 on lark), and neither
+PaperQA2 nor Approach0's code was adopted. Superseded: the advice for gate
+1b (section 3, answer 6: both trees, the operator tree first). The user
+decided that gate 1b builds the layout tree only, and the operator tree is
+deferred to task 5 (`planning/comparison.md`, decision 1). Of the step-2
+tests (section 5), lark was adopted for layer 1 rather than for the
+matcher, and the PaperQA2 baseline was not run.
+
+Written 2026-10-18 as step 1 of the evaluation that
+[outputs.md](outputs.md) section 8 asks for (PR #36, now merged): a desk
+review, by reading only. Nothing was cloned, installed or downloaded; web pages and the papers'
 PDFs were read through a web fetch. Step 2, a hands-on test, needs the user's
 approval for each download (section 5).
 
