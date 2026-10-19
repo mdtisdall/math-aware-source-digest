@@ -128,6 +128,62 @@ Print often cannot decide: `x'` may be a new variable, `f_x` an index,
 (section 4) and the comparison answers "unsure" unless the paper's context
 decides.
 
+### 3.4 What "the same" means across the layers
+
+With two layers, an operator tree that can hold alternatives, and a local
+model behind them, no single test is "the" equivalence. Two things are kept
+apart:
+
+- **One target per use.** Use 1 (two readings of one printed equation): the
+  same meaning as the printed equation for a mathematical reader, not the
+  same characters (plan.md section 1a); the ground truth of gate 1 rests on
+  it. Use 2 (the caller's equation): the same up to a consistent renaming of
+  symbols (outputs.md). These are the definitions; they do not change from
+  layer to layer.
+- **Several tests that approximate the target.** Each layer, and the local
+  model, answers "same", "different" or "unsure" about the target, with a
+  measured error rate. Each must be **sound**: when it says "same", the
+  target holds. Layer 1 merges only what is safe, layer 2 merges more, the
+  model takes what both leave open. Gate 1b measures each one's rate of
+  false "same" against the ground truth; it does not redefine equivalence
+  per layer.
+
+So a comparison does not return yes or no. It returns **every relation
+it established**, from a list ordered from the strictest. The order is
+partial: "same up to style" and "same meaning" do not imply each other (a
+bold vector against a plain letter may differ in meaning; `f'` against
+`\frac{df}{dx}` differs in print), so both are reported when both hold.
+From "same meaning" down, each relation implies the one after it, as
+far as "same structure, with differences"; "different" and "unsure" are
+outcomes, not relations.
+
+| relation | established by |
+|---|---|
+| identical | equal narrow LaTeX at the strict level |
+| same up to style | layer 1, style level (bold, calligraphic, upright) |
+| same meaning | layer 2, with no alternative left open (section 4) |
+| same up to renaming | layer 2, with a one-to-one typed map of symbols |
+| same structure, with differences | the edit script that remains after renaming |
+| different | none of the above |
+| unsure | an alternative left open, or a layer that cannot decide |
+
+Use 1 requires "same meaning" and reports style separately (stage 5's two
+levels). Use 2 accepts "same up to renaming" and reports what lies beyond it
+as corrections.
+
+**Alternatives.** Where an `alt` node is not decided by the paper's
+context, the two trees are compared under every combination of readings that
+the context allows:
+
+- equal under **every** combination: the relation holds;
+- equal under **some**: *unsure*;
+- equal under **none**: the relation does not hold.
+
+So an ambiguity that is not resolved can never produce a false "same", only
+an "unsure": in use 1 it goes to adjudication, in use 2 it is reported to the
+caller. The cost is combinatorial when several alternatives are open in one
+equation; how often that happens is measured at gate 1b.
+
 ## 4. The format of the operator tree
 
 **Proposed:** Strict Content MathML (equivalently OpenMath), with one
@@ -164,8 +220,8 @@ What is missing:
   a content dictionary: one of its four statuses is "`private`: used by a
   private group of OpenMath users"
   ([OpenMath 2.0, §4.2.1](https://openmath.org/standard/om20-2019-07-01/omstd20.html)),
-  so a tree with `alt` is still well formed. Two
-  readings agree only if they agree under the same choices. The alternatives
+  so a tree with `alt` is still well formed. How trees with alternatives
+  are compared is in section 3.4. The alternatives
   are discrete, not weighted. Representing several parses is not new (lark's
   Earley parser returns all parse trees; parsers call this a parse forest);
   keeping the ambiguity in the meaning layer, labelled with what decides it,
@@ -198,16 +254,20 @@ What is missing:
 7. **The local equivalence model** (stage 5, step 3.2) for what neither
    layer settles: kept as planned, with its rate of false "equivalent"
    measured.
+8. **The relations of section 3.4:** is the ordered list right, and does
+   use 1 require "same meaning" only, or "same up to style" for symbols in a
+   cited result (plan.md stage 5 adjudicates a style difference there)?
 
 ## 6. What remains for gate 1b
 
 From plan.md 6.3 and the gate 1 report ("What gate 1b does with it"):
 
-1. **This note,** refined with the user, and the decisions of section 5.
+1. **This note,** refined with the user, and the decisions of section 5 (eight questions).
 2. **Build the chosen comparison** and measure it on the gate 1 judgements
    (669 merged equations) and on look-alike swaps (from the pilots and
-   planted): its coverage (the share parsed into trees, per layer) and its
-   rate of false "equivalent" answers.
+   planted): its coverage (the share parsed into trees, per layer), and for
+   each layer and the model its rate of false "same" (soundness, section
+   3.4) and its share of "unsure".
 3. **The user chooses the comparison** from those numbers.
 4. **Adjudication** of the gate 1 disagreements that the chosen comparison
    does not settle: one Opus call each with the whole page image
