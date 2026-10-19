@@ -278,8 +278,8 @@ printed-form LaTeX of section 1a meanwhile).
 From plan.md 6.3, the gate 1 report ("What gate 1b does with it") and the
 decisions above:
 
-1. **A measurement plan** for layer 1, written into this note: the look-alike
-   swaps (from the pilots and planted), and what counts as passing.
+1. **A measurement plan** for layer 1: section 7 (proposed; the user
+   accepts it before the build).
 2. **Build layer 1** (lark, with the approval to download it) and measure
    it on the gate 1 judgements (669 merged equations) and the swaps: the
    share parsed; its rate of false "same" (soundness, section 3.4); and how
@@ -298,3 +298,108 @@ Hestenes–Stiefel), which would pair by similarity under layer 1 instead of
 by order on the page; and the brace of Smith et al. that groups several
 lines under one number (about 11), a question of what counts as one
 equation, not of comparison.
+
+## 7. Measurement plan for layer 1 (proposed)
+
+What gate 1b measures before the user accepts layer 1 (section 6, step 3).
+Nothing here is adjudicated or sent to a model; it runs offline on committed
+data.
+
+### 7.1 Data
+
+- **The gate 1 pairs:** the two judges' readings of the 7 papers of the
+  judged set, paired by `merge.py` (669 merged equations: 591 agreed by
+  compare.py, 64 strict, 3 style, 11 found by one judge only). All seven
+  papers are in the public domain or under CC BY (testdata/papers.toml),
+  so pairs derived from them may be committed with their attribution.
+- **Planted pairs,** made by program from the agreed readings, with a fixed
+  seed and committed as a list (each pair: the paper, the equation, the
+  change, the two LaTeX strings), so that anyone can rerun them. A change
+  is applied only where the equation has what it changes (a γ to swap, a
+  product to reverse); at most 20 pairs per kind of change and per paper,
+  sampled with the seed; a pair whose two strings are equal is discarded:
+  - **differences**, which layer 1 must call *different*, one change per
+    pair:
+    - look-alike letters: γ and y, ν and v, φ and ϕ, ε and ϵ, ι and i, ω
+      and w, κ and k, 𝒲 and 𝒱 (the swaps the design's pilots found are
+      among these; only their kinds are used, since the pilot papers are
+      copyrighted);
+    - accents: tilde, hat, bar, check, dot, one for another, or dropped;
+    - fonts: bold and plain, calligraphic and roman, blackboard and roman,
+      upright and italic (decided: each is a difference);
+    - indices: `i` and `1`, `k` and `K`, `i` and `j`, a subscript moved to a
+      superscript;
+    - signs and relations: `+` and `-`, `=` and `\leq`, `\leq` and `<`,
+      `\leq` and `\leqq`;
+    - gate 1's notation pairs: `\ldots` and `\cdots`, `\cdot` and `.`, an
+      upright label and italic letters (decided: strict);
+    - structure: a dropped term, a dropped prime, the order of a product
+      reversed (`AB`, `BA`), the two sides of `=` exchanged (different at
+      layer 1: use 1 compares print);
+  - **equivalent rewrites**, which layer 1 must call *the same*, one rule per
+    pair: `x'` and `x^\prime`; the order of a subscript and a superscript;
+    `(` and `\left(`; spacing commands added; `\frac`, `\dfrac`,
+    `\tfrac`; `:=` and `\coloneqq`; `pmatrix` and `\left(\begin{array}`;
+    redundant braces (`x^{2}`, `x^2`).
+- **compare.py's cases** (`test_compare.py`): every case keeps its expected
+  outcome, except that the style level becomes *different* (decided).
+
+### 7.2 Development and freezing
+
+Plan.md section 6.1: the normalization is developed on one paper, frozen,
+then run on the others, with one paper held out until the end.
+**Proposed:** develop on Smith, Schmidt and McGee (1962: 105 equations,
+letterpress matrices); hold out Blumenthal et al. (2026: 13 equations,
+born-digital); run the frozen version on the other five, then on the held-out
+paper. Planted pairs are made from every paper, but the rules are fixed
+before the planted pairs of the five and of the held-out paper are run.
+
+### 7.3 Measures
+
+1. **Soundness:** the number of planted differences that layer 1 calls *the
+   same*, per kind of change and per paper.
+2. **Rule coverage:** the number of planted equivalent rewrites that layer 1
+   calls *different*.
+3. **Agreement with compare.py** on the 669 gate 1 pairs: each pair whose
+   outcome changes, and why. Expected changes: the 3 style pairs become
+   *different*; any other change is read by hand and is either a bug or a
+   proposed rule, decided by the user.
+4. **Parse rate:** the share of readings (both judges, all papers) that the
+   grammar parses, per paper and per form (scan, born-digital); each failure
+   with the construct that caused it. A failure falls back to compare.py's
+   tokens.
+5. **Left for adjudication:** the number of gate 1 disagreements after
+   layer 1, per paper and per kind (the four kinds of the gate 1 report).
+6. **Time** per comparison.
+
+### 7.4 What passes (proposed)
+
+- **Soundness: no planted difference called the same.** A single one is a
+  defect to fix, not a rate to accept: layer 1 must be sound (section 3.4).
+  Each one is read by hand first, since a change can happen to be
+  equivalent (reversing a product of two equal factors).
+- **Rule coverage: every planted equivalent rewrite called the same,** since
+  each is a rule with its own test.
+- **Agreement with compare.py:** every change explained, and accepted by the
+  user.
+- **Parse rate:** reported, with no threshold, since a failure falls back to
+  the tokens; a construct that fails 5 or more readings is fixed before the
+  freeze.
+
+### 7.5 What it does not measure
+
+- A misreading that both judges share: their readings agree, so no
+  comparison sees it (gate 1 report, "Agreement is not correctness").
+- Meaning beyond layout (layer 2, task 5) and the local model (gates 2 and
+  6).
+- Errors of the planted kinds that the list leaves out; the list grows as
+  gates 2 and 3 find new kinds.
+
+### 7.6 Where it goes
+
+- A script, `tests/judging/layer1_measure.py` (name to be fixed in the
+  build), with the seed and the lark version pinned in `uv.lock`.
+- The planted pairs and the results under `ground_truth/gate1b/`, and a
+  section "Gate 1b" in the gate 1 report.
+- `merge.py` loses its "style" status with the style level.
+
