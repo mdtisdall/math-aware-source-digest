@@ -266,6 +266,45 @@ What is missing:
 6. **The relations of section 3.4** (without "same up to style") are kept as
    the draft for task 5, to be revisited when its matcher is designed.
 
+Decided during the build (2026-10-18 and 19; section 8 has the evidence):
+
+7. **The target is LaTeX with amsmath, followed throughout.** Two readings
+   are the same when LaTeX with amsmath prints them the same, apart from
+   spacing and sizing: `\dots` is set as amsmath sets it (centred before a
+   binary operator or relation, on the baseline otherwise); a math alphabet
+   (`\mathbf`, `\mathrm`) changes only Latin letters, digits and Greek
+   capitals, so `\mathbf{\alpha}` prints `\alpha`; `\mid` and `|` are one
+   glyph; `\not=` is `\neq`.
+8. **The packages of the target:** amsmath, amssymb, mathrsfs (`\mathscr`),
+   upgreek (upright lowercase Greek), dsfont (`\mathds{1}`), and stmaryrd for
+   `\llbracket` and `\rrbracket` only. The judges are told to use these and
+   nothing else (judge prompt version 2 and later), and layer 1 reads exactly
+   these.
+9. **Lines, with grouping apart.** A reading is compared line by line; a line
+   break is printed layout, so `a = b \\ c = d` and `a = b \quad c = d`
+   differ. Readers give one entry per printed line (matrices and cases stay
+   whole), with `continues` (the line continues the equation before it) and
+   `braced` (a brace joins it to the line before) as fields of their own
+   (judge prompt version 3). The merge pairs lines, numbered lines by
+   number and the rest in order, and accepts a line that one reader wrote as
+   several only when the several join up to it exactly; line breaks,
+   grouping and braces are recorded apart from the symbols.
+10. **Punctuation at the end of a line is not compared,** as at the end of a
+    display; readers write all punctuation as printed (version 4).
+11. **Run-to-run variation: unanimity, not votes.** All readings of a paper
+    are pooled; a line goes to adjudication if any reading of it differs or
+    any reader marked it uncertain. A majority vote is not used: on
+    Hestenes–Stiefel it would have chosen the wrong reading of (11:8).
+12. **Judge prompt version 4:** all punctuation as printed; the glyphs that
+    readers confuse named (≦/≤, ‖/||, upright/italic, dot height, prime,
+    1/i/l, comma/full stop), to be decided from the page and marked uncertain
+    when not clear; one form for dots in a matrix; grey page images scaled to
+    a 2000 px long edge (the most that a request of more than 20 images
+    allows).
+13. **Adjudication sees more than the page at 150 dpi:** the page as four
+    overlapping 300 dpi tiles, and a question that names the parts that
+    differ.
+
 **Deferred to task 5's design:** where the types of symbols come from (the
 paper's definitions, the notation map, a local model, or the caller); the
 table of operators by type (which commute, which associate, which relations
@@ -278,28 +317,26 @@ printed-form LaTeX of section 1a meanwhile).
 From plan.md 6.3, the gate 1 report ("What gate 1b does with it") and the
 decisions above:
 
-1. **A measurement plan** for layer 1: section 7 (proposed; the user
-   accepts it before the build).
-2. **Build layer 1** (lark, with the approval to download it) and measure
-   it on the gate 1 judgements (669 merged equations) and the swaps: the
-   share parsed; its rate of false "same" (soundness, section 3.4); and how
-   many disagreements are left for adjudication.
-3. **The user accepts layer 1** from those numbers.
-4. **Adjudication** of every disagreement that layer 1 leaves: one Opus call
-   each with the whole page image (`merge.py <key> --adjudicate`); only a
-   high-confidence verdict settles one. This is a billed run, approved
-   before it starts.
-5. **The user settles the rest and accepts the merged lists:** gate 1b
+1. **A measurement plan** for layer 1: section 7. Done: accepted
+   2026-10-18.
+2. **Build layer 1 and measure it.** Built (branch `feature/layer1`);
+   development and frozen runs done (section 8). The held-out paper is run
+   once the rules are final.
+3. **Judge prompt version 4:** pilot on Hestenes–Stiefel (running), then all
+   seven papers, approved before it starts (about US$5).
+4. **The user accepts layer 1** from the numbers.
+5. **Adjudication** of every line that the pooled readings do not settle
+   (decision 11): one Opus call each, with the page as 300 dpi tiles and a
+   focused question (decision 13); only a high-confidence verdict settles
+   one. This is a billed run, approved before it starts.
+6. **The user settles the rest and accepts the merged lists:** gate 1b
    closes, and the ground truth is complete for gates 2 and 3.
 
-Also waiting on gate 1b, and decided with the user: the pairing of
-unnumbered equations (about 9 shifted pairs in Student, 3 in
-Hestenes–Stiefel), which would pair by similarity under layer 1 instead of
-by order on the page; and the brace of Smith et al. that groups several
-lines under one number (about 11), a question of what counts as one
-equation, not of comparison.
+The pairing of unnumbered equations and the brace of Smith et al., which
+were waiting on gate 1b, are settled by decision 9: lines pair in order and
+by content, and a brace is recorded as grouping.
 
-## 7. Measurement plan for layer 1 (proposed)
+## 7. Measurement plan for layer 1 (accepted 2026-10-18)
 
 What gate 1b measures before the user accepts layer 1 (section 6, step 3).
 Nothing here is adjudicated or sent to a model; it runs offline on committed
@@ -402,4 +439,48 @@ before the planted pairs of the five and of the held-out paper are run.
 - The planted pairs and the results under `ground_truth/gate1b/`, and a
   section "Gate 1b" in the gate 1 report.
 - `merge.py` loses its "style" status with the style level.
+
+## 8. What the build and the pilots found (2026-10-18 and 19)
+
+**Layer 1** (measured with `tests/judging/layer1_measure.py` on branch
+`feature/layer1`; results under `ground_truth/gate1b/`):
+
+- Every reading of the six papers run so far parses (1,301 readings); no
+  planted pair of those papers is judged wrongly (planted differences called
+  the same: 0; planted rewrites called different: 0).
+- Against the token comparison it replaces, the changes are all ones the
+  rules intend: `\dots` set as amsmath sets it (in Hestenes–Stiefel 19 pairs
+  that the old alias merged now differ, as dot heights the page shows, and
+  15 pairs now agree); `\lambda_{\max}` against `\lambda_{\mathrm{max}}`
+  (both upright: the same); a comma inside a cases row and a superscript set
+  after a subscript (`K_{10}{}^{2}`), which the old comparison hid.
+- The rules changed after the freeze, each time by a decision or a defect
+  found: the amsmath `\dots` rule and the amsmath rules generally
+  (decisions 7 and 8), an empty group as a barrier to scripts, line breaks
+  and braces (decision 9), and punctuation at the end of a line (decision
+  10). The five frozen papers are therefore no longer a blind test of these
+  rules; the held-out paper still is.
+- Pairing by line: in Smith et al. the disagreements left for adjudication
+  fall from 14 to 3, the rest being braces and grouping, recorded apart.
+
+**Judge prompts, piloted on Hestenes–Stiefel** (two judges per version;
+branch `feature/judge-prompt-v4`):
+
+| between the two judges | v1 | v2 | v3 |
+|---|---|---|---|
+| dot disagreements | 29 | 0 | 1 |
+| other symbol disagreements | 6 | 9 | 8 |
+| font disagreements | 0 | 3 | 1 |
+| lines found by one judge only | 4 | 0 | 0 |
+| grouping differences | – | 4 | 0 |
+
+- **Run-to-run variation.** Over the four readings of versions 2 and 3, 18
+  of 424 lines differ: hard glyphs (≦/≤, ‖/||, upright/italic, dot height)
+  10, readings (a prime, `x_i`/`x_1`, `p_i`/`p_j`, `c`/`d`) 4, dots in sparse
+  matrices 3, a line missing 1. Only 7 of the 18 were marked uncertain.
+- **A shared misreading.** In (11:8a, b, d) the page prints an upright A;
+  five of six readings write it italic (checked against the page image).
+  Two agreeing readings are not enough on hard glyphs; this is why decision
+  11 pools all readings with unanimity, and why decision 13 gives the
+  adjudicator more resolution.
 
